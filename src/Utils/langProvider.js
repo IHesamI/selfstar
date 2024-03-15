@@ -51,4 +51,12 @@ export const zarp = {
     en: "Articles",
     fa: "مقالات",
   },
+  copyRight: {
+    en: "",
+    fa: "تمامی حقوق این وبسایت متعلق به گروه تحقیقاتی سیستم خود تطبیق می باشد.",
+  },
+  language: {
+    en: "English",
+    fa: "فارسی",
+  },
 };

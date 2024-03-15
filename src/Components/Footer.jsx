@@ -8,7 +8,7 @@ export default function Footer() {
   const lang = useLang();
   return (
     <div
-      dir="rtl"
+      dir={lang.isRtl ? "rtl" : "ltr"}
       className="text-white bg-[var(--footer-background)] section-padding p-[4rem] flex flex-row text-justify gap-[2rem]"
     >
       <div className="footer-column-container">
