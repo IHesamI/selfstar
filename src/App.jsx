@@ -2,6 +2,7 @@ import "./App.css";
 import { useDispatch } from "react-redux";
 import { setLang } from "./Store/store";
 import Header from "./Components/Header";
+import Layout from "./Components/Layout";
 function App() {
   const dispatch = useDispatch();
   function handleClick() {
@@ -9,8 +10,7 @@ function App() {
   }
   return (
     <>
-      <button onClick={handleClick}>changeLang</button>
-      <Header />
+      <Layout></Layout>
     </>
   );
 }

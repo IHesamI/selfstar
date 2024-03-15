@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .section-padding {
+        @apply px-[5rem];
+    }
+
+    .footer-column-container {
+        @apply w-[33%]
+    }
+
+    .footer-column-title {
+        @apply pb-5
+    }
+}

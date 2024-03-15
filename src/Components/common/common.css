@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .link-with-border {
+        @apply border-b-[1px] border-b-white py-5 cursor-pointer text-justify;
+    }
+
+    .link-with-border:hover {
+        @apply text-blue-600;
+    }
+}
