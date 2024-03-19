@@ -2,10 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-.login-form-field {
-    @apply flex flex-col gap-1;
-}
+@layer components {
 
-.login-form-field input {
-    @apply border-gray-300 border-[1px] rounded-md;
+    .login-form-field {
+        @apply flex flex-col gap-1;
+    }
+
+    .login-form-field input {
+        @apply border-gray-300 border-[1px] rounded-md;
+    }
+
+    .category-search-section {
+        @apply p-3
+    }
+
+    .category-search-section a {
+        @apply hover:text-blue-600
+    }
+
+    .date-container {
+        @apply flex flex-col gap-1
+    }
+
+    .date-container a {
+        @apply text-[13px];
+    }
+
+    .contnet-description {
+        width: 100%;
+        display: -webkit-box;
+        -webkit-line-clamp: 20;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .comment-form input {
+        @apply border-gray-300 border-[1px] rounded-md outline-none;
+    }
+
 }

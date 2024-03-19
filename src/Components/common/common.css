@@ -4,7 +4,7 @@
 
 @layer components {
     .link-with-border {
-        @apply border-b-[1px] border-b-white py-5 cursor-pointer text-justify;
+        @apply border-b-[1px] py-5 cursor-pointer text-justify;
     }
 
     .link-with-border:hover {

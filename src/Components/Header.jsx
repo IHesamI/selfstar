@@ -12,7 +12,6 @@ export default function Header() {
   useEffect(() => {}, [window.location]);
   function handleChangeLang() {
     const resultlang = lang.isRtl ? "en" : "fa";
-    console.error("wtf", resultlang);
     dispatch(setLang({ lang: resultlang }));
   }
   return (
@@ -39,13 +38,37 @@ export default function Header() {
         className="links-section flex-row gap-5 hidden lg:flex sm:absolute"
       >
         <a href="/">{lang("homePage")}</a>
-        <a href="/">{lang("contents")}</a>
-        <a href="/">{lang("aboutUs")}</a>
+        <div className="flex flex-col relative items-center justify-center group">
+          <a className="hover:text-blue-600 cursor-pointer" href="/">
+            {lang("contents")}
+          </a>
+          <div
+            className={`absolute w-max  ${
+              lang.isRtl ? "right-[-3rem]" : "left-[-3rem]"
+            } z-10 pt-[6rem] hidden group-hover:flex hover:flex`}
+          >
+            <div className=" bg-gray-500 text-black gap-5 flex flex-row border-t-blue-500 border-t-[2px]">
+              <a className="header-dropdown-menu " href="/category/seimnar">
+                {lang("seminar")}
+              </a>
+              <a className="header-dropdown-menu " href="/category/articles">
+                {lang("articles")}
+              </a>
+              <a className="header-dropdown-menu " href="/category/thesis">
+                {lang("thesis")}
+              </a>
+              <a className="header-dropdown-menu " href="/category/slides">
+                {lang("slides")}
+              </a>
+            </div>
+          </div>
+        </div>
+        <a href="/about-us">{lang("aboutUs")}</a>
         <a href="/">{lang("members")}</a>
         <a href="/login">{lang("signIn")}</a>
         <button
           onClick={handleChangeLang}
-          className="flex flex-row items-center gap-1"
+          className="flex flex-row items-center gap-1 hover:text-blue-600 z-10"
         >
           <img
             className="w-4 h-4"

@@ -16,7 +16,7 @@
     }
 
     .links-section a {
-        @apply flex items-center
+        @apply flex items-center hover:text-blue-600 z-20;
     }
 
     .content-description {
@@ -25,5 +25,13 @@
         -webkit-line-clamp: 7;
         -webkit-box-orient: vertical;
         overflow: hidden;
+    }
+
+    .header-dropdown-menu {
+        @apply text-white text-center px-4 mx-3 my-2;
+    }
+
+    a.header-dropdown-menu {
+        @apply hover:text-blue-300
     }
 }

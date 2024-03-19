@@ -1,5 +1,5 @@
 import React from "react";
-import Contents from "../common/Contents";
+import Contents from "../common/MainPageContents";
 import "../section.css";
 export default function Home() {
   return (
