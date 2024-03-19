@@ -1,7 +1,7 @@
-export const zarp = {
+export const langKeys = {
   click: {
     en: "click",
-    fa: "فشردن",
+    fa: "تایید",
   },
   homePage: {
     en: "Home",
@@ -58,5 +58,17 @@ export const zarp = {
   language: {
     en: "English",
     fa: "فارسی",
+  },
+  login: {
+    en: "Sign in",
+    fa: "ورود",
+  },
+  email: {
+    en: "Email",
+    fa: "ایمیل",
+  },
+  password: {
+    en: "Password",
+    fa: "رمز عبور",
   },
 };

@@ -9,7 +9,7 @@ export default function CopyRight() {
       className="text-white flex flex-row justify-between bg-[var(--copy-right-background)] section-padding py-4"
     >
       <p>{lang("copyRight")}</p>
-      &#174;
+      <p className="flex text-xl items-center">&#174;</p>
     </div>
   );
 }

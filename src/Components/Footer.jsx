@@ -9,14 +9,14 @@ export default function Footer() {
   return (
     <div
       dir={lang.isRtl ? "rtl" : "ltr"}
-      className="text-white bg-[var(--footer-background)] section-padding p-[4rem] flex flex-row text-justify gap-[2rem]"
+      className="text-white bg-[var(--footer-background)] section-padding py-[3rem] flex flex-row text-justify gap-[2rem] text-xs sm:flex-col"
     >
       <div className="footer-column-container">
         <h4 className="footer-column-title">{lang("aboutUs")}</h4>
         <div className="border-b-[1px] border-b-white pb-3 px-5 w-fit">
           <img src={logo} alt="آزمایشگاه خود تبطیقی داشنگاه شهید بهشتی" />
         </div>
-        <p>
+        <p className="text-[14px] leading-7">
           آزمایشگاه سلف‌استار با هدف ارائه چارچوب، استاندارد و بسترهاي
           نرم‌افزاري خودتطبیق براي سازمان‌ها و شرکت‌هاي دولتي توسط تني چند از
           اساتيد، فارغ‌التحصيلان و دانشجويان دانشکده مهندسی و علوم کامپيوتر

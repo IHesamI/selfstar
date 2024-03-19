@@ -4,11 +4,11 @@
 
 @layer components {
     .section-padding {
-        @apply px-[5rem];
+        @apply px-[5rem] sm:px-[1rem];
     }
 
     .footer-column-container {
-        @apply w-[33%]
+        @apply w-[33%] sm:w-full;
     }
 
     .footer-column-title {
@@ -17,5 +17,13 @@
 
     .links-section a {
         @apply flex items-center
+    }
+
+    .content-description {
+        width: 100%;
+        display: -webkit-box;
+        -webkit-line-clamp: 7;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 }
