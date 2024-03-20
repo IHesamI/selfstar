@@ -137,4 +137,41 @@ export const langKeys = {
     en: "Name",
     fa: "نام",
   },
+
+  aboutUsTitle: {
+    en: "Self-Start research group",
+    fa: "گروه تحقیقاتی سلف‌استار",
+  },
+  creator: {
+    en: "Created by Farzin Zaker",
+    fa: "طراحی توسط فرزین ذاکر",
+  },
+  address: {
+    en: "Address: Tehran, Evin,Shahid Beheshti university, Faculty of Computer Engineering and Science, Self Start research group",
+    fa: "آدرس: تهران، اوین، دانشگاه شهید بهشتی تهران، دانشکده مهندسی و علوم کامپیوتر، گروه تحقیقاتی سلف‌استار",
+  },
+  contactUs: {
+    en: "Contact information",
+    fa: "اطلاعات تماس",
+  },
+  copyEmail: {
+    en: "Copy email",
+    fa: "کپی کردن ایمیل",
+  },
+  moreInfo: {
+    en: "More Information",
+    fa: "اطلاعات بیشتر",
+  },
+  selfStarhistory: {
+    en: "",
+    fa: "تاریخچه خودتطبیقی و خودسازمان‌دهی",
+  },
+  selfSystems: {
+    en: "",
+    fa: "سامانه‌های خودتطبیق",
+  },
+  selfAnalysersSystems: {
+    en: "",
+    fa: "سامانه‌های خودسازمان‌ده",
+  },
 };
