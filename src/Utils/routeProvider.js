@@ -6,6 +6,7 @@ import Category from "../Components/pages/category/Category";
 import Slides from "../Components/pages/category/slides";
 import Contents from "../Components/pages/category/Contents";
 import AboutUs from "../Components/pages/AboutUs";
+import Members from "../Components/pages/Members";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: "/about-us",
     element: React.createElement(AboutUs),
+  },
+  {
+    path: "/members",
+    element: React.createElement(Members),
   },
   {
     path: "/:id",

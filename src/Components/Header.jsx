@@ -64,7 +64,7 @@ export default function Header() {
           </div>
         </div>
         <a href="/about-us">{lang("aboutUs")}</a>
-        <a href="/">{lang("members")}</a>
+        <a href="/members">{lang("members")}</a>
         <a href="/login">{lang("signIn")}</a>
         <button
           onClick={handleChangeLang}
