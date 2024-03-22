@@ -17,9 +17,9 @@ export default function Header() {
   return (
     <div
       dir={lang.isRtl ? "ltr" : "rtl"}
-      className="flex flex-row justify-between py-5 section-padding"
+      className="flex flex-row justify-between py-5 section-padding shadow-md"
     >
-      <a href="">
+      <a href="/">
         <img src={logo} alt="آزمایشگاه خود تطبیق داشنگاه شهید بهشتی" />
       </a>
       <div className="lg:hidden ">
@@ -48,7 +48,7 @@ export default function Header() {
             } z-10 pt-[6rem] hidden group-hover:flex hover:flex`}
           >
             <div className=" bg-gray-500 text-black gap-5 flex flex-row border-t-blue-500 border-t-[2px]">
-              <a className="header-dropdown-menu " href="/category/seimnar">
+              <a className="header-dropdown-menu " href="/category/seminar">
                 {lang("seminar")}
               </a>
               <a className="header-dropdown-menu " href="/category/articles">

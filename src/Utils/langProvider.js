@@ -174,4 +174,44 @@ export const langKeys = {
     en: "",
     fa: "سامانه‌های خودسازمان‌ده",
   },
+  phdStudents: {
+    en: "PhD students",
+    fa: "دانشجویان دکترا",
+  },
+  masterStudents: {
+    en: "Master degree students",
+    fa: "دانشجویان کارشناسی ارشد",
+  },
+  firstName: {
+    en: "First name",
+    fa: "نام",
+  },
+  lastName: {
+    en: "Last name",
+    fa: "نام خانوادگی",
+  },
+  rule: {
+    en: "Rule",
+    fa: "نقش",
+  },
+  cv: {
+    en: "CV",
+    fa: "CV",
+  },
+  thesisTitle: {
+    en: "Thesis title",
+    fa: "عنوان رساله",
+  },
+  graduated: {
+    en: "Graduated students",
+    fa: "فارغ‌التحصیلان",
+  },
+  profile: {
+    en: "Profile",
+    fa: "پروفایل",
+  },
+  newRequest: {
+    en: "New Request",
+    fa: "ثبت درخواست جدید",
+  },
 };

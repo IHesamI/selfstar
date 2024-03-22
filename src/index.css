@@ -2,3 +2,12 @@
     --footer-background: #363839;
     --copy-right-background: #1c1e21;
 }
+
+@font-face {
+    font-family: vazirMatn;
+    src: url('./assets/fonts/Vazirmatn-Medium.ttf');
+}
+
+#root {
+    font-family: vazirMatn;
+}

@@ -7,6 +7,9 @@ import Slides from "../Components/pages/category/slides";
 import Contents from "../Components/pages/category/Contents";
 import AboutUs from "../Components/pages/AboutUs";
 import Members from "../Components/pages/Members";
+import Seminars from "../Components/pages/category/Seminars";
+import ProtectedPath from "../Components/common/ProtectedPath";
+import Dashboard from "../Components/pages/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: "seminar",
-        element: React.createElement(Slides),
+        element: React.createElement(Seminars),
       },
     ],
   },
@@ -50,6 +53,12 @@ const router = createBrowserRouter([
   {
     path: "/:id",
     element: React.createElement(Contents),
+  },
+  {
+    path: "/dashboard",
+    element: React.createElement(ProtectedPath, {
+      children: React.createElement(Dashboard),
+    }),
   },
 ]);
 
