@@ -48,4 +48,11 @@
         line-break: anywhere;
     }
 
+    .dashboard-tab-button {
+        @apply text-start px-3 w-full border-b-[1px] border-gray-600 py-3 hover:bg-gray-500;
+    }
+
+    .category-children-container {
+        @apply flex flex-wrap gap-5 w-full flex-row justify-end sm:justify-between;
+    }
 }

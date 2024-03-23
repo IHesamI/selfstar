@@ -43,12 +43,11 @@ export default function AboutUs() {
         alt="گروه تحقیقاتی سلف استار دانشگاه شهید بهشتی"
       />
       <div className="text-[10px] mt-1 mb-[5rem]">{lang("creator")}</div>
-      <div className="flex flex-row mb-5 gap-[5rem]">
+      <div className="flex flex-row medium:flex-col sm:flex-col mb-5 gap-[5rem]">
         <div className="flex flex-col gap-5 w-min">
           <iframe
+            className="w-[600px] h-[450px] medium:w-[400px] medium:h-[400px] sm:w-[300px] sm:h-[300px]"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d821.4264994681657!2d51.39369261920803!3d35.80233259436246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e062a032efa25%3A0x569ba59d4107186e!2sFaculty%20of%20Computer%20Engineering%20and%20Science%2C%20SBU!5e0!3m2!1sen!2sam!4v1710870129050!5m2!1sen!2sam"
-            width="600"
-            height="450"
             style={{ border: 0, outline: "none" }}
             allowfullscreen=""
             loading="lazy"

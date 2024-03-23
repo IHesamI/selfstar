@@ -9,9 +9,9 @@ export default function Category() {
   return (
     <div
       dir={lang.isRtl ? "rtl" : "ltr"}
-      className="flex flex-row section-padding"
+      className="flex flex-row sm:flex-col section-padding mt-5 mb-5 sm:gap-5"
     >
-      <div className="category-search-section border-[1px] border-gray-300 rounded-lg w-min h-fit">
+      <div className="category-search-section border-[1px] border-gray-300 rounded-lg w-min h-fit sm:mt-5 justify-center sm:w-full">
         <div
           dir={lang.isRtl ? "rtl" : "ltr"}
           className="relative flex flex-row"
@@ -37,7 +37,7 @@ export default function Category() {
             type="text"
           />
         </div>
-        <div className="flex flex-col text-gray-500">
+        <div className="flex flex-col text-gray-500 sm:hidden">
           <p className="text-[10px] mt-[3rem]">{lang("recentContent")}</p>
           <div className="text-[13px]">
             <LinkWithBorder
@@ -64,7 +64,7 @@ export default function Category() {
             />
           </div>
         </div>
-        <div className="date-container">
+        <div className="date-container sm:hidden">
           <p className="text-[10px] mt-[3rem]">{lang("history")}</p>
           <div className="flex flex-col text-gray-500">
             <a href="/">{lang.dateConverter("10", "1398")}</a>

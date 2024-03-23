@@ -38,10 +38,10 @@ export default function Header() {
         className="links-section flex-row gap-5 hidden lg:flex sm:absolute"
       >
         <a href="/">{lang("homePage")}</a>
-        <div className="flex flex-col relative items-center justify-center group">
-          <a className="hover:text-blue-600 cursor-pointer" href="/">
+        <div className="flex flex-col relative items-center justify-center group ">
+          <div className=" hover:text-blue-600 cursor-pointer z-20">
             {lang("contents")}
-          </a>
+          </div>
           <div
             className={`absolute w-max  ${
               lang.isRtl ? "right-[-3rem]" : "left-[-3rem]"

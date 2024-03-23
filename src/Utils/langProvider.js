@@ -214,4 +214,16 @@ export const langKeys = {
     en: "New Request",
     fa: "ثبت درخواست جدید",
   },
+  newArticle: {
+    en: "New Article",
+    fa: "ثبت مقاله جدید",
+  },
+  uploadthesis: {
+    en: "Upload thesis",
+    fa: "بارگذاری پایان نامه",
+  },
+  events: {
+    en: "Events",
+    fa: "رویداد ها",
+  },
 };

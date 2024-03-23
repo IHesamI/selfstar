@@ -4,7 +4,7 @@
 
 @layer components {
     .section-padding {
-        @apply px-[5rem] sm:px-[1rem];
+        @apply px-[5rem] medium:px-[1rem] sm:px-[1rem];
     }
 
     .footer-column-container {

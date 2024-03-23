@@ -4,7 +4,7 @@ import { useLang } from "../../../hooks/useLang";
 
 export default function Slides() {
   return (
-    <div className={`flex flex-wrap gap-3 w-full flex-row justify-end`}>
+    <div className={`category-children-container`}>
       <ContentsPreview
         title={"مدل سازی صوری سیستم های خودتطبیق توزیع شده"}
         publishedDate={"اسفند ۵ام, ۱۳۹۶"}

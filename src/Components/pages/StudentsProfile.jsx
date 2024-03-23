@@ -21,7 +21,7 @@ export default function StudentsProfile({ studentInfo }) {
     navigator.clipboard.writeText(email);
   }
   return (
-    <div className="flex flex-row [&>*:nth-child(odd)]:bg-gray-200 text-gray-600 border-x-[3px] border-y-[1px] border-gray-400">
+    <div className="flex flex-row [&>*:nth-child(odd)]:bg-gray-200 text-gray-600 border-x-[3px] border-y-[1px] border-gray-400  sm:flex-col">
       <div className="flex flex-col gap-3 p-5">
         <img className="image-container" src={image} alt="" />
         <div className="flex flex-col">
@@ -43,7 +43,10 @@ export default function StudentsProfile({ studentInfo }) {
       </div>
       <div className="flex flex-col pt-3 px-5 space-y-10">
         <div>
-          <a className="hover:text-blue-600 cursor-pointer" href={thesisurl}>
+          <a
+            className="hover:text-blue-600 cursor-pointer text-justify flex"
+            href={thesisurl}
+          >
             {renderText("thesisTitle", thesis)}
           </a>
         </div>
