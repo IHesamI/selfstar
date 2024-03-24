@@ -226,4 +226,8 @@ export const langKeys = {
     en: "Events",
     fa: "رویداد ها",
   },
+  back:{
+    en:'Back',
+    fa:'بازگشت'
+  }
 };

@@ -6,10 +6,11 @@ import Events from "./panel/Events";
 import NewArticles from "./panel/NewArticles";
 import NewRequest from "./panel/NewRequest";
 import ThesisUpload from "./panel/thesisUpload";
+import DefaultTab from "./panel/DefaultTab";
 
 export default function Dashboard() {
   const lang = useLang();
-  const [leftColumn, setLeftColumn] = useState(dashbaordTabs.Profile);
+  const [leftColumn, setLeftColumn] = useState(undefined);
 
   const renderTab = () => {
     switch (leftColumn) {
@@ -27,6 +28,8 @@ export default function Dashboard() {
 
       case dashbaordTabs.uploadThesis:
         return <ThesisUpload />;
+      default:
+        return <DefaultTab />;
     }
   };
 
@@ -62,12 +65,29 @@ export default function Dashboard() {
         </button>
         <button
           onClick={() => handleChangeTab(dashbaordTabs.events)}
-          className="dashboard-tab-button border-b-0"
+          className="dashboard-tab-button"
         >
           {lang("events")}
         </button>
+        <button
+          onClick={() => handleChangeTab(undefined)}
+          className="dashboard-tab-button flex flex-row justify-between"
+        >
+          {lang("back")}
+          <svg
+            height="16px"
+            fill="white"
+            id="Layer_1"
+            viewBox="0 0 512 512"
+            xmlSpace="preserve"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+          >
+            <polygon points="352,128.4 319.7,96 160,256 160,256 160,256 319.7,416 352,383.6 224.7,256 " />
+          </svg>
+        </button>
       </div>
-      <div>{renderTab()}</div>
+      {renderTab()}
     </div>
   );
 }
