@@ -1,6 +1,6 @@
 export const langKeys = {
   click: {
-    en: "click",
+    en: "Click",
     fa: "تایید",
   },
   homePage: {
@@ -70,6 +70,15 @@ export const langKeys = {
   password: {
     en: "Password",
     fa: "رمز عبور",
+  },
+  newPassword: {
+    en: "New Password",
+    fa: "رمز عبور جدید",
+  },
+
+  newPasswordConfirm: {
+    en: "Confirm New Password",
+    fa: "تایید رمز عبور جدید",
   },
   recentContent: {
     en: "Recently Published",
@@ -210,6 +219,10 @@ export const langKeys = {
     en: "Profile",
     fa: "پروفایل",
   },
+  ProfileTitle:{
+    en:"English Profile",
+    fa:"پروفایل فارسی"
+  },
   newRequest: {
     en: "New Request",
     fa: "ثبت درخواست جدید",
@@ -226,8 +239,17 @@ export const langKeys = {
     en: "Events",
     fa: "رویداد ها",
   },
-  back:{
-    en:'Back',
-    fa:'بازگشت'
-  }
+  back: {
+    en: "Back",
+    fa: "بازگشت",
+  },
+  newProfilePicture: {
+    en: "Upload New Profile Picture",
+    fa: "بارگذاری تصویر جدید",
+  },
+  FillEnglishProfile:{
+    en:"Fill English Profile",
+    fa:"تکمیل پروفایل انگلیسی"
+  },
+  
 };

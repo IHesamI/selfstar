@@ -19,22 +19,22 @@ export default function DefaultTab() {
         <PanelTabButton
           title={lang("uploadthesis")}
           imgSrc={upload}
-          alt={"پروفایل کاربر سامانه سلف استار"}
+          alt={"پایان نامه ها و مقالات سامانه سلف استار"}
         />
         <PanelTabButton
           title={lang("events")}
           imgSrc={events}
-          alt={"پروفایل کاربر سامانه سلف استار"}
+          alt={"رویداد ها و سمینار های خود تطبیقی , سامانه سلف استار"}
         />
         <PanelTabButton
           title={lang("newRequest")}
           imgSrc={newRequest}
-          alt={"پروفایل کاربر سامانه سلف استار"}
+          alt={"مقالات  سامانه سلف استار"}
         />
         <PanelTabButton
           title={lang("newArticle")}
           imgSrc={newArticle}
-          alt={"پروفایل کاربر سامانه سلف استار"}
+          alt={"مقالات  سامانه سلف استار"}
         />
       </div>
     </div>

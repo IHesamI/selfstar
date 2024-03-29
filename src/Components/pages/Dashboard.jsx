@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { useLang } from "../../hooks/useLang";
 import { dashbaordTabs } from "../../config";
 import EditProfile from "./panel/EditProfile";
@@ -10,9 +10,9 @@ import DefaultTab from "./panel/DefaultTab";
 
 export default function Dashboard() {
   const lang = useLang();
-  const [leftColumn, setLeftColumn] = useState(undefined);
+  const [leftColumn, setLeftColumn] = useState(dashbaordTabs.Profile);
 
-  const renderTab = () => {
+  const renderTab = useCallback(() => {
     switch (leftColumn) {
       case dashbaordTabs.Profile:
         return <EditProfile />;
@@ -31,7 +31,7 @@ export default function Dashboard() {
       default:
         return <DefaultTab />;
     }
-  };
+  }, [leftColumn]);
 
   const handleChangeTab = (tab) => {
     setLeftColumn(tab);
@@ -41,31 +41,41 @@ export default function Dashboard() {
       <div className="flex flex-col w-max bg-[var(--footer-background)] text-white">
         <button
           onClick={() => handleChangeTab(dashbaordTabs.Profile)}
-          className="dashboard-tab-button border-t-[1px] border-gray-600 py-3"
+          className={`dashboard-tab-button border-t-[1px] border-gray-600 py-3 ${
+            dashbaordTabs.Profile == leftColumn && "bg-gray-500"
+          }`}
         >
           {lang("profile")}
         </button>
         <button
           onClick={() => handleChangeTab(dashbaordTabs.newRequest)}
-          className="dashboard-tab-button"
+          className={`dashboard-tab-button ${
+            dashbaordTabs.newRequest == leftColumn && "bg-gray-500"
+          }`}
         >
           {lang("newRequest")}
         </button>
         <button
           onClick={() => handleChangeTab(dashbaordTabs.newArticle)}
-          className="dashboard-tab-button"
+          className={`dashboard-tab-button ${
+            dashbaordTabs.newArticle == leftColumn && "bg-gray-500"
+          }`}
         >
           {lang("newArticle")}
         </button>
         <button
           onClick={() => handleChangeTab(dashbaordTabs.uploadThesis)}
-          className="dashboard-tab-button"
+          className={`dashboard-tab-button ${
+            dashbaordTabs.uploadThesis == leftColumn && "bg-gray-500"
+          }`}
         >
           {lang("uploadthesis")}
         </button>
         <button
           onClick={() => handleChangeTab(dashbaordTabs.events)}
-          className="dashboard-tab-button"
+          className={`dashboard-tab-button ${
+            dashbaordTabs.events == leftColumn && "bg-gray-500"
+          }`}
         >
           {lang("events")}
         </button>

@@ -1,6 +1,6 @@
 import React from "react";
 import { useLang } from "../../hooks/useLang";
-
+import Avatar from "./Avatar";
 export default function StudentsProfile({ studentInfo }) {
   const {
     image,
@@ -23,7 +23,7 @@ export default function StudentsProfile({ studentInfo }) {
   return (
     <div className="flex flex-row [&>*:nth-child(odd)]:bg-gray-200 text-gray-600 border-x-[3px] border-y-[1px] border-gray-400  sm:flex-col">
       <div className="flex flex-col gap-3 p-5">
-        <img className="image-container" src={image} alt="" />
+        <Avatar image={image} />
         <div className="flex flex-col">
           <ul className="space-y-4">
             <li className="list-item ">{renderText("firstName", firstName)}</li>
