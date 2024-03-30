@@ -219,9 +219,9 @@ export const langKeys = {
     en: "Profile",
     fa: "پروفایل",
   },
-  ProfileTitle:{
-    en:"English Profile",
-    fa:"پروفایل فارسی"
+  ProfileTitle: {
+    en: "English Profile",
+    fa: "پروفایل فارسی",
   },
   newRequest: {
     en: "New Request",
@@ -247,9 +247,40 @@ export const langKeys = {
     en: "Upload New Profile Picture",
     fa: "بارگذاری تصویر جدید",
   },
-  FillEnglishProfile:{
-    en:"Fill English Profile",
-    fa:"تکمیل پروفایل انگلیسی"
+  fillEnglishProfile: {
+    en: "Fill Persian Profile",
+    fa: "تکمیل پروفایل انگلیسی",
   },
-  
+  addLink: {
+    en: "Add Link",
+    fa: "افزودن لینک مرتبط",
+  },
+  addLinkTitle: {
+    en: "Add Link",
+    fa: "افزودن لینک",
+  },
+  editLink: {
+    en: "Edit Link",
+    fa: "ویرایش لینک",
+  },
+  link: {
+    en: "Link",
+    fa: "لینک",
+  },
+  title: {
+    en: "Title",
+    fa: "عنوان",
+  },
+  deleteLinkTitle: {
+    en: "",
+    fa: "حذف لینک",
+  },
+  deleteLink: {
+    en: "",
+    fa: "آیا از حذف لینک اطمینان دارید؟",
+  },
+  cancel: {
+    en: "Cancel",
+    fa: "لغو",
+  },
 };

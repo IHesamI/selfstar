@@ -10,10 +10,7 @@ export default function Header() {
   const dispatch = useDispatch();
   const lang = useLang();
   useEffect(() => {}, [window.location]);
-  function handleChangeLang() {
-    const resultlang = lang.isRtl ? "en" : "fa";
-    dispatch(setLang({ lang: resultlang }));
-  }
+
   return (
     <div
       dir={lang.isRtl ? "ltr" : "rtl"}
@@ -67,8 +64,8 @@ export default function Header() {
         <a href="/members">{lang("members")}</a>
         <a href="/login">{lang("signIn")}</a>
         <button
-          onClick={handleChangeLang}
-          className="flex flex-row items-center gap-1 hover:text-blue-600 z-10"
+          onClick={lang.changeLang}
+          className="flex flex-row items-center gap-1 hover:text-blue-600 z-10 place-self-end"
         >
           <img
             className="w-4 h-4"

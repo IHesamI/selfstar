@@ -11,6 +11,9 @@ import DefaultTab from "./panel/DefaultTab";
 export default function Dashboard() {
   const lang = useLang();
   const [leftColumn, setLeftColumn] = useState(dashbaordTabs.Profile);
+  const handleChangeTab = (tab) => {
+    setLeftColumn(tab);
+  };
 
   const renderTab = useCallback(() => {
     switch (leftColumn) {
@@ -29,13 +32,11 @@ export default function Dashboard() {
       case dashbaordTabs.uploadThesis:
         return <ThesisUpload />;
       default:
-        return <DefaultTab />;
+        return <DefaultTab handleSelectTab={handleChangeTab} />;
     }
   }, [leftColumn]);
 
-  const handleChangeTab = (tab) => {
-    setLeftColumn(tab);
-  };
+
   return (
     <div dir={lang.isRtl ? "rtl" : "ltr"} className="flex flex-row">
       <div className="flex flex-col w-max bg-[var(--footer-background)] text-white">
@@ -85,6 +86,7 @@ export default function Dashboard() {
         >
           {lang("back")}
           <svg
+            style={{ transform: !lang.isRtl && "rotate(180deg)" }}
             height="16px"
             fill="white"
             id="Layer_1"

@@ -6,7 +6,8 @@ import events from "../../../assets/image/events.svg";
 import newRequest from "../../../assets/image/newRequest.svg";
 import newArticle from "../../../assets/image/newArticle.svg";
 import { useLang } from "../../../hooks/useLang";
-export default function DefaultTab() {
+import { dashbaordTabs } from "../../../config";
+export default function DefaultTab({ handleSelectTab }) {
   const lang = useLang();
   return (
     <div className="flex flex-row w-full justify-center my-5">
@@ -15,26 +16,36 @@ export default function DefaultTab() {
           title={lang("profile")}
           imgSrc={Profile}
           alt={"پروفایل کاربر سامانه سلف استار"}
+          handleSelectTab={handleSelectTab}
+          tab={dashbaordTabs.Profile}
         />
         <PanelTabButton
           title={lang("uploadthesis")}
           imgSrc={upload}
           alt={"پایان نامه ها و مقالات سامانه سلف استار"}
+          handleSelectTab={handleSelectTab}
+          tab={dashbaordTabs.uploadThesis}
         />
         <PanelTabButton
           title={lang("events")}
           imgSrc={events}
           alt={"رویداد ها و سمینار های خود تطبیقی , سامانه سلف استار"}
+          handleSelectTab={handleSelectTab}
+          tab={dashbaordTabs.events}
         />
         <PanelTabButton
           title={lang("newRequest")}
           imgSrc={newRequest}
           alt={"مقالات  سامانه سلف استار"}
+          handleSelectTab={handleSelectTab}
+          tab={dashbaordTabs.newRequest}
         />
         <PanelTabButton
           title={lang("newArticle")}
           imgSrc={newArticle}
           alt={"مقالات  سامانه سلف استار"}
+          handleSelectTab={handleSelectTab}
+          tab={dashbaordTabs.newArticle}
         />
       </div>
     </div>

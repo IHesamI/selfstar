@@ -1,8 +1,15 @@
 import React from "react";
 
-export default function PanelTabButton({ title, imgSrc, alt }) {
+export default function PanelTabButton({
+  title,
+  imgSrc,
+  alt,
+  handleSelectTab,
+  tab,
+}) {
   return (
     <div
+    onClick={()=>{handleSelectTab(tab)}}
       title={title}
       className="grid text-center gap-4 justify-center w-[11rem] pt-5 px-5 border-[1px] rounded-lg hover:shadow-lg cursor-pointer"
     >
