@@ -10,7 +10,7 @@ import DefaultTab from "./panel/DefaultTab";
 
 export default function Dashboard() {
   const lang = useLang();
-  const [leftColumn, setLeftColumn] = useState(dashbaordTabs.Profile);
+  const [leftColumn, setLeftColumn] = useState(dashbaordTabs.newArticle);
   const handleChangeTab = (tab) => {
     setLeftColumn(tab);
   };
@@ -36,7 +36,6 @@ export default function Dashboard() {
     }
   }, [leftColumn]);
 
-
   return (
     <div dir={lang.isRtl ? "rtl" : "ltr"} className="flex flex-row">
       <div className="flex flex-col w-max bg-[var(--footer-background)] text-white">
@@ -54,7 +53,7 @@ export default function Dashboard() {
             dashbaordTabs.newRequest == leftColumn && "bg-gray-500"
           }`}
         >
-          {lang("newRequest")}
+          {lang("requests")}
         </button>
         <button
           onClick={() => handleChangeTab(dashbaordTabs.newArticle)}
@@ -62,7 +61,7 @@ export default function Dashboard() {
             dashbaordTabs.newArticle == leftColumn && "bg-gray-500"
           }`}
         >
-          {lang("newArticle")}
+          {lang("articles")}
         </button>
         <button
           onClick={() => handleChangeTab(dashbaordTabs.uploadThesis)}
