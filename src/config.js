@@ -5,3 +5,10 @@ export const dashbaordTabs = Object.freeze({
   uploadThesis: Symbol("uploadThesis"),
   events: Symbol("events"),
 });
+
+export const Status = {
+  [0]: "wait",
+  [1]: "approved",
+  [2]: "seen",
+  [3]: "rejected",
+};

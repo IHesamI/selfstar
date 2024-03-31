@@ -225,11 +225,19 @@ export const langKeys = {
   },
   newRequest: {
     en: "New Request",
-    fa: "ثبت درخواست جدید",
+    fa: " درخواست جدید",
   },
   newArticle: {
     en: "New Article",
-    fa: "ثبت مقاله جدید",
+    fa: " مقاله جدید",
+  },
+  requests: {
+    en: "Requests",
+    fa: "درخواست ها",
+  },
+  articles: {
+    en: "Articles",
+    fa: "مقاله ها",
   },
   uploadthesis: {
     en: "Upload thesis",
@@ -282,5 +290,79 @@ export const langKeys = {
   cancel: {
     en: "Cancel",
     fa: "لغو",
+  },
+  description: {
+    en: "Description",
+    fa: "توضیحات",
+  },
+  padgeNotFound: {
+    en: "Page not Found!",
+    fa: "صفحه مورد نظر پیدا نشد!",
+  },
+  uploadFile: {
+    en: "Upload File",
+    fa: "بارگذاری فایل",
+  },
+  status: {
+    en: "Status",
+    fa: "وضعیت",
+  },
+  action: {
+    en: "Action",
+    fa: "عملیات",
+  },
+  wait: {
+    en: "Waiting",
+    fa: "در انتظاری بررسی",
+  },
+  approved: {
+    en: "Aprroved",
+    fa: "تایید شده",
+  },
+
+  seen: {
+    en: "Seen",
+    fa: "دیده شده",
+  },
+
+  rejected: {
+    en: "Rejected",
+    fa: "رد شده",
+  },
+  deleteRequestTitle: {
+    en: "",
+    fa: "حذف درخواست",
+  },
+  deleteRequest: {
+    en: "",
+    fa: "آیا از حذف درخواست اطمینان دارید؟",
+  },
+  editRequest: {
+    en: "Edit Request",
+    fa: "ویرایش درخواست",
+  },
+  noRequest: {
+    en: "",
+    fa: "درخواستی وجود ندارد",
+  },
+  file: {
+    en: "File",
+    fa: "فایل",
+  },
+  deleteArticleTitle: {
+    en: "Delete Article",
+    fa: "حذف مقاله",
+  },
+  deleteArticle: {
+    en: "Delete Article",
+    fa: "آیا از حذف مقاله اطمینان دارید؟",
+  },
+  editArticle: {
+    en: "",
+    fa: "ویرایش مقاله",
+  },
+  addArtcile: {
+    en: "",
+    fa: "افزدون مقاله",
   },
 };

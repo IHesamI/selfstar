@@ -10,6 +10,9 @@ import Members from "../Components/pages/Members";
 import Seminars from "../Components/pages/category/Seminars";
 import ProtectedPath from "../Components/common/ProtectedPath";
 import Dashboard from "../Components/pages/Dashboard";
+import errorPage from "../Components/pages/ErrorPage";
+import ErrorPage from "../Components/pages/ErrorPage";
+import Profile from "../Components/pages/Profile";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +54,10 @@ const router = createBrowserRouter([
     element: React.createElement(Members),
   },
   {
+    path: "/members/:id",
+    element: React.createElement(Profile),
+  },
+  {
     path: "/:id",
     element: React.createElement(Contents),
   },
@@ -59,6 +66,10 @@ const router = createBrowserRouter([
     element: React.createElement(ProtectedPath, {
       children: React.createElement(Dashboard),
     }),
+  },
+  {
+    path: "*",
+    element: React.createElement(ErrorPage),
   },
 ]);
 

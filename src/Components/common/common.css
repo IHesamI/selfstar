@@ -10,4 +10,65 @@
     .link-with-border:hover {
         @apply text-blue-600;
     }
+
+    .table {
+        @apply w-full border-collapse border-[1px] border-gray-300;
+    }
+
+    td {
+        @apply p-1 border-collapse border-[1px] border-gray-300;
+    }
+
+    .title {
+        width: 25%;
+        max-width: 5rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: pre;
+    }
+
+    .articleTitle {
+        width: 65%;
+        max-width: 5rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: pre;
+    }
+
+    .file {
+        @apply w-fit;
+    }
+
+    .description {
+        width: 40%;
+        max-width: 5rem;
+        white-space: pre;
+
+        -webkit-line-clamp: 7;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .badge {
+        @apply text-center bg-opacity-15 rounded-lg;
+    }
+
+    .wait {
+        @apply inline-flex items-center rounded-md bg-yellow-50 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20;
+    }
+
+    .approved {
+        @apply inline-flex items-center rounded-md bg-blue-50 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10;
+    }
+
+    .seen {
+        @apply inline-flex items-center rounded-md bg-gray-50 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10;
+    }
+
+    .rejected {
+        @apply inline-flex items-center rounded-md bg-red-50 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10;
+    }
+
+
 }
