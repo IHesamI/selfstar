@@ -49,9 +49,8 @@ export default function AboutUs() {
             className="w-[600px] h-[450px] medium:w-[400px] medium:h-[400px] sm:w-[300px] sm:h-[300px]"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d821.4264994681657!2d51.39369261920803!3d35.80233259436246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e062a032efa25%3A0x569ba59d4107186e!2sFaculty%20of%20Computer%20Engineering%20and%20Science%2C%20SBU!5e0!3m2!1sen!2sam!4v1710870129050!5m2!1sen!2sam"
             style={{ border: 0, outline: "none" }}
-            allowfullscreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
+            referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
         <div className="flex flex-col gap-3">
@@ -75,7 +74,9 @@ export default function AboutUs() {
                 src={sendMailIcon}
                 alt=""
               />
-              <p>nazemi@sbu.ac.ir</p>
+              <p className="flex h-full justify-center items-center">
+                nazemi@sbu.ac.ir
+              </p>
             </div>
           </div>
           <div className="flex flex-col border-[1px] border-gray-300 p-5 rounded-lg gap-6 h-fit">
@@ -86,7 +87,7 @@ export default function AboutUs() {
                 src={link}
                 alt=""
               />
-              <a href="">
+              <a className="hover:text-blue-600" href="">
                 <p>{lang("selfStarhistory")}</p>
               </a>
             </div>
@@ -96,7 +97,7 @@ export default function AboutUs() {
                 src={link}
                 alt=""
               />
-              <a href="">
+              <a className="hover:text-blue-600" href="">
                 <p>{lang("selfSystems")}</p>
               </a>
             </div>
@@ -106,7 +107,7 @@ export default function AboutUs() {
                 src={link}
                 alt=""
               />
-              <a href="">
+              <a className="hover:text-blue-600" href="">
                 <p>{lang("selfAnalysersSystems")}</p>
               </a>
             </div>

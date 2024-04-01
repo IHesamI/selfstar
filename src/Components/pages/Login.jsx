@@ -14,19 +14,23 @@ export default function Login() {
           <form
             onSubmit={handleSubmit}
             action="POST"
-            className="flex flex-col gap-3"
+            className="flex flex-col gap-5"
           >
             <div className="login-form-field">
               <label htmlFor="email">{lang("email")}</label>
-              <input type="email" id="email" />
+              <input className="p-1 text-[0.85rem]" type="email" id="email" />
             </div>
             <div className="login-form-field">
               <label htmlFor="password">{lang("password")}</label>
-              <input type="password" id="password" />
+              <input
+                className="p-1 text-[0.85rem]"
+                type="password"
+                id="password"
+              />
             </div>
             <button
               type="submit"
-              className="flex items-center justify-center w-fit m-auto bg-blue-500 px-5 py-1 text-white rounded-lg"
+              className="flex items-center justify-center w-fit m-auto bg-blue-600 hover:bg-opacity-75 px-5 py-1 text-white rounded-lg"
             >
               {lang("click")}
             </button>

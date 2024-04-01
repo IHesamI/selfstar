@@ -9,7 +9,7 @@
     }
 
     .login-form-field input {
-        @apply border-gray-300 border-[1px] rounded-md;
+        @apply border-gray-300 border-[1px] rounded-sm w-full;
     }
 
     .category-search-section {

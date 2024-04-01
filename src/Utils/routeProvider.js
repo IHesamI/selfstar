@@ -10,14 +10,14 @@ import Members from "../Components/pages/Members";
 import Seminars from "../Components/pages/category/Seminars";
 import ProtectedPath from "../Components/common/ProtectedPath";
 import Dashboard from "../Components/pages/Dashboard";
-import errorPage from "../Components/pages/ErrorPage";
 import ErrorPage from "../Components/pages/ErrorPage";
 import Profile from "../Components/pages/Profile";
+import Home from "../Components/pages/home";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: React.createElement(App),
+    element: React.createElement(Home),
   },
   {
     path: "/login",

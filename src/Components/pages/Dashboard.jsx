@@ -10,7 +10,7 @@ import DefaultTab from "./panel/DefaultTab";
 
 export default function Dashboard() {
   const lang = useLang();
-  const [leftColumn, setLeftColumn] = useState(dashbaordTabs.newArticle);
+  const [leftColumn, setLeftColumn] = useState(dashbaordTabs.events);
   const handleChangeTab = (tab) => {
     setLeftColumn(tab);
   };
@@ -77,7 +77,7 @@ export default function Dashboard() {
             dashbaordTabs.events == leftColumn && "bg-gray-500"
           }`}
         >
-          {lang("events")}
+          {lang("eventsAndSlides")}
         </button>
         <button
           onClick={() => handleChangeTab(undefined)}

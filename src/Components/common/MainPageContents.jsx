@@ -7,10 +7,10 @@ export default function Contents({ title, description, link }) {
   return (
     <div
       dir={lang.isRtl ? "ltr" : "rtl"}
-      className="flex flex-col items-end w-[49%] rounded-lg border-gray-400 border-[1px] p-2 xlg:w-full"
+      className="flex flex-col items-end w-[49%] rounded-lg border-gray-400 border-[1px] p-2 xlg:w-full gap-5"
     >
-      <div className="bg-blue-500 p-2 rounded-lg text-white">
-        <h4>{title}</h4>
+      <div className="bg-blue-500 p-2 rounded-lg text-white max-w-[40%] whitespace-nowrap overflow-hidden">
+        <h4 dir={lang.isRtl ? "rtl" : "ltr"}>{title}</h4>
       </div>
       <div className="mb-3">
         <p

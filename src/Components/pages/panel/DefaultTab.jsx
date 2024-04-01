@@ -27,7 +27,7 @@ export default function DefaultTab({ handleSelectTab }) {
           tab={dashbaordTabs.uploadThesis}
         />
         <PanelTabButton
-          title={lang("events")}
+          title={lang("eventsAndSlides")}
           imgSrc={events}
           alt={"رویداد ها و سمینار های خود تطبیقی , سامانه سلف استار"}
           handleSelectTab={handleSelectTab}

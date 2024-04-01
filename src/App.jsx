@@ -1,11 +1,10 @@
+import { useEffect } from "react";
 import "./App.css";
-import Home from "./Components/pages/home";
 function App() {
-  return (
-    <>
-        <Home />
-    </>
-  );
+  useEffect(() => {
+    console.error(window.location);
+  }, [window.location]);
+  return <></>;
 }
 
 export default App;

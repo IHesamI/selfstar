@@ -237,15 +237,15 @@ export const langKeys = {
   },
   articles: {
     en: "Articles",
-    fa: "مقاله ها",
+    fa: "مقالات",
   },
   uploadthesis: {
     en: "Upload thesis",
     fa: "بارگذاری پایان نامه",
   },
-  events: {
-    en: "Events",
-    fa: "رویداد ها",
+  eventsAndSlides: {
+    en: "Events And Slides",
+    fa: " رویداد ها و اسلاید ها",
   },
   back: {
     en: "Back",
@@ -364,5 +364,33 @@ export const langKeys = {
   addArtcile: {
     en: "",
     fa: "افزدون مقاله",
+  },
+  editSlide: {
+    en: "",
+    fa: "ویرایش اسلاید",
+  },
+  deleteslideTitle: {
+    en: "",
+    fa: "حذف اسلاید",
+  },
+  deleteslide: {
+    en: "",
+    fa: "آیا از حذف اسلاید اطمینان دارید؟",
+  },
+  noslide: {
+    en: "",
+    fa: "اسلایدی وجود ندارد",
+  },
+  newSlide: {
+    en: "",
+    fa: "اسلاید جدید",
+  },
+  addSlide: {
+    en: "",
+    fa: "افزودن اسلاید",
+  },
+  upcomingEvents: {
+    en: "Upcoming Events",
+    fa: "رویداد های پیش رو",
   },
 };

@@ -8,7 +8,7 @@ export default function Modal({ isOpen, onClose, children, title }) {
       {isOpen && (
         <>
           <div className="w-full h-full absolute top-0 left-0  m-auto justify-center items-center flex flex-col">
-            <div className=" flex flex-col shadow-2xl z-20 p-5 bg-white">
+            <div className=" flex flex-col shadow-2xl z-20 p-5 bg-white rounded-lg">
               <div className="flex flex-row justify-between mb-5">
                 <h1>{title}</h1>
                 <button onClick={onClose}>
