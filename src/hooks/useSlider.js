@@ -5,20 +5,36 @@ export default function useSlider() {
   const [direction, setDirection] = useState(0);
   const position = useRef(null);
   const lastElement = useRef(null);
-  const firstElement = useRef(null);
   const mouseDownFlag = useRef(null);
   const maxMinPositions = useRef([]);
   useEffect(() => {
-    if (firstElement.current && lastElement.current) {
-    //   console.error(firstElement.current.getBoundingClientRect());
-    //   console.error(lastElement.current.getBoundingClientRect());
+    if (lastElement.current) {
+      // console.error(lastElement.current.getBoundingClientRect());
       maxMinPositions.current = {
-        max: firstElement.current.getBoundingClientRect().x + 100,
-        min: lastElement.current.getBoundingClientRect().x - 100,
+        max: 100,
+        min:
+          lastElement.current.getBoundingClientRect().x -
+          lastElement.current.getBoundingClientRect().width,
       };
     }
   }, []);
 
+  const leftClick = () => {
+    changeDirection(-lastElement.current.getBoundingClientRect().width);
+  };
+  const rightClick = () => {
+    changeDirection(lastElement.current.getBoundingClientRect().width);
+  };
+  const changeDirection = (measure) => {
+    if (direction + measure <= maxMinPositions.current.min) {
+      setDirection(maxMinPositions.current.min);
+    } else if (direction + measure >= maxMinPositions.current.max) {
+      setDirection(maxMinPositions.current.max);
+    } else {
+      console.error("zarp", measure, direction);
+      setDirection(measure + direction);
+    }
+  };
   const handleMouseDown = (e) => {
     mouseDownFlag.current = true;
     position.current = e.clientX;
@@ -37,16 +53,12 @@ export default function useSlider() {
       //     return;
       // }
       position.current = e.clientX;
-    //   console.error(
-    //     direction + newPosition,
-    //     maxMinPositions.current.max,
-    //     maxMinPositions.current.min
-    //   );
-      if (
-        direction + newPosition > maxMinPositions.current.min &&
-        direction + newPosition < maxMinPositions.current.max
-      )
-        setDirection(direction + newPosition);
+      //   console.error(
+      //     direction + newPosition,
+      //     maxMinPositions.current.max,
+      //     maxMinPositions.current.min
+      //   );
+      changeDirection(newPosition);
     }
   };
 
@@ -57,6 +69,7 @@ export default function useSlider() {
     handleMouseUp,
     handleMouseMove,
     lastElement,
-    firstElement,
+    rightClick,
+    leftClick,
   };
 }

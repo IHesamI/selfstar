@@ -1,6 +1,7 @@
 import React from "react";
 import EventCard from "./EventCard";
 import useSlider from "../../hooks/useSlider";
+import LeftIcon from "../../assets/image/LeftIcon";
 
 export default function SliderProviders({ data, type }) {
   const {
@@ -10,37 +11,43 @@ export default function SliderProviders({ data, type }) {
     handleMouseMove,
     direction,
     lastElement,
-    firstElement,
+    leftClick,
+    rightClick,
   } = useSlider();
 
   return (
-    <div className="overflow-hidden cursor-pointer">
+    <div className="overflow-hidden cursor-pointer absolute w-full">
+      <div
+        onClick={leftClick}
+        className="flex flex-col absolute left-0 justify-center hover:bg-gray-500  hover:bg-opacity-15 z-20 items-center text-center h-full"
+      >
+        <LeftIcon color={"#000"} />
+      </div>
+      <div
+        onClick={rightClick}
+        className="flex flex-col absolute hover:bg-gray-500 hover:bg-opacity-15 z-20 right-0 justify-center items-center text-center h-full"
+      >
+        <LeftIcon color={"#000"} rotation />
+      </div>
       <div
         style={{ right: `${direction}px` }}
         ref={sliderRef}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
-        className="h-full p-4 flex flex-row gap-[5rem] w-fit relative"
+        className="h-full slider p-4 flex flex-row gap-[5rem] w-fit relative"
       >
         {data.map((item, index) => {
           return (
             <div
               key={index}
-              ref={
-                index == 0
-                  ? firstElement
-                  : index == data.length - 1
-                  ? lastElement
-                  : null
-              }
+              data-index={index}
+              ref={index == data.length - 1 ? lastElement : null}
               className="h-full shadow-lg w-max overflow-hidden cursor-pointer"
             >
               <EventCard
                 date={new Date().toString()}
-                title={
-                  "ارائه مدلی جهت افزودن چرخه کنترلی خودتطبیقی به سامانه های چندعامله"
-                }
+                title={index}
                 location={
                   "دانشگاه شهید بهشتی سالن ابوریحان مرکز همایش های بین المللی همینطور دانشگاه تهران مرکز اجلاس سران"
                 }
