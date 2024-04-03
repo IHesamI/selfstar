@@ -13,6 +13,7 @@ import Dashboard from "../Components/pages/Dashboard";
 import ErrorPage from "../Components/pages/ErrorPage";
 import Profile from "../Components/pages/Profile";
 import Home from "../Components/pages/home";
+import Admin from "../Components/pages/Admin";
 
 const router = createBrowserRouter([
   {
@@ -63,9 +64,33 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: React.createElement(ProtectedPath, {
-      children: React.createElement(Dashboard),
-    }),
+    element: React.createElement(ProtectedPath),
+    children: [
+      {
+        path: "",
+        element: React.createElement(Dashboard),
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: React.createElement(ProtectedPath),
+    children: [
+      {
+        path: "",
+        element: React.createElement(Admin),
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: React.createElement(ProtectedPath),
+    children: [
+      {
+        path: "",
+        element: React.createElement(Dashboard),
+      },
+    ],
   },
   {
     path: "*",

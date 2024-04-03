@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useLang } from "../../hooks/useLang";
 import { dashbaordTabs } from "../../config";
 import EditProfile from "./panel/EditProfile";
@@ -10,14 +11,14 @@ import DefaultTab from "./panel/DefaultTab";
 
 export default function Dashboard() {
   const lang = useLang();
-  const [leftColumn, setLeftColumn] = useState(dashbaordTabs.events);
+  const [leftColumn, setLeftColumn] = useState(dashbaordTabs.profile);
   const handleChangeTab = (tab) => {
     setLeftColumn(tab);
   };
-
+  const navigate = useNavigate();
   const renderTab = useCallback(() => {
     switch (leftColumn) {
-      case dashbaordTabs.Profile:
+      case dashbaordTabs.profile:
         return <EditProfile />;
 
       case dashbaordTabs.events:
@@ -35,14 +36,17 @@ export default function Dashboard() {
         return <DefaultTab handleSelectTab={handleChangeTab} />;
     }
   }, [leftColumn]);
-
+  const handleExit = useCallback(() => {
+    // TODO DESTORY UserSlice
+    // navigate("/login");
+  }, []);
   return (
-    <div dir={lang.isRtl ? "rtl" : "ltr"} className="flex flex-row">
-      <div className="flex flex-col w-max bg-[var(--footer-background)] text-white">
+    <div dir={lang.isRtl ? "rtl" : "ltr"} className="flex flex-row sm:flex-col">
+      <div className="flex flex-col sm:flex-row w-max bg-[var(--footer-background)] text-white">
         <button
-          onClick={() => handleChangeTab(dashbaordTabs.Profile)}
+          onClick={() => handleChangeTab(dashbaordTabs.profile)}
           className={`dashboard-tab-button border-t-[1px] border-gray-600 py-3 ${
-            dashbaordTabs.Profile == leftColumn && "bg-gray-500"
+            dashbaordTabs.profile == leftColumn && "bg-gray-500"
           }`}
         >
           {lang("profile")}
@@ -78,6 +82,12 @@ export default function Dashboard() {
           }`}
         >
           {lang("eventsAndSlides")}
+        </button>
+        <button
+          className="dashboard-tab-button flex flex-row justify-between"
+          onClick={handleExit}
+        >
+          {lang("exit")}
         </button>
         <button
           onClick={() => handleChangeTab(undefined)}

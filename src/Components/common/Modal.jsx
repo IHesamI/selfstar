@@ -1,8 +1,6 @@
 import React from "react";
-import { useLang } from "../../hooks/useLang";
 
 export default function Modal({ isOpen, onClose, children, title }) {
-  const lang = useLang();
   return (
     <>
       {isOpen && (

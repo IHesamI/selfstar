@@ -240,7 +240,7 @@ export const langKeys = {
     fa: "مقالات",
   },
   uploadthesis: {
-    en: "Upload thesis",
+    en: "Upload Thesis",
     fa: "بارگذاری پایان نامه",
   },
   eventsAndSlides: {
@@ -302,6 +302,10 @@ export const langKeys = {
   uploadFile: {
     en: "Upload File",
     fa: "بارگذاری فایل",
+  },
+  uploadResume: {
+    en: "",
+    fa: "بارگذاری رزومه شخصی",
   },
   status: {
     en: "Status",
@@ -393,4 +397,16 @@ export const langKeys = {
     en: "Upcoming Events",
     fa: "رویداد های پیش رو",
   },
+  educationHistory: {
+    en: "",
+    fa: "اطلاعات تحصیلی",
+  },
+  personalResume: {
+    en: "Personal Resume",
+    fa: "رزومه شخصی",
+  },
+  exit:{
+    en:"Exit",
+    fa:"خروج"
+  }
 };

@@ -17,7 +17,7 @@ export default function DefaultTab({ handleSelectTab }) {
           imgSrc={Profile}
           alt={"پروفایل کاربر سامانه سلف استار"}
           handleSelectTab={handleSelectTab}
-          tab={dashbaordTabs.Profile}
+          tab={dashbaordTabs.profile}
         />
         <PanelTabButton
           title={lang("uploadthesis")}

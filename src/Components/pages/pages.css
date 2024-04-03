@@ -67,4 +67,7 @@
     .dashboard-fields-container input {
         @apply w-full border-[1px] border-gray-400 rounded-sm p-1;
     }
+    .responsive-profile{
+        @apply  w-min m-auto gap-[6rem];
+    }
 }

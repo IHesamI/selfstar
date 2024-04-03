@@ -1,5 +1,5 @@
 export const dashbaordTabs = Object.freeze({
-  Profile: Symbol("Profile"),
+  profile: Symbol("profile"),
   newRequest: Symbol("newRequest"),
   newArticle: Symbol("newArticle"),
   uploadThesis: Symbol("uploadThesis"),
