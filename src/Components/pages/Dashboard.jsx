@@ -38,7 +38,7 @@ export default function Dashboard() {
   }, [leftColumn]);
   const handleExit = useCallback(() => {
     // TODO DESTORY UserSlice
-    // navigate("/login");
+    navigate("/login");
   }, []);
   return (
     <div dir={lang.isRtl ? "rtl" : "ltr"} className="flex flex-row sm:flex-col">

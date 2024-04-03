@@ -393,6 +393,10 @@ export const langKeys = {
     en: "",
     fa: "افزودن اسلاید",
   },
+  events:{
+    en:"",
+    fa:"رویداد ها"
+  },
   upcomingEvents: {
     en: "Upcoming Events",
     fa: "رویداد های پیش رو",
@@ -408,5 +412,10 @@ export const langKeys = {
   exit:{
     en:"Exit",
     fa:"خروج"
+  },
+  editSite:{
+    en:"Edit Site",
+    fa:"ویرایش سایت"
   }
+  
 };

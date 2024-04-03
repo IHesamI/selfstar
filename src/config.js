@@ -6,6 +6,12 @@ export const dashbaordTabs = Object.freeze({
   events: Symbol("events"),
 });
 
+export const adminTabs = Object.freeze({
+  requests: Symbol("requests"),
+  events: Symbol("events"),
+  siteEdit: Symbol("siteEdit"),
+});
+
 export const Status = {
   [0]: "wait",
   [1]: "approved",
