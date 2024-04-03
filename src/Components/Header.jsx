@@ -60,9 +60,9 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <a href="/about-us">{lang("aboutUs")}</a>
-        <a href="/members">{lang("members")}</a>
-        <a href="/login">{lang("signIn")}</a>
+        <a href="about-us">{lang("aboutUs")}</a>
+        <a href="members">{lang("members")}</a>
+        <a href="login">{lang("signIn")}</a>
         <button
           onClick={lang.changeLang}
           className="flex flex-row items-center gap-1 hover:text-blue-600 z-10 place-self-end"
