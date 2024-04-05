@@ -10,6 +10,7 @@ export const adminTabs = Object.freeze({
   requests: Symbol("requests"),
   events: Symbol("events"),
   siteEdit: Symbol("siteEdit"),
+  students: Symbol("students"),
 });
 
 export const Status = {

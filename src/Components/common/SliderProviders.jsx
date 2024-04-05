@@ -46,8 +46,8 @@ export default function SliderProviders({ data, type }) {
               className="h-full shadow-lg w-max overflow-hidden cursor-pointer"
             >
               <EventCard
-                date={new Date().toString()}
-                title={index}
+                date={"28 فروردین 1403"}
+                title={"همایش ارتباط صنعت و علم"}
                 location={
                   "دانشگاه شهید بهشتی سالن ابوریحان مرکز همایش های بین المللی همینطور دانشگاه تهران مرکز اجلاس سران"
                 }

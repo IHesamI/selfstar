@@ -5,11 +5,12 @@ import Events from "./admin/Events";
 import Requests from "./admin/Requests";
 import SiteEdit from "./admin/SiteEdit";
 import DefaultTab from "./admin/DefaultTab";
+import Students from "./admin/Students";
 
 export default function Admin() {
   const lang = useLang();
   function handleExit() {}
-  const [leftColumn, setLeftColumn] = useState(undefined);
+  const [leftColumn, setLeftColumn] = useState(adminTabs.events);
   const handleChangeTab = (tab) => {
     setLeftColumn(tab);
   };
@@ -20,9 +21,10 @@ export default function Admin() {
 
       case adminTabs.requests:
         return <Requests />;
-
       case adminTabs.siteEdit:
         return <SiteEdit />;
+      case adminTabs.students:
+        return <Students />;
       default:
         return <DefaultTab />;
     }
@@ -53,6 +55,14 @@ export default function Admin() {
           }`}
         >
           {lang("events")}
+        </button>
+        <button
+          onClick={() => handleChangeTab(adminTabs.students)}
+          className={`dashboard-tab-button ${
+            adminTabs.students == leftColumn && "bg-gray-500"
+          }`}
+        >
+          {lang("students")}
         </button>
         <button
           className="dashboard-tab-button flex flex-row justify-between"
