@@ -11,7 +11,7 @@ import DefaultTab from "./panel/DefaultTab";
 
 export default function Dashboard() {
   const lang = useLang();
-  const [leftColumn, setLeftColumn] = useState(dashbaordTabs.profile);
+  const [leftColumn, setLeftColumn] = useState(null);
   const handleChangeTab = (tab) => {
     setLeftColumn(tab);
   };

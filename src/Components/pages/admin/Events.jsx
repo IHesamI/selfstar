@@ -1,7 +1,11 @@
-import React from 'react'
+import React from "react";
+import AddEvents from "./AddEvents";
 
 export default function Events() {
   return (
-    <div>Events</div>
-  )
+    <div>
+      {" "}
+      <AddEvents />
+    </div>
+  );
 }

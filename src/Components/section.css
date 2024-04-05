@@ -28,10 +28,35 @@
     }
 
     .header-dropdown-menu {
-        @apply text-white text-center px-4 mx-3 my-2;
+        @apply text-white text-center sm:text-start sm:px-0 px-4 mx-3 my-2 sm:text-black;
+    }
+
+    .dropdown-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        padding: 1rem;
+        text-align: start;
+        align-items: flex-start;
+        width: 100%;
+        background-color: white;
+        text-align: start;
+        /* left: 0; */
+        z-index: 30;
+        right: -100%;
+        left: 0;
+    }
+
+
+    .header-container:focus .dropdown-menu {
+        display: flex !important;
+    }
+
+    .dropdown-menu a {
+        @apply sm:border-b-[1px] sm:border-b-gray-500 sm:w-full;
     }
 
     a.header-dropdown-menu {
-        @apply hover:text-blue-300
+        @apply hover:text-blue-300 sm:h-4 sm:w-full sm:border-none;
     }
 }
