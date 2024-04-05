@@ -31,7 +31,6 @@ export default function useSlider() {
     } else if (direction + measure >= maxMinPositions.current.max) {
       setDirection(maxMinPositions.current.max);
     } else {
-      console.error("zarp", measure, direction);
       setDirection(measure + direction);
     }
   };

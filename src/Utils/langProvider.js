@@ -187,6 +187,10 @@ export const langKeys = {
     en: "PhD students",
     fa: "دانشجویان دکترا",
   },
+  students: {
+    en: "Students",
+    fa: "دانشجویان",
+  },
   masterStudents: {
     en: "Master degree students",
     fa: "دانشجویان کارشناسی ارشد",
@@ -226,6 +230,10 @@ export const langKeys = {
   newRequest: {
     en: "New Request",
     fa: " درخواست جدید",
+  },
+  newRequests: {
+    en: "New Requests",
+    fa: " درخواست های تازه",
   },
   newArticle: {
     en: "New Article",
@@ -416,6 +424,37 @@ export const langKeys = {
   editSite:{
     en:"Edit Site",
     fa:"ویرایش سایت"
+  },
+  requestDate:{
+    en:"Request Date",
+    fa:"تاریخ درخواست",
+  },
+  answerRequest:{
+    en:"Answer Request",
+    fa:"ثبت پاسخ"
+  },
+  setStatus:{
+    en:"Set Request Status",
+    fa:"ثبت وضعیت"
+  },
+  editStatus:{
+    en:"Edit Request Status",
+    fa:"ویرایش وضعیت"
+  },
+  editAnswerRequest:{
+    en:"Edit Reponse",
+    fa:"ویرایش پاسخ"
+  },
+  author:{
+    en:"Author",
+    fa:"نویسنده",
+  },
+  addEvent:{
+    en:"Add New Event",
+    fa:'ثبت رویداد',
+  },
+  location:{
+    en:"Location",
+    fa:"مکان برگزاری"
   }
-  
 };

@@ -30,9 +30,9 @@ export default function EditProfile() {
         <div className="flex flex-col text-center justify-between  sm:responsive-profile xlg:responsive-profile medium:responsive-profile">
           <div className="flex flex-col w-full gap-5">
             <Avatar
-              image={
-                "http://selfstar.sbu.ac.ir/wp-content/uploads/ultimatemember/21/profile_photo-190.jpg?1520178315"
-              }
+              // image={
+              //   "http://selfstar.sbu.ac.ir/wp-content/uploads/ultimatemember/21/profile_photo-190.jpg?1520178315"
+              // }
             />
             <button
               onClick={handleChangePicture}
@@ -47,22 +47,16 @@ export default function EditProfile() {
             <div className="w-full">
               <AddLink />
               <div className="flex flex-col text-start gap-1 h-[9rem] max-w-[13rem] overflow-y-auto overflow-x-hidden">
-                <UserLink
-                  title={"Googleqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq"}
-                  link={"zarp.com"}
-                />
-                <UserLink
-                  title={"گوگللللللللللللصثقصثقصثقثصقثصقثصقثصقصث"}
-                  link={"zarp.com"}
-                />
-                <UserLink title={"Google"} link={"zarp.com"} />
-                <UserLink title={"Google"} link={"zarp.com"} />
-                <UserLink title={"Google"} link={"zarp.com"} />
-                <UserLink title={"Google"} link={"zarp.com"} />
-                <UserLink title={"Google"} link={"zarp.com"} />
-                <UserLink title={"Google"} link={"zarp.com"} />
-                <UserLink title={"Google"} link={"zarp.com"} />
-                <UserLink title={"Google"} link={"zarp.com"} />
+                <UserLink title={"Google"} link={"google.com"} />
+                <UserLink title={"ایران داک"} link={"iranDoc.ir"} />
+                <UserLink title={"Google"} link={"google.com"} />
+                <UserLink title={"Google"} link={"google.com"} />
+                <UserLink title={"Google"} link={"google.com"} />
+                <UserLink title={"Google"} link={"google.com"} />
+                <UserLink title={"Google"} link={"google.com"} />
+                <UserLink title={"Google"} link={"google.com"} />
+                <UserLink title={"Google"} link={"google.com"} />
+                <UserLink title={"Google"} link={"google.com"} />
               </div>
             </div>
             <div className="flex flex-col w-full">

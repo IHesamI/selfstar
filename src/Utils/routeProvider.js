@@ -1,9 +1,9 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, createHashRouter } from "react-router-dom";
 import App from "../App";
 import React from "react";
 import Login from "../Components/pages/Login";
 import Category from "../Components/pages/category/Category";
-import Slides from "../Components/pages/category/slides";
+import Slides from "../Components/pages/category/Slides";
 import Contents from "../Components/pages/category/Contents";
 import AboutUs from "../Components/pages/AboutUs";
 import Members from "../Components/pages/Members";
@@ -12,9 +12,9 @@ import ProtectedPath from "../Components/common/ProtectedPath";
 import Dashboard from "../Components/pages/Dashboard";
 import ErrorPage from "../Components/pages/ErrorPage";
 import Profile from "../Components/pages/Profile";
-import Home from "../Components/pages/home";
+import Home from "../Components/pages/Home";
 import Admin from "../Components/pages/Admin";
-const router = createBrowserRouter(
+const router = createHashRouter(
   [
     {
       path: "/",
@@ -96,10 +96,10 @@ const router = createBrowserRouter(
       path: "*",
       element: React.createElement(ErrorPage),
     },
-  ],
-  {
-    basename: "/selfstar/",
-  }
+  ]
+  // {
+  //   basename: "/selfstar/",
+  // }
 );
 
 export default router;
