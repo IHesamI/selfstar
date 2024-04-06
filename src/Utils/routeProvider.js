@@ -14,7 +14,7 @@ import ErrorPage from "../Components/pages/ErrorPage";
 import Profile from "../Components/pages/Profile";
 import Home from "../Components/pages/Home";
 import Admin from "../Components/pages/Admin";
-const router = createBrowserRouter(
+const router = createHashRouter(
   [
     {
       path: "/",

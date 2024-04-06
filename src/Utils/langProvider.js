@@ -456,5 +456,13 @@ export const langKeys = {
   location:{
     en:"Location",
     fa:"مکان برگزاری"
-  }
+  },
+  public:{
+    en:"Public",
+    fa:"عمومی"
+  },
+ private:{
+    en:"Private",
+    fa:"خصوصی"
+  },
 };

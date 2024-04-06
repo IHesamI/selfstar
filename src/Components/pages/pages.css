@@ -70,4 +70,7 @@
     .responsive-profile{
         @apply  w-min m-auto gap-[6rem];
     }
+    .search-with-select{
+        transition: all ease-in-out 5s;
+    }
 }
