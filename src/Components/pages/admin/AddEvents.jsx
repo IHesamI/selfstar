@@ -42,7 +42,7 @@ export default function AddEvents({ handleBack }) {
         </div>
         <div className="dashboard-fields-row">
           <div className="dashboard-fields-container">
-            <label htmlFor="title">{lang("description")}</label>
+            <label htmlFor="title">{lang("eventDate")}</label>
             <input type="date" id="date" />
           </div>
         </div>

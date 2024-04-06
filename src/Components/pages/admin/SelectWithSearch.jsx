@@ -30,11 +30,10 @@ const SelectWithSearch = memo(() => {
               placeholder={lang("search")}
             />
           </div>
-          <div className="flex flex-col">
-            {[1, 2, 3, 4, 5, 6].map((item) => {
-              console.error("zarp");
+          <div className="flex flex-col w-full h-[10rem] overflow-x-hidden overflow-y-scroll">
+            {[1, 2, 3, 4, 5, 6,1, 2, 3, 4, 5, 6, 2, 3, 4, 5, 6,1, 2, 3, 4, 5, 6].map((item) => {
               return (
-                <div className="hover:bg-blue-500 hover:text-white cursor-pointer w-full text-nowrap px-3 text-ellipsis overflow-hidden">
+                <div className="hover:bg-blue-500 w-full hover:text-white cursor-pointer text-nowrap px-3 text-ellipsis h-fit">
                   رحام رحیم زادهewrewrwerwerewrewrwerwerwer
                 </div>
               );

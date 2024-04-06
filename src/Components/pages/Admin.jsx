@@ -56,14 +56,14 @@ export default function Admin() {
         >
           {lang("events")}
         </button>
-        <button
+        {/* <button
           onClick={() => handleChangeTab(adminTabs.students)}
           className={`dashboard-tab-button ${
             adminTabs.students == leftColumn && "bg-gray-500"
           }`}
         >
           {lang("students")}
-        </button>
+        </button> */}
         <button
           className="dashboard-tab-button flex flex-row justify-between"
           onClick={handleExit}

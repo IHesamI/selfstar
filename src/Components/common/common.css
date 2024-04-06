@@ -82,4 +82,13 @@
         transition: all ease-in-out 0.2s;
     }
 
+    .location{
+        max-width: 5rem;
+        white-space: nowrap;
+        line-break: normal;
+        -webkit-line-clamp: 7;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
 }

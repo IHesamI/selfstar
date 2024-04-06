@@ -1,9 +1,10 @@
 import React from "react";
-import { useLang } from "../../hooks/useLang";
-import EditModal from "./EditModal";
-import DeleteModal from "./DeleteModal";
+
+import EditModal from "../common/EditModal";
+import DeleteModal from "../common/DeleteModal";
 import FileDownloadIcon from "../../assets/image/FileDownloadIcon";
 import UploadFile from "./UploadFile";
+import { useLang } from "../../hooks/useLang";
 
 export default function SlidesTable({ headers, data }) {
   const lang = useLang();

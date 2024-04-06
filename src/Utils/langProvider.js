@@ -465,4 +465,20 @@ export const langKeys = {
     en:"Private",
     fa:"خصوصی"
   },
+  eventDate:{
+    en:"Date",
+    fa:"تاریخ رویداد"
+  },
+  deleteEventTitle:{
+    en:"Remove Event",
+    fa:"حذف رویداد"
+  },
+  deleteEvent:{
+    en:"Remove Event",
+    fa:"آیا از حذف رویداد اطمینان دارید؟"
+  },
+  allRequests:{
+    en:'',
+    fa:"تمام درخواست ها",
+  }
 };

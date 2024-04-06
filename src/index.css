@@ -26,7 +26,8 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: none;
+    background: white;
+    opacity: 0;
 }
 
 /* Handle */
