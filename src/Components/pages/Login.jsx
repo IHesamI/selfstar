@@ -7,9 +7,9 @@ export default function Login() {
     e.preventDefault();
   };
   return (
-    <div className="bg-slate-100 py-10">
-      <div className="flex justify-center">
-        <div className="flex flex-col m-auto bg-white border-gray-400 border-[1px] p-10 rounded-lg">
+    <div className="bg-slate-100 py-10 h-full justify-center items-center">
+      <div className="flex justify-center items-center h-full">
+        <div className="flex flex-col m-auto bg-white border-gray-300 border-[1px] p-10 rounded-lg">
           <h3 className="text-center font-bold">{lang("login")}</h3>
           <form
             onSubmit={handleSubmit}

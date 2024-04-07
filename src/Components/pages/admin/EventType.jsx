@@ -21,6 +21,7 @@ export default function EventType() {
           className="pointer-events-none w-fit"
           type="checkbox"
           checked={type == "public"}
+          readOnly
         />
         <span>{lang("public")}</span>
       </div>
@@ -32,6 +33,7 @@ export default function EventType() {
           className="pointer-events-none w-fit"
           type="checkbox"
           checked={type == "private"}
+          readOnly
         />
         <span>{lang("private")}</span>
       </div>

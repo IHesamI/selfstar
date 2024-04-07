@@ -480,5 +480,9 @@ export const langKeys = {
   allRequests:{
     en:'',
     fa:"تمام درخواست ها",
+  },
+  chooseStudent:{
+    en:"",
+    fa:"یک دانشجو را انتخاب کنید"
   }
 };

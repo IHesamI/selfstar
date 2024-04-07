@@ -6,10 +6,14 @@ import Requests from "./admin/Requests";
 import SiteEdit from "./admin/SiteEdit";
 import DefaultTab from "./admin/DefaultTab";
 import Students from "./admin/Students";
+import { useNavigate } from "react-router-dom";
 
 export default function Admin() {
   const lang = useLang();
-  function handleExit() {}
+  const navigate = useNavigate();
+  function handleExit() {
+    return navigate("/login");
+  }
   const [leftColumn, setLeftColumn] = useState(adminTabs.events);
   const handleChangeTab = (tab) => {
     setLeftColumn(tab);
@@ -30,7 +34,7 @@ export default function Admin() {
     }
   }, [leftColumn]);
   return (
-    <div dir={lang.isRtl ? "rtl" : "ltr"} className="flex flex-row sm:flex-col">
+    <div dir={lang.isRtl ? "rtl" : "ltr"} className="flex flex-row sm:flex-col h-full">
       <div className="flex flex-col sm:flex-row w-max bg-[var(--footer-background)] text-white">
         <button
           onClick={() => handleChangeTab(adminTabs.requests)}

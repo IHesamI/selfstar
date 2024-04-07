@@ -41,7 +41,7 @@ export default function Dashboard() {
     navigate("/login");
   }, []);
   return (
-    <div dir={lang.isRtl ? "rtl" : "ltr"} className="flex flex-row sm:flex-col">
+    <div dir={lang.isRtl ? "rtl" : "ltr"} className="flex flex-row sm:flex-col h-full">
       <div className="flex flex-col sm:flex-row w-max bg-[var(--footer-background)] text-white">
         <button
           onClick={() => handleChangeTab(dashbaordTabs.profile)}
