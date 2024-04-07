@@ -7,7 +7,7 @@ export default function Members() {
   return (
     <div
       dir={lang.isRtl ? "rtl" : "ltr"}
-      className="flex flex-col section-padding [&>*:nth-child(even)]:bg-gray-600 [&>*:nth-child(even)]:text-gray-300 "
+      className="flex flex-col section-paddin  sm:w-full sm:p-0"
     >
       <div className="flex flex-col gap-3 [&>*:nth-child(odd)]:bg-gray-200 [&>*:nth-child(odd)]:text-gray-600 border-[3px] border-gray-400">
         <div className="flex flex-row justify-center p-3 ">
@@ -57,7 +57,7 @@ export default function Members() {
       <div className="h-[3rem] text-center items-center justify-center flex border-[3px] border-gray-400">
         {lang("phdStudents")}
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col sm:w-full">
         <StudentsProfile
           studentInfo={{
             links: [

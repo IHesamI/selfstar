@@ -53,7 +53,7 @@
     }
 
     .category-children-container {
-        @apply flex flex-wrap gap-5 w-full flex-row justify-end sm:justify-between;
+        @apply flex flex-wrap gap-5 w-full flex-row justify-end sm:justify-between sm:flex-col ;
     }
 
     .dashboard-fields-row {

@@ -31,7 +31,7 @@ export default function Category() {
           </div>
           <input
             placeholder={lang("search")}
-            className={`border-[1px] border-gray-300 rounded-sm block ${
+            className={`border-[1px] border-gray-300 rounded-sm block sm:w-full ${
               lang.isRtl ? "pr-[2rem]" : "pl-[2rem]"
             } outline-none pb-[0.5rem]`}
             type="text"

@@ -20,10 +20,25 @@ export default function Events() {
         </div>
       </div>
       <AddSlide />
-      <div className="h-[30rem] overflow-auto">
+      <div className="h-fit max-h-[60rem] overflow-y-auto">
         <SlidesTable
           headers={["title", "description", "file", "action"]}
           data={[
+
+            {
+              file: "editslide",
+              description:
+                "اسلایدهای جلسه دفاع از پایان نامه کارشناسی ارشد.\n\n انجام شده در زمستان ۹۳",
+              title:
+                "ارائه مدلی جهت افزودن چرخه کنترلی خودتطبیقی به سامانه های چندعامله            ",
+            },
+            {
+              file: "editslide",
+              description:
+                "اسلایدهای جلسه دفاع از پایان نامه کارشناسی ارشد.\n\n انجام شده در زمستان ۹۳",
+              title:
+                "ارائه مدلی جهت افزودن چرخه کنترلی خودتطبیقی به سامانه های چندعامله            ",
+            },
             {
               file: "editslide",
               description:

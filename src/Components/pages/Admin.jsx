@@ -34,8 +34,8 @@ export default function Admin() {
     }
   }, [leftColumn]);
   return (
-    <div dir={lang.isRtl ? "rtl" : "ltr"} className="flex flex-row sm:flex-col h-full">
-      <div className="flex flex-col sm:flex-row w-max bg-[var(--footer-background)] text-white">
+    <div dir={lang.isRtl ? "rtl" : "ltr"} className="flex flex-row sm:flex-col h-max min-h-max">
+      <div className="flex flex-col sm:flex-row w-max bg-[var(--footer-background)] h-[100vh] min-h-full sm:min-h-fit sm:h-fit text-white">
         <button
           onClick={() => handleChangeTab(adminTabs.requests)}
           className={`dashboard-tab-button ${

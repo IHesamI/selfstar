@@ -22,7 +22,7 @@ export default function StudentsProfile({ studentInfo }) {
   }
   return (
     <div className="flex flex-row [&>*:nth-child(odd)]:bg-gray-200 text-gray-600 border-x-[3px] border-y-[1px] border-gray-400  sm:flex-col">
-      <div className="flex flex-col gap-3 p-5 max-w-[15.5rem]">
+      <div className="flex flex-col gap-3 p-5 max-w-[15.5rem] sm:max-w-full">
         <a href="/members/123123">
           <Avatar image={image} />
         </a>
@@ -54,7 +54,7 @@ export default function StudentsProfile({ studentInfo }) {
           </a>
         </div>
         <div className="text-justify">{cv && renderText("cv", cv)}</div>
-        <div className="flex flex-wrap gap-[3rem]">
+        <div className="flex flex-wrap gap-[3rem] sm:pb-5">
           {links?.map((link) => {
             return (
               <li>
