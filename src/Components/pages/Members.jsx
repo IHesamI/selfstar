@@ -7,7 +7,7 @@ export default function Members() {
   return (
     <div
       dir={lang.isRtl ? "rtl" : "ltr"}
-      className="flex flex-col section-paddin  sm:w-full sm:p-0"
+      className="flex flex-col section-paddin [&>*:nth-child(even)]:bg-gray-600 [&>*:nth-child(even)]:text-gray-300  sm:w-full sm:p-0"
     >
       <div className="flex flex-col gap-3 [&>*:nth-child(odd)]:bg-gray-200 [&>*:nth-child(odd)]:text-gray-600 border-[3px] border-gray-400">
         <div className="flex flex-row justify-center p-3 ">
