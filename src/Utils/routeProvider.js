@@ -1,7 +1,6 @@
 import { createBrowserRouter, createHashRouter } from "react-router-dom";
-import App from "../App";
 import React from "react";
-import Login from "../Components/pages/Login";
+import Login from "../Components/pages/LoginSingUp";
 import Category from "../Components/pages/category/Category";
 import Slides from "../Components/pages/category/Slides";
 import Contents from "../Components/pages/category/Contents";

@@ -13,6 +13,12 @@ export const adminTabs = Object.freeze({
   students: Symbol("students"),
 });
 
+export const loginTab = Object.freeze({
+  login:Symbol('login'),
+  signUp:Symbol('signUp'),
+})
+
+
 export const Status = {
   [0]: "wait",
   [1]: "approved",

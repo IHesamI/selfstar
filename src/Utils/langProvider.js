@@ -401,9 +401,9 @@ export const langKeys = {
     en: "",
     fa: "افزودن اسلاید",
   },
-  events:{
-    en:"",
-    fa:"رویداد ها"
+  events: {
+    en: "",
+    fa: "رویداد ها",
   },
   upcomingEvents: {
     en: "Upcoming Events",
@@ -417,72 +417,84 @@ export const langKeys = {
     en: "Personal Resume",
     fa: "رزومه شخصی",
   },
-  exit:{
-    en:"Exit",
-    fa:"خروج"
+  exit: {
+    en: "Exit",
+    fa: "خروج",
   },
-  editSite:{
-    en:"Edit Site",
-    fa:"ویرایش سایت"
+  editSite: {
+    en: "Edit Site",
+    fa: "ویرایش سایت",
   },
-  requestDate:{
-    en:"Request Date",
-    fa:"تاریخ درخواست",
+  requestDate: {
+    en: "Request Date",
+    fa: "تاریخ درخواست",
   },
-  answerRequest:{
-    en:"Answer Request",
-    fa:"ثبت پاسخ"
+  answerRequest: {
+    en: "Answer Request",
+    fa: "ثبت پاسخ",
   },
-  setStatus:{
-    en:"Set Request Status",
-    fa:"ثبت وضعیت"
+  setStatus: {
+    en: "Set Request Status",
+    fa: "ثبت وضعیت",
   },
-  editStatus:{
-    en:"Edit Request Status",
-    fa:"ویرایش وضعیت"
+  editStatus: {
+    en: "Edit Request Status",
+    fa: "ویرایش وضعیت",
   },
-  editAnswerRequest:{
-    en:"Edit Reponse",
-    fa:"ویرایش پاسخ"
+  editAnswerRequest: {
+    en: "Edit Reponse",
+    fa: "ویرایش پاسخ",
   },
-  author:{
-    en:"Author",
-    fa:"نویسنده",
+  author: {
+    en: "Author",
+    fa: "نویسنده",
   },
-  addEvent:{
-    en:"Add New Event",
-    fa:'ثبت رویداد',
+  addEvent: {
+    en: "Add New Event",
+    fa: "ثبت رویداد",
   },
-  location:{
-    en:"Location",
-    fa:"مکان برگزاری"
+  location: {
+    en: "Location",
+    fa: "مکان برگزاری",
   },
-  public:{
-    en:"Public",
-    fa:"عمومی"
+  public: {
+    en: "Public",
+    fa: "عمومی",
   },
- private:{
-    en:"Private",
-    fa:"خصوصی"
+  private: {
+    en: "Private",
+    fa: "خصوصی",
   },
-  eventDate:{
-    en:"Date",
-    fa:"تاریخ رویداد"
+  eventDate: {
+    en: "Date",
+    fa: "تاریخ رویداد",
   },
-  deleteEventTitle:{
-    en:"Remove Event",
-    fa:"حذف رویداد"
+  deleteEventTitle: {
+    en: "Remove Event",
+    fa: "حذف رویداد",
   },
-  deleteEvent:{
-    en:"Remove Event",
-    fa:"آیا از حذف رویداد اطمینان دارید؟"
+  deleteEvent: {
+    en: "Remove Event",
+    fa: "آیا از حذف رویداد اطمینان دارید؟",
   },
-  allRequests:{
-    en:'',
-    fa:"تمام درخواست ها",
+  allRequests: {
+    en: "",
+    fa: "تمام درخواست ها",
   },
-  chooseStudent:{
-    en:"",
-    fa:"یک دانشجو را انتخاب کنید"
+  chooseStudent: {
+    en: "",
+    fa: "یک دانشجو را انتخاب کنید",
+  },
+  signup: {
+    en: "Sign Up",
+    fa: "ثبت نام",
+  },
+  newAccount :{
+    en:"New Account?",
+    fa:"ثبت نام نکرده اید؟"
+  },
+  alreadyHaveAccount:{
+    en:"Already Have an account ?",
+    fa:"قبلا اکانت ساختید؟"
   }
 };
