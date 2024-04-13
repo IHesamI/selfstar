@@ -489,12 +489,28 @@ export const langKeys = {
     en: "Sign Up",
     fa: "ثبت نام",
   },
-  newAccount :{
-    en:"New Account?",
-    fa:"ثبت نام نکرده اید؟"
+  newAccount: {
+    en: "New Account?",
+    fa: "ثبت نام نکرده اید؟",
   },
-  alreadyHaveAccount:{
-    en:"Already Have an account ?",
-    fa:"قبلا اکانت ساختید؟"
-  }
+  alreadyHaveAccount: {
+    en: "Already Have an account ?",
+    fa: "قبلا اکانت ساختید؟",
+  },
+  editHomePage: {
+    en: "Edit Home page",
+    fa: "ویرایش صفحه اصلی",
+  },
+  editFooter: {
+    en: "Edit Footer",
+    fa: "ویرایش فوتر",
+  },
+  editAboutUs: {
+    en: "Edit About us page",
+    fa: "ویرایش صفحه درباره ما",
+  },
+  editMembers: {
+    en: "Edit Members Page",
+    fa: "ویرایش صفحه اعضا",
+  },
 };

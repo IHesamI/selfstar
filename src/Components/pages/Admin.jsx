@@ -3,10 +3,10 @@ import { useLang } from "../../hooks/useLang";
 import { adminTabs } from "../../config";
 import Events from "./admin/Events";
 import Requests from "./admin/Requests";
-import SiteEdit from "./admin/SiteEdit";
 import DefaultTab from "./admin/DefaultTab";
 import Students from "./admin/Students";
 import { useNavigate } from "react-router-dom";
+import Index from "./admin/SiteEditing/Index";
 
 export default function Admin() {
   const lang = useLang();
@@ -26,7 +26,7 @@ export default function Admin() {
       case adminTabs.requests:
         return <Requests />;
       case adminTabs.siteEdit:
-        return <SiteEdit />;
+        return <Index />;
       case adminTabs.students:
         return <Students />;
       default:

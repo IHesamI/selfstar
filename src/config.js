@@ -6,6 +6,13 @@ export const dashbaordTabs = Object.freeze({
   events: Symbol("events"),
 });
 
+export const editTabs = Object.freeze({
+  homepage: Symbol("homepage"),
+  footer:   Symbol("footer"),
+  aboutUs:  Symbol("aboutUs"),
+  members:  Symbol("members"),
+});
+
 export const adminTabs = Object.freeze({
   requests: Symbol("requests"),
   events: Symbol("events"),
@@ -14,10 +21,9 @@ export const adminTabs = Object.freeze({
 });
 
 export const loginTab = Object.freeze({
-  login:Symbol('login'),
-  signUp:Symbol('signUp'),
-})
-
+  login: Symbol("login"),
+  signUp: Symbol("signUp"),
+});
 
 export const Status = {
   [0]: "wait",
