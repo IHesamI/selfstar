@@ -7,50 +7,49 @@ import React, { useCallback, useState } from "react";
 
 import { editTabs } from "../../../../config";
 import { useLang } from "../../../../hooks/useLang";
-import homePage from '../../../../assets/image/homepage.svg'
-import footer from '../../../../assets/image/footer.svg'
-import aboutUs from '../../../../assets/image/aboutUs.svg'
-import members from '../../../../assets/image/members.svg'
-import PanelTabButton from "../../panel/PanelTabButton";
+
+import EditAboutUs from "./EditAboutUs";
+import EditFooter from "./EditFooter";
+import EditHomepage from "./EditHomepage";
+import EditMembers from "./EditMembers";
+import DefaultTab from "./DefaultTab";
+import BackArrow from "../../../../assets/image/BackArrow";
 
 export default function Index() {
   const lang = useLang();
   const [editTab, setEditTab] = useState(null);
   const handleSelectTab = useCallback((tab) => {
-    setEditTab(tab)
+    setEditTab(tab);
   }, []);
-  return (
-    <div className="flex flex-row w-full justify-center my-5">
-      <div className="flex flex-wrap justify-center items-center w-full gap-5 basis-1/3 fill-gray-500">
-        <PanelTabButton
-          title={lang("editHomePage")}
-          imgSrc={homePage}
-          alt={"پروفایل کاربر سامانه سلف استار"}
-          handleSelectTab={handleSelectTab}
-          tab={editTabs.homepage}
-        />
-        <PanelTabButton
-          title={lang("editAboutUs")}
-          imgSrc={aboutUs}
-          alt={"پایان نامه ها و مقالات سامانه سلف استار"}
-          handleSelectTab={handleSelectTab}
-          tab={editTabs.aboutUs}
-        />
-        <PanelTabButton
-          title={lang("editMembers")}
-          imgSrc={members}
-          alt={"رویداد ها و سمینار های خود تطبیقی , سامانه سلف استار"}
-          handleSelectTab={handleSelectTab}
-          tab={editTabs.members}
-        />
-        <PanelTabButton
-          title={lang("editFooter")}
-          imgSrc={footer}
-          alt={"مقالات  سامانه سلف استار"}
-          handleSelectTab={handleSelectTab}
-          tab={editTabs.footer}
-        />
-      </div>
-    </div>
-  );
+
+  const chooseTab = () => {
+    switch (editTab) {
+      case editTabs.aboutUs:
+        return <EditAboutUs />;
+      case editTabs.footer:
+        return <EditFooter />;
+      case editTabs.homepage:
+        return <EditHomepage />;
+      case editTabs.members:
+        return <EditMembers />;
+    }
+  };
+  const handleBack = useCallback(() => {
+    setEditTab(null);
+  }, []);
+  const renderTab = () => {
+    if (editTab) {
+      return (
+        <div className="w-full flex flex-col section-padding mt-5">
+          <button onClick={handleBack} className="place-self-end text-gray-300">
+            <BackArrow size={20} color={'#5e5e5e'} />
+          </button>
+          {chooseTab()}
+        </div>
+      );
+    }
+    return <DefaultTab handleSelectTab={handleSelectTab} />;
+  };
+
+  return <>{renderTab()}</>;
 }

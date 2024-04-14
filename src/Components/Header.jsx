@@ -70,7 +70,7 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <a onClick={handleClose} href="#/about-us">{lang("aboutUs")}</a>
+        <a onClick={handleClose} href="#/about-us" className="target:text-red-500">{lang("aboutUs")}</a>
         <a onClick={handleClose} href="#/members">{lang("members")}</a>
         <a onClick={handleClose} href="#/login">{lang("signIn")}</a>
         <button
