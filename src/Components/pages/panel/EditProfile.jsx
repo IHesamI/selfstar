@@ -7,6 +7,7 @@ import AddLink from "./AddLink";
 import UploadFile from "../../common/UploadFile";
 import FileDownloadIcon from "../../../assets/image/FileDownloadIcon";
 import DeleteModal from "../../common/DeleteModal";
+import LinkContainer from "../../common/LinkContainer";
 
 export default function EditProfile() {
   // const user = {name:'حسن',lastName:'قلی زاده'}
@@ -44,21 +45,7 @@ export default function EditProfile() {
 
           <input ref={inputRef} type="file" className="hidden" />
           <div className="flex flex-col w-full justify-between gap-5">
-            <div className="w-full">
-              <AddLink />
-              <div className="flex flex-col text-start gap-1 h-[9rem] max-w-[13rem] overflow-y-auto overflow-x-hidden">
-                <UserLink title={"Google"} link={"google.com"} />
-                <UserLink title={"ایران داک"} link={"iranDoc.ir"} />
-                <UserLink title={"Google"} link={"google.com"} />
-                <UserLink title={"Google"} link={"google.com"} />
-                <UserLink title={"Google"} link={"google.com"} />
-                <UserLink title={"Google"} link={"google.com"} />
-                <UserLink title={"Google"} link={"google.com"} />
-                <UserLink title={"Google"} link={"google.com"} />
-                <UserLink title={"Google"} link={"google.com"} />
-                <UserLink title={"Google"} link={"google.com"} />
-              </div>
-            </div>
+            <LinkContainer data={[]}/>
             <div className="flex flex-col w-full">
               {/* <div className="flex flex-row justify-between ">
               <button className="flex flex-row gap-2 text-white bg-blue-600 p-3 rounded-lg hover:bg-opacity-85">

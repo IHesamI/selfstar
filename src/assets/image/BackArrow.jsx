@@ -1,8 +1,11 @@
 import React from "react";
+import { useLang } from "../../hooks/useLang";
 
 export default function BackArrow({ size = 25, color = "#000" }) {
+  const lang=useLang();
   return (
     <svg
+    className={`${lang.isRtl ? "":'rotate-180'}`}
       fill={color}
       width={`${size}px`}
       viewBox="0 0 52 52"

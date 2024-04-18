@@ -35,7 +35,7 @@ export default function AddLink() {
         onClick={() => {
           setisOpen(true);
         }}
-        className="flex flex-row hover:bg-blue-400 bg-blue-500 text-white  p-2 w-full text-center justify-center gap-2 rounded-t-lg"
+        className="flex flex-row hover:bg-blue-400 bg-blue-500 text-white p-2 px-5 w-full text-center justify-center gap-2 rounded-t-lg"
       >
         <svg
           fill="white"

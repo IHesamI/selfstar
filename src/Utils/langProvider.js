@@ -513,4 +513,16 @@ export const langKeys = {
     en: "Edit Members Page",
     fa: "ویرایش صفحه اعضا",
   },
+  'about-us-footer':{
+    en:'About Us Footer',
+    fa:'متن درباره ما '
+  },
+  "about-head-of-group":{
+    en:"Head of group Introduction title",
+    fa:'متن معرفی سرپرست گروه'
+  },
+  inputFormtitle:{
+    en:"English content",
+    fa:"محتوای فارسی"
+  }
 };

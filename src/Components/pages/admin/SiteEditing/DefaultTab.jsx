@@ -8,7 +8,6 @@ import members from "../../../../assets/image/members.svg";
 import PanelTabButton from "../../panel/PanelTabButton";
 export default function DefaultTab({handleSelectTab}) {
     const lang=useLang();
-
     return (
     <div className="flex flex-row w-full justify-center my-5">
       <div className="flex flex-wrap justify-center items-center w-full gap-5 basis-1/3 fill-gray-500">
