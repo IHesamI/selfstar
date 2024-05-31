@@ -47,10 +47,6 @@ export const langKeys = {
     en: "Seminar",
     fa: "سمینار",
   },
-  articles: {
-    en: "Articles",
-    fa: "مقالات",
-  },
   copyRight: {
     en: "",
     fa: "تمامی حقوق این وبسایت متعلق به گروه تحقیقاتی سیستم خود تطبیق می باشد.",
@@ -513,16 +509,24 @@ export const langKeys = {
     en: "Edit Members Page",
     fa: "ویرایش صفحه اعضا",
   },
-  'about-us-footer':{
-    en:'About Us Footer',
-    fa:'متن درباره ما '
+  "about-us-footer": {
+    en: "About Us Footer",
+    fa: "متن درباره ما ",
   },
-  "about-head-of-group":{
-    en:"Head of group Introduction title",
-    fa:'متن معرفی سرپرست گروه'
+  'address-input': {
+    en: "Address",
+    fa: "آدرس ",
   },
-  inputFormtitle:{
-    en:"English content",
-    fa:"محتوای فارسی"
-  }
+  "about-head-of-group": {
+    en: "Head of group Introduction title",
+    fa: "متن معرفی سرپرست گروه",
+  },
+  inputFormtitle: {
+    en: "English content",
+    fa: "محتوای فارسی",
+  },
+  chartLogs: {
+    en: "Charts",
+    fa: "فعالیت های کاربران",
+  },
 };

@@ -11,7 +11,7 @@ export default function Header() {
   // const dispatch = useDispatch();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const lang = useLang();
-  useEffect(() => {}, [window.location]);
+
   const handleOpen = () => {
     setIsMenuOpen(true);
   };

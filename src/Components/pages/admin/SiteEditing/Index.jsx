@@ -8,7 +8,7 @@ import DefaultTab from "./DefaultTab";
 import BackArrow from "../../../../assets/image/BackArrow";
 
 export default function Index() {
-  const [editTab, setEditTab] = useState(editTabs.members);
+  const [editTab, setEditTab] = useState(editTabs.aboutUs);
   const handleSelectTab = useCallback((tab) => {
     setEditTab(tab);
   }, []);

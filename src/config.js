@@ -18,6 +18,7 @@ export const adminTabs = Object.freeze({
   events: Symbol("events"),
   siteEdit: Symbol("siteEdit"),
   students: Symbol("students"),
+  chartLogs: Symbol("chartLogs"),
 });
 
 export const loginTab = Object.freeze({

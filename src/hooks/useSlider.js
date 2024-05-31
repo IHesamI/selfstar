@@ -38,7 +38,7 @@ export default function useSlider() {
     mouseDownFlag.current = true;
     position.current = e.clientX;
   };
-  const handleMouseUp = (e) => {
+  const handleMouseUp = () => {
     mouseDownFlag.current = false;
     position.current = direction;
   };

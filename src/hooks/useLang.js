@@ -1,14 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { langKeys } from "../Utils/langProvider";
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 import { convertPersian } from "../Utils/prettyString";
 import { setLang } from "../Store/store";
 
 export function useLang() {
-  const lang = useSelector((state) => state.lang);
+  const lang = useSelector((state) => state.setting.lang);
   const isRtl = lang == "fa";
   const dispatch = useDispatch();
-
   const getTranslation = (key) => {
     return langKeys[key][lang];
   };

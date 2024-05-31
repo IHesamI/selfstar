@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { useLang } from "../../hooks/useLang";
 import { adminTabs } from "../../config";
 import Events from "./admin/Events";
@@ -7,6 +7,7 @@ import DefaultTab from "./admin/DefaultTab";
 import Students from "./admin/Students";
 import { useNavigate } from "react-router-dom";
 import Index from "./admin/SiteEditing/Index";
+import ChartLogs from "./panel/ChartLogs";
 
 export default function Admin() {
   const lang = useLang();
@@ -14,7 +15,7 @@ export default function Admin() {
   function handleExit() {
     return navigate("/login");
   }
-  const [leftColumn, setLeftColumn] = useState(null);
+  const [leftColumn, setLeftColumn] = useState(adminTabs.siteEdit);
   const handleChangeTab = (tab) => {
     setLeftColumn(tab);
   };
@@ -22,13 +23,14 @@ export default function Admin() {
     switch (leftColumn) {
       case adminTabs.events:
         return <Events />;
-
       case adminTabs.requests:
         return <Requests />;
       case adminTabs.siteEdit:
         return <Index />;
       case adminTabs.students:
         return <Students />;
+      case adminTabs.chartLogs:
+        return <ChartLogs/>;
       default:
         return <DefaultTab />;
     }
@@ -59,6 +61,14 @@ export default function Admin() {
           }`}
         >
           {lang("events")}
+        </button>
+        <button
+          onClick={() => handleChangeTab(adminTabs.chartLogs)}
+          className={`dashboard-tab-button ${
+            adminTabs.chartLogs == leftColumn && "bg-gray-500"
+          }`}
+        >
+          {lang("chartLogs")}
         </button>
         {/* <button
           onClick={() => handleChangeTab(adminTabs.students)}
