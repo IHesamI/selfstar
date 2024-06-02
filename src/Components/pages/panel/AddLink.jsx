@@ -1,32 +1,47 @@
-import React, { useState } from "react";
+import  { useRef, useState } from "react";
 import Modal from "../../common/Modal";
 import { useLang } from "../../../hooks/useLang";
 
-export default function AddLink() {
+export default function AddLink({setLinks}) {
   const lang = useLang();
   const [isOpen, setisOpen] = useState(false);
-
+  const formRef=useRef({});
   const handleClose = () => {
     setisOpen(false);
   };
 
+  const hanldeChange = (key, value) => {
+    formRef.current = { ...formRef.current, [key]: value };
+  };
+
+  const handleClick = () => {
+    setLinks((state) => [...state, formRef.current]);
+    setisOpen(false);
+  };
+  
+
   return (
     <div className="">
       <Modal isOpen={isOpen} onClose={handleClose} title={lang("addLinkTitle")}>
-        <div className="flex flex-col text-start gap-5">
+        <div
+          dir={lang.isRtl ? "rtl" : "ltr"}
+          className="flex flex-col text-start gap-5"
+        >
           <div className="dashboard-fields-row">
             <div className="dashboard-fields-container">
               <label htmlFor="firstName">{lang("title")}</label>
-              <input id="firstName" type="text" />
+              <input id="title" type="text" onChange={(e)=>{hanldeChange('title',e.target.value)}}/>
             </div>
           </div>
           <div className="dashboard-fields-row">
             <div className="dashboard-fields-container">
-              <label htmlFor="lastName">{lang("link")}</label>
-              <input id="lastName" type="text" />
+              <label htmlFor="link">{lang("link")}</label>
+              <input id="link" type="text"  onChange={(e)=>{hanldeChange('link',e.target.value)}}/>
             </div>
           </div>
-          <button className="bg-blue-600 px-3 py-2 text-white w-fit rounded-lg">
+          <button
+          onClick={handleClick}
+          className="bg-blue-600 px-3 py-2 text-white w-fit rounded-lg">
             {lang("click")}
           </button>
         </div>

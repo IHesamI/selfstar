@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 function App() {
   useEffect(() => {
-    // console.error(window.location);
+    console.error();
   }, [window.location]);
   return <></>;
 }

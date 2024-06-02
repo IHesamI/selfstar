@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLang } from "../hooks/useLang";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import logo from "../assets/image/Persian_Logo.png";
 import "./section.css";
 import world from "../assets/image/world.png";
@@ -9,6 +9,8 @@ import { setLang } from "../Store/store";
 import ClickIcon from "../assets/image/ClickIcon";
 export default function Header() {
   // const dispatch = useDispatch();
+  const profile = useSelector((state) => state.profile);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const lang = useLang();
 
@@ -41,10 +43,15 @@ export default function Header() {
           isMenuOpen ? "sm:flex sm:left-0" : ""
         } sm:shadow-lg`}
       >
-        <button className="flex h-fit place-self-end justify-end lg:hidden" onClick={handleClose}>
+        <button
+          className="flex h-fit place-self-end justify-end lg:hidden"
+          onClick={handleClose}
+        >
           <ClickIcon color="#000" />
         </button>
-        <a onClick={handleClose} href="#">{lang("homePage")}</a>
+        <a onClick={handleClose} href="#">
+          {lang("homePage")}
+        </a>
         <div className="flex flex-col relative items-center sm:items-start justify-center group sm:w-full">
           <div className=" hover:text-blue-600 cursor-pointer z-20 sm:w-full sm:border-b-[1px] sm:border-gray-500">
             {lang("contents")}
@@ -55,24 +62,56 @@ export default function Header() {
             } z-10 pt-[6rem] hidden group-hover:flex hover:flex sm:flex-col sm:pt-0 sm:w-full`}
           >
             <div className=" bg-gray-500 text-black sm:w-full sm:bg-white sm:text-black gap-5 flex flex-row sm:flex-col sm:border-none sm:text-start border-t-blue-500  border-t-[2px]">
-              <a onClick={handleClose} className="header-dropdown-menu " href="#/category/seminar">
+              <a
+                onClick={handleClose}
+                className="header-dropdown-menu "
+                href="/category/seminar"
+              >
                 {lang("seminar")}
               </a>
-              <a onClick={handleClose} className="header-dropdown-menu " href="#/category/articles">
+              <a
+                onClick={handleClose}
+                className="header-dropdown-menu "
+                href="/category/articles"
+              >
                 {lang("articles")}
               </a>
-              <a onClick={handleClose} className="header-dropdown-menu " href="#/category/thesis">
+              <a
+                onClick={handleClose}
+                className="header-dropdown-menu "
+                href="/category/thesis"
+              >
                 {lang("thesis")}
               </a>
-              <a onClick={handleClose} className="header-dropdown-menu " href="#/category/slides">
+              <a
+                onClick={handleClose}
+                className="header-dropdown-menu "
+                href="/category/slides"
+              >
                 {lang("slides")}
               </a>
             </div>
           </div>
         </div>
-        <a onClick={handleClose} href="#/about-us" className="target:text-red-500">{lang("aboutUs")}</a>
-        <a onClick={handleClose} href="#/members">{lang("members")}</a>
-        <a onClick={handleClose} href="#/login">{lang("signIn")}</a>
+        <a
+          onClick={handleClose}
+          href="about-us"
+          className="target:text-red-500"
+        >
+          {lang("aboutUs")}
+        </a>
+        <a onClick={handleClose} href="/members">
+          {lang("members")}
+        </a>
+        {profile.name ? (
+          <a onClick={handleClose} href="/dashboard">
+            {lang("dashboard")}
+          </a>
+        ) : (
+          <a onClick={handleClose} href="/login">
+            {lang("signIn")}
+          </a>
+        )}
         <button
           onClick={lang.changeLang}
           className="flex flex-row items-center gap-1 hover:text-blue-600 z-10"

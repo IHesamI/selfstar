@@ -23,7 +23,7 @@ const settingSlice = createSlice({
 });
 
 
-export const rootReducer = combineSlices(persistReducer(persistConfig,userSlice),settingSlice);
+export const rootReducer = combineSlices(userSlice,settingSlice);
 
 export const { setLang } = settingSlice.actions;
 

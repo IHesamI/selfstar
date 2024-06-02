@@ -6,6 +6,9 @@ export default defineConfig({
   build: {
     outDir: "build",
   },
-  base: "/selfstar/",
+  // base: "/selfstar/",
   plugins: [react()],
+  server:{
+
+  }
 });

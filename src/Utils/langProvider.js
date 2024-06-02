@@ -27,6 +27,10 @@ export const langKeys = {
     en: "Continue",
     fa: "ادامه مطلب",
   },
+  dashboard: {
+    en: "Dashboard",
+    fa: "داشبورد",
+  },
   newArticles: {
     en: "New Articles",
     fa: "نوشته‌های تازه",
