@@ -27,6 +27,10 @@ export const langKeys = {
     en: "Continue",
     fa: "ادامه مطلب",
   },
+  dashboard: {
+    en: "Dashboard",
+    fa: "داشبورد",
+  },
   newArticles: {
     en: "New Articles",
     fa: "نوشته‌های تازه",
@@ -46,10 +50,6 @@ export const langKeys = {
   seminar: {
     en: "Seminar",
     fa: "سمینار",
-  },
-  articles: {
-    en: "Articles",
-    fa: "مقالات",
   },
   copyRight: {
     en: "",
@@ -88,6 +88,7 @@ export const langKeys = {
     en: "Search...",
     fa: "جستجو...",
   },
+
   history: {
     en: "",
     fa: "تاریخچه مطالب منتشر شده",
@@ -187,6 +188,10 @@ export const langKeys = {
     en: "PhD students",
     fa: "دانشجویان دکترا",
   },
+  students: {
+    en: "Students",
+    fa: "دانشجویان",
+  },
   masterStudents: {
     en: "Master degree students",
     fa: "دانشجویان کارشناسی ارشد",
@@ -226,6 +231,10 @@ export const langKeys = {
   newRequest: {
     en: "New Request",
     fa: " درخواست جدید",
+  },
+  newRequests: {
+    en: "New Requests",
+    fa: " درخواست های تازه",
   },
   newArticle: {
     en: "New Article",
@@ -385,6 +394,10 @@ export const langKeys = {
     en: "",
     fa: "اسلایدی وجود ندارد",
   },
+  noarticle: {
+    en: "",
+    fa: "مقاله ای وجود ندارد",
+  },
   newSlide: {
     en: "",
     fa: "اسلاید جدید",
@@ -393,9 +406,9 @@ export const langKeys = {
     en: "",
     fa: "افزودن اسلاید",
   },
-  events:{
-    en:"",
-    fa:"رویداد ها"
+  events: {
+    en: "",
+    fa: "رویداد ها",
   },
   upcomingEvents: {
     en: "Upcoming Events",
@@ -409,13 +422,120 @@ export const langKeys = {
     en: "Personal Resume",
     fa: "رزومه شخصی",
   },
-  exit:{
-    en:"Exit",
-    fa:"خروج"
+  exit: {
+    en: "Exit",
+    fa: "خروج",
   },
-  editSite:{
-    en:"Edit Site",
-    fa:"ویرایش سایت"
-  }
-  
+  editSite: {
+    en: "Edit Site",
+    fa: "ویرایش سایت",
+  },
+  requestDate: {
+    en: "Request Date",
+    fa: "تاریخ درخواست",
+  },
+  answerRequest: {
+    en: "Answer Request",
+    fa: "ثبت پاسخ",
+  },
+  setStatus: {
+    en: "Set Request Status",
+    fa: "ثبت وضعیت",
+  },
+  editStatus: {
+    en: "Edit Request Status",
+    fa: "ویرایش وضعیت",
+  },
+  editAnswerRequest: {
+    en: "Edit Reponse",
+    fa: "ویرایش پاسخ",
+  },
+  author: {
+    en: "Author",
+    fa: "نویسنده",
+  },
+  addEvent: {
+    en: "Add New Event",
+    fa: "ثبت رویداد",
+  },
+  location: {
+    en: "Location",
+    fa: "مکان برگزاری",
+  },
+  public: {
+    en: "Public",
+    fa: "عمومی",
+  },
+  private: {
+    en: "Private",
+    fa: "خصوصی",
+  },
+  eventDate: {
+    en: "Date",
+    fa: "تاریخ رویداد",
+  },
+  deleteEventTitle: {
+    en: "Remove Event",
+    fa: "حذف رویداد",
+  },
+  deleteEvent: {
+    en: "Remove Event",
+    fa: "آیا از حذف رویداد اطمینان دارید؟",
+  },
+  allRequests: {
+    en: "",
+    fa: "تمام درخواست ها",
+  },
+  chooseStudent: {
+    en: "",
+    fa: "یک دانشجو را انتخاب کنید",
+  },
+  signup: {
+    en: "Sign Up",
+    fa: "ثبت نام",
+  },
+  newAccount: {
+    en: "New Account?",
+    fa: "ثبت نام نکرده اید؟",
+  },
+  alreadyHaveAccount: {
+    en: "Already Have an account ?",
+    fa: "قبلا اکانت ساختید؟",
+  },
+  editHomePage: {
+    en: "Edit Home page",
+    fa: "ویرایش صفحه اصلی",
+  },
+  editFooter: {
+    en: "Edit Footer",
+    fa: "ویرایش فوتر",
+  },
+  editAboutUs: {
+    en: "Edit About us page",
+    fa: "ویرایش صفحه درباره ما",
+  },
+  editMembers: {
+    en: "Edit Members Page",
+    fa: "ویرایش صفحه اعضا",
+  },
+  "about-us-footer": {
+    en: "About Us Footer",
+    fa: "متن درباره ما ",
+  },
+  'address-input': {
+    en: "Address",
+    fa: "آدرس ",
+  },
+  "about-head-of-group": {
+    en: "Head of group Introduction title",
+    fa: "متن معرفی سرپرست گروه",
+  },
+  inputFormtitle: {
+    en: "English content",
+    fa: "محتوای فارسی",
+  },
+  chartLogs: {
+    en: "Charts",
+    fa: "فعالیت های کاربران",
+  },
 };

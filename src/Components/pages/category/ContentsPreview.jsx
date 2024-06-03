@@ -14,7 +14,7 @@ export default function ContentsPreview({
   }
 
   return (
-    <div className="flex flex-col max-w-[40%] sm:max-w-[47%] xsm:max-w-[90%]">
+    <div className="flex flex-col max-w-[40%] sm:max-w-full xsm:max-w-[90%]">
       <a className="hover:text-blue-600" href={link}>
         <h2 className="text-[25px]">{title}</h2>
       </a>

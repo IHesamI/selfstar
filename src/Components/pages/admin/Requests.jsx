@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
+import RequestsComponent from "./RequestsComponent";
 
 export default function Requests() {
-  return (
-    <div>Requests</div>
-  )
+  return <RequestsComponent langKey={"allRequests"} />;
 }

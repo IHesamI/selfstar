@@ -1,18 +1,32 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useLang } from "../../../hooks/useLang";
 import Modal from "../../common/Modal";
 
-export default function EditLink({ link, title }) {
+export default function EditLink({ link, title,setLinks ,index}) {
   const [isOpen, setisOpen] = useState(false);
   const lang = useLang();
 
+  const formRef=useRef({});
   const handleClose = () => {
     setisOpen(false);
+  };
+
+  const hanldeChange = (key, value) => {
+    formRef.current = { ...formRef.current, [key]: value };
   };
 
   const openEditModal = () => {
     setisOpen(true);
   };
+
+  const handleClick = () => {
+    setLinks((state) => {
+      state[index]=formRef.current;
+      return [...state]
+    });
+    setisOpen(false);
+  };
+
 
   return (
     <>
@@ -20,17 +34,19 @@ export default function EditLink({ link, title }) {
         <div className="flex flex-col text-start gap-5">
           <div className="dashboard-fields-row">
             <div className="dashboard-fields-container">
-              <label htmlFor="firstName">{lang("title")}</label>
-              <input id="firstName" type="text" />
+              <label htmlFor="title">{lang("title")}</label>
+              <input id="title" type="text"defaultValue={title}  onChange={(e)=>{hanldeChange('title',e.target.value)}}/>
             </div>
           </div>
           <div className="dashboard-fields-row">
             <div className="dashboard-fields-container">
-              <label htmlFor="lastName">{lang("link")}</label>
-              <input id="lastName" type="text" />
+              <label htmlFor="link">{lang("link")}</label>
+              <input id="link" type="text" defaultValue={link} onChange={(e)=>{hanldeChange('link',e.target.value)}} />
             </div>
           </div>
-          <button className="bg-blue-600 px-3 py-2 text-white w-fit rounded-lg">
+          <button
+          onClick={handleClick}
+          className="bg-blue-600 px-3 py-2 text-white w-fit rounded-lg">
             {lang("click")}
           </button>
         </div>

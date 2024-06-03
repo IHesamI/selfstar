@@ -1,7 +1,8 @@
-import React from 'react'
-
+import React from "react";
+import RequestsComponent from "./RequestsComponent";
 export default function DefaultTab() {
+
   return (
-    <div>DefaultTab</div>
-  )
+    <RequestsComponent langKey={'newRequests'} />
+  );
 }

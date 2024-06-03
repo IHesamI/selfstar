@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useLang } from "../../../hooks/useLang";
 import Modal from "../../common/Modal";
 
-export default function DeleteLink() {
+export default function DeleteLink({setLinks,index}) {
   const [isOpen, setisOpen] = useState(false);
   const lang = useLang();
 
@@ -12,6 +12,11 @@ export default function DeleteLink() {
 
   const openModal = () => {
     setisOpen(true);
+  };
+  const handleClick = () => {
+    setLinks((state) => [
+      ...state.filter((item, itemIndex) => itemIndex != index),
+    ]);
   };
 
   return (
@@ -24,7 +29,9 @@ export default function DeleteLink() {
         <div className="flex flex-col text-start gap-7">
           <p>{lang("deleteLink")}</p>
           <div className="flex flex-row justify-between">
-            <button className="bg-red-600 px-3 py-2 text-white w-fit rounded-lg hover:bg-red-800">
+            <button
+            onClick={handleClick}
+            className="bg-red-600 px-3 py-2 text-white w-fit rounded-lg hover:bg-red-800">
               {lang("click")}
             </button>
             <button

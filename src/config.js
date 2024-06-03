@@ -6,10 +6,24 @@ export const dashbaordTabs = Object.freeze({
   events: Symbol("events"),
 });
 
+export const editTabs = Object.freeze({
+  homepage: Symbol("homepage"),
+  footer:   Symbol("footer"),
+  aboutUs:  Symbol("aboutUs"),
+  members:  Symbol("members"),
+});
+
 export const adminTabs = Object.freeze({
   requests: Symbol("requests"),
   events: Symbol("events"),
   siteEdit: Symbol("siteEdit"),
+  students: Symbol("students"),
+  chartLogs: Symbol("chartLogs"),
+});
+
+export const loginTab = Object.freeze({
+  login: Symbol("login"),
+  signUp: Symbol("signUp"),
 });
 
 export const Status = {

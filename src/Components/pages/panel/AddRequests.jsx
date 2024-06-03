@@ -1,26 +1,49 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Modal from "../../common/Modal";
 import { useLang } from "../../../hooks/useLang";
+import { postRequestApi } from "../../../api/apis";
 
-export default function AddRequests() {
+export default function AddRequests({setRequests}) {
   const lang = useLang();
-
+  const inputRef=useRef({});
   const [open, setOpen] = useState(false);
+  const handleChange = (key, value) => {
+    inputRef.current = { ...inputRef.current, [key]: value };
+  };
   const handleClose = () => {
     setOpen(false);
   };
   const handleOpen = () => {
     setOpen(true);
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = { ...inputRef.current, user_id: 1 };
+    postRequestApi(data)
+      .then((res) => {
+        console.error(res);
+        setRequests((state) => {
+          return [...state, res.data];
+        });
+      })
+      .finally(() => handleClose());
+  };
+
   return (
     <>
       <Modal onClose={handleClose} isOpen={open} title={lang("newRequest")}>
-        <form className="form-add" action="">
+        <form onSubmit={handleSubmit} className="form-add" action="">
           <div className="flex flex-col text-start gap-5">
             <div className="dashboard-fields-row">
               <div className="dashboard-fields-container">
                 <label htmlFor="title">{lang("title")}</label>
-                <input id="title" type="text" />
+                <input
+                  id="title"
+                  type="text"
+                  onChange={(e) => {
+                    handleChange("title", e.target.value);
+                  }}
+                />
               </div>
             </div>
             <div className="dashboard-fields-row">
@@ -29,6 +52,9 @@ export default function AddRequests() {
                 <textarea
                   className="border-[1px] border-gray-400 h-[13rem] resize-none p-1"
                   id="requestBody"
+                  onChange={(e) => {
+                    handleChange("description", e.target.value);
+                  }}
                 ></textarea>
               </div>
             </div>

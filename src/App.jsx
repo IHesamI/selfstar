@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import "./App.css";
+import { sendLog } from "./api/apis";
 function App() {
   useEffect(() => {
-    console.error(window.location);
+    sendLog(window.location.pathname);
   }, [window.location]);
   return <></>;
 }

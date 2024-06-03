@@ -7,7 +7,7 @@ export default function Members() {
   return (
     <div
       dir={lang.isRtl ? "rtl" : "ltr"}
-      className="flex flex-col section-padding [&>*:nth-child(even)]:bg-gray-600 [&>*:nth-child(even)]:text-gray-300 "
+      className="flex flex-col section-paddin [&>*:nth-child(even)]:bg-gray-600 [&>*:nth-child(even)]:text-gray-300  sm:w-full sm:p-0"
     >
       <div className="flex flex-col gap-3 [&>*:nth-child(odd)]:bg-gray-200 [&>*:nth-child(odd)]:text-gray-600 border-[3px] border-gray-400">
         <div className="flex flex-row justify-center p-3 ">
@@ -57,7 +57,7 @@ export default function Members() {
       <div className="h-[3rem] text-center items-center justify-center flex border-[3px] border-gray-400">
         {lang("phdStudents")}
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col sm:w-full">
         <StudentsProfile
           studentInfo={{
             links: [
@@ -77,8 +77,8 @@ export default function Members() {
         />
         <StudentsProfile
           studentInfo={{
-            image:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj7j9IDpZsbq4HghrNPneZustxYupRgrt0oQ&usqp=CAU",
+            // image:
+            //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj7j9IDpZsbq4HghrNPneZustxYupRgrt0oQ&usqp=CAU",
             firstName: "رحمان",
             lastName: "امین زاده",
             rule: "عضو کمیته اجرایی",
@@ -105,13 +105,13 @@ export default function Members() {
           studentInfo={{
             image:
               "http://selfstar.sbu.ac.ir/wp-content/uploads/2019/06/mozaffari.jpg",
-            firstName: "رحمان",
-            lastName: "امین زاده",
-            rule: "عضو کمیته اجرایی",
+            firstName: "مژده",
+            lastName: "مظفری",
+            // rule: "عضو کمیته اجرایی",
             email: "hes.behboudi@gmail.com",
             thesis:
-              "ارائه میان‌افزاری جهت بهره‌گیری از سامانه‌های چندعامله خودسازمان‌ده در اینترنت اشیاء",
-            cv: "امین رحمان‌زاده در سال ۱۳۸۷ در مقطع کارشناسی رشته مهندسی فناوری اطلاعات در دانشگاه تبریز پذیرفته شد. وی در سال ۱۳۹۱ در مقطع کارشناسی ارشد رشته مهندسی فناوری اطلاعات، گرایش معماری سازمانی در دانشگاه شهید بهشتی از طریق فرآیند استعداد درخشان پذیرفته شد. در این مقطع پس از آشنایی با آزمایشگاه سلف-* جذب این آزمایشگاه شده و عمده فعالیت‌های پژوهشی خود را بر روی استفاده از سامانه‌های چندعاملی خودسازمان‌ده متمرکز کرد. وی در سال ۱۳۹۳ از پایان نامه کارشناسی ارشد خود دفاع کرده و در سال ۱۳۹۴ مجدداً از طریق فرآیند استعداد درخشان وارد مقطع دکتری در دانشگاه شهید بهشتی شده و اکنون نیز در رشته مهندسی نرم‌افزار به فعالیت خود در آزمایشگاه سلف-* ادامه می‌دهد.",
+              "ارائه حلقه کنترل بازخورد برای خودتنظیمی طراحی شِما در پایگاه­داده NoSQL",
+            cv: " ایشان در سال ۱۳۸۵ در مقطع کارشناسی در رشته مهندسی کامپیوتر – نرم افزار فارغ‌التحصیل شده و در سال ۹۰ مدرک کارشناسی ارشد خود را در رشته مهندسی کامپیوتر – نرم‌افزار با ارائه پایان نامه با عنوان «ارزیابی معماری سازمانی با استفاده از مدلهای رسمی» دریافت نمودند. از سال ۹۲ نیز مشغول به تحصیل در مقطع دکتری هستند.",
           }}
         />
       </div>
@@ -120,8 +120,8 @@ export default function Members() {
       </div>
       <StudentsProfile
         studentInfo={{
-          image:
-            "http://selfstar.sbu.ac.ir/wp-content/uploads/ultimatemember/21/profile_photo-190.jpg?1520178315",
+          // image:
+          //   "http://selfstar.sbu.ac.ir/wp-content/uploads/ultimatemember/21/profile_photo-190.jpg?1520178315",
           firstName: "رحمان",
           lastName: "امین زاده",
           rule: "عضو کمیته اجرایی",
@@ -136,8 +136,8 @@ export default function Members() {
       </div>
       <StudentsProfile
         studentInfo={{
-          image:
-            "http://selfstar.sbu.ac.ir/wp-content/uploads/ultimatemember/21/profile_photo-190.jpg?1520178315",
+          // image:
+          //   "http://selfstar.sbu.ac.ir/wp-content/uploads/ultimatemember/21/profile_photo-190.jpg?1520178315",
           firstName: "رحمان",
           lastName: "امین زاده",
           rule: "عضو کمیته اجرایی",

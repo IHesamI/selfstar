@@ -45,9 +45,9 @@ export default function Contents() {
   }
 
   return (
-    <div className="section-padding pb-3">
+    <div className="section-padding pb-3 sm:mt-5 sm:gap-3">
       {contentData && (
-        <div dir={lang.isRtl ? "rtl" : "ltr"} className="flex flex-col">
+        <div dir={lang.isRtl ? "rtl" : "ltr"} className="flex flex-col sm:gap-3">
           <div className="flex flex-row gap-1">
             <img
               className="w-16 h-16 rounded-full"
@@ -65,7 +65,7 @@ export default function Contents() {
           </div>
           <div>
             <h1 className="text-xl mb-4">{contentData?.title}</h1>
-            <p className="text-sm leading-10 text-gray-400">
+            <p className="text-sm leading-10 text-gray-400 text-justify">
               {contentData?.description}
             </p>
           </div>
@@ -78,13 +78,13 @@ export default function Contents() {
             </div>
           )}
 
-          <div className="flex flex-row justify-center mt-5">
+          <div className="flex flex-row justify-center sm:w-full mt-5">
             <form
               action="POST"
-              className="comment-form flex flex-col border-[1px] border-gray-300 p-5 gap-5"
+              className="comment-form flex flex-col sm:flex-col sm:gap-3 sm:w-full border-[1px] sm:border-none text-gray-500 border-gray-300 p-5 gap-5"
             >
               <div>{lang("comment")}</div>
-              <div className="flex flex-row gap-5">
+              <div className="flex flex-row gap-5 sm:flex-col">
                 <textarea
                   className="outline-none border-gray-300 border-[1px] rounded-md resize-none p-1"
                   name=""
@@ -92,7 +92,7 @@ export default function Contents() {
                   cols="70"
                   rows="10"
                 ></textarea>
-                <div className="flex flex-col justify-between">
+                <div className="flex flex-col justify-between sm:flex-col">
                   <div className="flex flex-col gap-6">
                     <div className="flex flex-col gap-1">
                       <label htmlFor="email">{lang("email")}</label>
@@ -103,7 +103,7 @@ export default function Contents() {
                       <input type="text" name="name" />
                     </div>
                   </div>
-                  <div className="flex flex-row justify-end">
+                  <div className="flex flex-row justify-end sm:mt-5">
                     <button className="bg-blue-500 text-white py-2 px-3 rounded-lg">
                       {lang("click")}
                     </button>

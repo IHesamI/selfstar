@@ -11,7 +11,7 @@ import DefaultTab from "./panel/DefaultTab";
 
 export default function Dashboard() {
   const lang = useLang();
-  const [leftColumn, setLeftColumn] = useState(dashbaordTabs.profile);
+  const [leftColumn, setLeftColumn] = useState(null);
   const handleChangeTab = (tab) => {
     setLeftColumn(tab);
   };
@@ -41,8 +41,8 @@ export default function Dashboard() {
     navigate("/login");
   }, []);
   return (
-    <div dir={lang.isRtl ? "rtl" : "ltr"} className="flex flex-row sm:flex-col">
-      <div className="flex flex-col sm:flex-row w-max bg-[var(--footer-background)] text-white">
+    <div dir={lang.isRtl ? "rtl" : "ltr"} className="flex flex-row sm:flex-col h-max min-h-max">
+      <div className="flex flex-col sm:flex-row w-max h-[100vh] min-h-full sm:min-h-fit sm:h-fit bg-[var(--footer-background)] text-white">
         <button
           onClick={() => handleChangeTab(dashbaordTabs.profile)}
           className={`dashboard-tab-button border-t-[1px] border-gray-600 py-3 ${

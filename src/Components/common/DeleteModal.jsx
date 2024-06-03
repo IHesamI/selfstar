@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useLang } from "../../hooks/useLang";
 import Modal from "./Modal";
 
-export default function DeleteModal({ id, modalTitle, text, handleDelete }) {
+export default function DeleteModal({ modalTitle, text, id, handleDelete }) {
   const [isOpen, setisOpen] = useState(false);
   const lang = useLang();
 
@@ -13,6 +13,9 @@ export default function DeleteModal({ id, modalTitle, text, handleDelete }) {
   const openModal = () => {
     setisOpen(true);
   };
+  const handleClick = () => {
+    handleDelete(id);
+  };
 
   return (
     <>
@@ -21,7 +24,7 @@ export default function DeleteModal({ id, modalTitle, text, handleDelete }) {
           <p>{text}</p>
           <div className="flex flex-row justify-between">
             <button
-              onClick={handleDelete}
+              onClick={handleClick}
               className="bg-red-600 px-3 py-2 text-white w-fit rounded-lg hover:bg-red-800"
             >
               {lang("click")}

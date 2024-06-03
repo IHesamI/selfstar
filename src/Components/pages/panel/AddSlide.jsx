@@ -2,34 +2,53 @@ import React, { useState } from "react";
 import Modal from "../../common/Modal";
 import { useLang } from "../../../hooks/useLang";
 import UploadFile from "../../common/UploadFile";
+import { useRef } from "react";
+import { postSlideApi } from "../../../api/apis";
 
-export default function AddSlide() {
+export default function AddSlide({setSlides,user_id}) {
   const lang = useLang();
-
+  const inputFields=useRef({});
   const [open, setOpen] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    postSlideApi({ ...inputFields.current, user_id }).then((res) => {
+      console.error(res);
+      setSlides(res.data);
+    }).finally(()=>{setOpen(false)});
+  };
+
   const handleClose = () => {
     setOpen(false);
   };
   const handleOpen = () => {
     setOpen(true);
   };
+  const handleInput = (key, value) => {
+    inputFields.current = { ...inputFields.current, [key]: value };
+  };
   return (
     <>
       <Modal onClose={handleClose} isOpen={open} title={lang("addSlide")}>
-        <form className="form-add" action="">
+        <form onSubmit={handleSubmit} className="form-add" action="POST">
           <div className="flex flex-col text-start gap-5">
             <div className="dashboard-fields-row">
               <div className="dashboard-fields-container">
                 <label htmlFor="title">{lang("title")}</label>
-                <input id="title" type="text" />
+                <input
+                  id="title"
+                  type="text"
+                  onChange={(e) => handleInput("title", e.target.value)}
+                />
               </div>
             </div>
             <div className="dashboard-fields-row">
               <div className="dashboard-fields-container">
-                <label htmlFor="slideBody">{lang("description")}</label>
+                <label htmlFor="description">{lang("description")}</label>
                 <textarea
                   className="border-[1px] border-gray-400 h-[10rem] resize-none p-1"
-                  id="slideBody"
+                  id="description"
+                  onChange={(e) => handleInput("description", e.target.value)}
                 ></textarea>
               </div>
             </div>
@@ -38,7 +57,10 @@ export default function AddSlide() {
                 <UploadFile />
               </div>
             </div>
-            <button className="bg-blue-600 px-3 py-2 text-white w-fit rounded-lg">
+            <button
+              type="submit"
+              className="bg-blue-600 px-3 py-2 text-white w-fit rounded-lg"
+            >
               {lang("click")}
             </button>
           </div>

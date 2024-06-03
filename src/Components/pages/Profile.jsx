@@ -8,7 +8,7 @@ export default function Profile() {
   const user = {
     firstName: "رحمان",
     lastName: "امین زاده",
-    email: "zarp@gmail.com",
+    email: "A_Rahman@gmail.com",
     cv: "B.Sc., IT Engineering, TBU, 2008 - 2012. M.Sc., IT Engineering-Enterprise Architecture, SBU 2012 - 2014. Ph.D. Candidate of Software Engineering, SBU, 2015 - current.",
   };
   const lang = useLang();

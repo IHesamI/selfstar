@@ -1,0 +1,110 @@
+import { axiosObj } from "./config";
+
+/**
+ * @param {{email:string,password:string}} payload
+ *
+ */
+export async function loginApi(payload) {
+  const result = await axiosObj.post("/users/login", payload);
+  return result.data;
+}
+
+/**
+ * @param {{
+ * educationHistory:string,
+ * email:string,
+ * last_name:string,
+ * name:string,
+ * password:string,
+ * links:{title:string,link:string}[],
+ * lang:"fa"|"en"
+ * }} payload
+ *
+ */
+export async function editProfile(payload) {
+  const result = await axiosObj.put("/profile/profile-edit-infos", payload);
+  return result.data;
+}
+//
+export async function sendLog(href) {
+  axiosObj.post("/logs", { log: href });
+}
+
+/**
+ * @param {{
+ * name:string,
+ * last_name:string,
+ * email:string,
+ * password:string,
+ * }} createData
+ * */
+export async function signUpApi(createData) {
+  axiosObj.post("/users/create", createData);
+}
+
+export async function addEvent(eventInfo){
+  axiosObj.post("/events/create", eventInfo);  
+}
+
+export async function getEventsApi(user_id){
+  return axiosObj.get(`/events/${user_id}`);
+}
+
+export async function getSlidesApi(user_id){
+  return axiosObj.get(`/slides/${user_id}`);
+}
+
+export async function postSlideApi(slideDto){
+  return axiosObj.post('/slides/create',slideDto);
+}
+
+export async function deleteSlideApi(slide_id){
+  return axiosObj.delete(`/slides/${slide_id}`);
+}
+
+export async function editSlideApi(slide_id,editedSlide){
+  return axiosObj.patch(`/slides/${slide_id}`,editedSlide);
+}
+
+export async function postThesisApi(thesisInfo) {
+  return axiosObj.post(`/thesis/create`, thesisInfo);
+}
+
+export async function postRequestApi(requestInfo) {
+  return axiosObj.post(`/requests/create`, requestInfo);
+}
+
+
+export async function getRequestApi(request_id) {
+  return axiosObj.get(`/requests/${request_id}`);
+}
+
+export async function deleteRequestApi(request_id) {
+  return axiosObj.delete(`/requests/${request_id}`);
+}
+
+export async function editRequestApi(request_id,editedRequest) {
+  return axiosObj.patch(`/requests/${request_id}`,editedRequest);
+}
+
+export async function getArticleApi(user_id) {
+  return axiosObj.get(`/articles/${user_id}`);
+}
+
+export async function postArticleApi(createArticleDTO) {
+  return axiosObj.post(`/articles/create`,createArticleDTO);
+}
+
+export async function editArticleApi(article_id,editArticle) {
+  return axiosObj.patch(`/articles/${article_id}`,editArticle);
+}
+
+export async function deleteArticleApi(article_id) {
+  return axiosObj.delete(`/articles/${article_id}`);
+}
+
+export async function uploadFile(url, file) {
+  const formData = new FormData();
+  formData.append("file", file);
+  axiosObj.post(`/files/${url}`, formData);
+}

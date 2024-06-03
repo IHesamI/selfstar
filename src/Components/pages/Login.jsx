@@ -1,42 +1,56 @@
-import React from "react";
 import { useLang } from "../../hooks/useLang";
-import "./pages.css";
-export default function Login() {
+import { loginTab } from "../../config";
+import { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../../Store/userSlice";
+import { useNavigate } from "react-router-dom";
+
+export default function Login({ handleChange }) {
   const lang = useLang();
+  const formRef=useRef({});
+  const dispatch=useDispatch();
+  const navigate=useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(login({payload:formRef.current,navigate}));
+
   };
+
+  const handleNewAccount = (e) => {
+    e.preventDefault();
+    handleChange(loginTab.signUp);
+  };
+  const onInputHandler=(key,value)=>{
+    formRef.current = { ...formRef.current, [key]: value };
+  }
+
   return (
-    <div className="bg-slate-100 py-10">
-      <div className="flex justify-center">
-        <div className="flex flex-col m-auto bg-white border-gray-400 border-[1px] p-10 rounded-lg">
-          <h3 className="text-center font-bold">{lang("login")}</h3>
-          <form
-            onSubmit={handleSubmit}
-            action="POST"
-            className="flex flex-col gap-5"
-          >
-            <div className="login-form-field">
-              <label htmlFor="email">{lang("email")}</label>
-              <input className="p-1 text-[0.85rem]" type="email" id="email" />
-            </div>
-            <div className="login-form-field">
-              <label htmlFor="password">{lang("password")}</label>
-              <input
-                className="p-1 text-[0.85rem]"
-                type="password"
-                id="password"
-              />
-            </div>
-            <button
-              type="submit"
-              className="flex items-center justify-center w-fit m-auto bg-blue-600 hover:bg-opacity-75 px-5 py-1 text-white rounded-lg"
-            >
-              {lang("click")}
-            </button>
-          </form>
+    <div className="flex flex-col m-auto bg-white border-gray-300 border-[1px] p-10 rounded-lg">
+      <h3 className="text-center font-bold">{lang("login")}</h3>
+      <form
+      dir={lang.isRtl ? "rtl" : ""}
+        onSubmit={handleSubmit}
+        action="POST"
+        className="flex flex-col gap-5"
+      >
+        <div className="login-form-field">
+          <label htmlFor="email">{lang("email")}</label>
+          <input className="p-1 text-[0.85rem]" type="email" id="email" onChange={(e)=>{onInputHandler('email',e.target.value)}} />
         </div>
-      </div>
+        <div className="login-form-field">
+          <label htmlFor="password">{lang("password")}</label>
+          <input className="p-1 text-[0.85rem]" type="password" id="password" onChange={(e)=>{onInputHandler('password',e.target.value)}} />
+        </div>
+        <div onClick={handleNewAccount} className="login-form-field text-[14px] text-sm text-blue-400 cursor-pointer text-center">
+          <span>{lang('newAccount')}</span>
+        </div>
+        <button
+          type="submit"
+          className="flex items-center justify-center w-fit m-auto bg-blue-600 hover:bg-opacity-75 px-5 py-1 text-white rounded-lg"
+        >
+          {lang("click")}
+        </button>
+      </form>
     </div>
   );
 }

@@ -8,8 +8,10 @@ export default function Layout({ children }) {
     <>
       <Header />
       {children}
-      <Footer />
-      <CopyRight />
+      <div className="flex flex-col">
+        <Footer />
+        <CopyRight />
+      </div>
     </>
   );
 }

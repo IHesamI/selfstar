@@ -1,15 +1,21 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { useLang } from "../../hooks/useLang";
 import { adminTabs } from "../../config";
 import Events from "./admin/Events";
 import Requests from "./admin/Requests";
-import SiteEdit from "./admin/SiteEdit";
 import DefaultTab from "./admin/DefaultTab";
+import Students from "./admin/Students";
+import { useNavigate } from "react-router-dom";
+import Index from "./admin/SiteEditing/Index";
+import ChartLogs from "./panel/ChartLogs";
 
 export default function Admin() {
   const lang = useLang();
-  function handleExit() {}
-  const [leftColumn, setLeftColumn] = useState(undefined);
+  const navigate = useNavigate();
+  function handleExit() {
+    return navigate("/login");
+  }
+  const [leftColumn, setLeftColumn] = useState(adminTabs.siteEdit);
   const handleChangeTab = (tab) => {
     setLeftColumn(tab);
   };
@@ -17,19 +23,21 @@ export default function Admin() {
     switch (leftColumn) {
       case adminTabs.events:
         return <Events />;
-
       case adminTabs.requests:
         return <Requests />;
-
       case adminTabs.siteEdit:
-        return <SiteEdit />;
+        return <Index />;
+      case adminTabs.students:
+        return <Students />;
+      case adminTabs.chartLogs:
+        return <ChartLogs/>;
       default:
         return <DefaultTab />;
     }
   }, [leftColumn]);
   return (
-    <div dir={lang.isRtl ? "rtl" : "ltr"} className="flex flex-row sm:flex-col">
-      <div className="flex flex-col sm:flex-row w-max bg-[var(--footer-background)] text-white">
+    <div dir={lang.isRtl ? "rtl" : "ltr"} className="flex flex-row sm:flex-col h-max min-h-max">
+      <div className="flex flex-col sm:flex-row w-max bg-[var(--footer-background)] h-[100vh] min-h-full sm:min-h-fit sm:h-fit text-white">
         <button
           onClick={() => handleChangeTab(adminTabs.requests)}
           className={`dashboard-tab-button ${
@@ -54,6 +62,22 @@ export default function Admin() {
         >
           {lang("events")}
         </button>
+        <button
+          onClick={() => handleChangeTab(adminTabs.chartLogs)}
+          className={`dashboard-tab-button ${
+            adminTabs.chartLogs == leftColumn && "bg-gray-500"
+          }`}
+        >
+          {lang("chartLogs")}
+        </button>
+        {/* <button
+          onClick={() => handleChangeTab(adminTabs.students)}
+          className={`dashboard-tab-button ${
+            adminTabs.students == leftColumn && "bg-gray-500"
+          }`}
+        >
+          {lang("students")}
+        </button> */}
         <button
           className="dashboard-tab-button flex flex-row justify-between"
           onClick={handleExit}

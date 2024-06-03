@@ -40,17 +40,15 @@ export default function SliderProviders({ data, type }) {
         {data.map((item, index) => {
           return (
             <div
-              key={index}
+              key={item.event_id}
               data-index={index}
               ref={index == data.length - 1 ? lastElement : null}
               className="h-full shadow-lg w-max overflow-hidden cursor-pointer"
             >
               <EventCard
-                date={new Date().toString()}
-                title={index}
-                location={
-                  "دانشگاه شهید بهشتی سالن ابوریحان مرکز همایش های بین المللی همینطور دانشگاه تهران مرکز اجلاس سران"
-                }
+                date={item.event_time}
+                title={item.title}
+                location={item.location}
               />
             </div>
           );

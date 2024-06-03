@@ -1,11 +1,16 @@
 import React, { useRef } from "react";
 import { useLang } from "../../hooks/useLang";
 
-export default function UploadFile({ title = "uploadFile" }) {
+export default function UploadFile({ title = "uploadFile" ,inputFile}) {
   const lang = useLang();
   const inputRef = useRef();
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.stopPropagation();
     inputRef.current.click();
+  };
+  const fileUploaded = (e) => {
+    const files = e.target.files;
+    if (files.length) inputFile.current = files[0];
   };
   return (
     <button
@@ -13,7 +18,7 @@ export default function UploadFile({ title = "uploadFile" }) {
       className="w-fit flex flex-row gap-4 bg-blue-600 p-3 rounded-lg items-center text-white hover:bg-opacity-85"
     >
       {lang(title)}
-      <input ref={inputRef} className="hidden" type="file" />
+      <input ref={inputRef} onChange={fileUploaded} className="hidden" type="file" />
       <svg
         fill="#ffffff"
         height="25px"

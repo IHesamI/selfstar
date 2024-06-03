@@ -1,4 +1,14 @@
-import { createSlice, configureStore } from "@reduxjs/toolkit";
+import { createSlice, configureStore, combineSlices } from "@reduxjs/toolkit";
+import storage from "redux-persist/lib/storage";
+import { persistStore } from "redux-persist";
+import { userSlice } from "./userSlice";
+import persistReducer from "redux-persist/es/persistReducer";
+
+const persistConfig={
+  key:"setting",
+  storage,
+}
+
 const settingSlice = createSlice({
   name: "setting",
   initialState: {
@@ -12,8 +22,13 @@ const settingSlice = createSlice({
   },
 });
 
+
+export const rootReducer = combineSlices(userSlice,settingSlice);
+
 export const { setLang } = settingSlice.actions;
 
+
 export const store = configureStore({
-  reducer: settingSlice.reducer,
+  reducer: rootReducer
 });
+export const persistor = persistStore(store);
