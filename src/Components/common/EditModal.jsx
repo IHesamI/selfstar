@@ -1,22 +1,27 @@
-import React, { useState } from "react";
-import { useLang } from "../../hooks/useLang";
 import Modal from "./Modal";
 
-export default function EditModal({ id, modalTitle,children }) {
-  const lang = useLang();
-  const [isOpen, setisOpen] = useState(false);
+export default function EditModal({
+  id,
+  modalTitle,
+  children,
+  onOpenClick,
+  isEditOpen,
+  setisEditOpen,
+}) {
+  // const lang = useLang();
 
   const handleClose = () => {
-    setisOpen(false);
+    setisEditOpen(false);
   };
   const openModal = () => {
-    setisOpen(true);
+    setisEditOpen(true);
+    onOpenClick(id);
   };
 
   return (
     <div className="h-fit flex flex-col justify-center">
-      <Modal isOpen={isOpen} onClose={handleClose} title={modalTitle}>
-      {children}
+      <Modal isOpen={isEditOpen} onClose={handleClose} title={modalTitle}>
+        {children}
       </Modal>
       <button onClick={openModal}>
         <svg

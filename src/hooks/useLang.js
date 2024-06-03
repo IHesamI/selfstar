@@ -9,7 +9,11 @@ export function useLang() {
   const isRtl = lang == "fa";
   const dispatch = useDispatch();
   const getTranslation = (key) => {
-    return langKeys[key][lang];
+    try{
+      return langKeys[key][lang];
+    }catch{
+      return ''
+    }
   };
 
   getTranslation.dateConverter = useCallback((month, year) => {

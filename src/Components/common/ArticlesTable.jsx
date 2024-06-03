@@ -1,21 +1,45 @@
-import React from "react";
+import { useRef, useState } from "react";
 import { useLang } from "../../hooks/useLang";
-import { Status } from "../../config";
 import EditModal from "./EditModal";
 import DeleteModal from "./DeleteModal";
 import FileDownloadIcon from "../../assets/image/FileDownloadIcon";
 import UploadFile from "./UploadFile";
+import { deleteArticleApi, editArticleApi } from "../../api/apis";
 
-export default function ArticlesTable({ headers, data }) {
+export default function ArticlesTable({ headers, data,setData }) {
+
   const lang = useLang();
-  //   function renderField(field) {
-  //     const result = lang(field);
-  //     if (result) {
-  //       return result;
-  //     } else {
-  //       return field;
-  //     }
-  //   }
+  const [isEditOpen, setisEditOpen] = useState(false);
+
+  const [editArticle, setEditArticle] = useState({});
+  const editInputRef = useRef({});
+  const onEditOpen = (id) => {
+    setEditArticle(data.find((item) => item.article_id == id));
+  };
+  const handleInput = (key, value) => {
+    editInputRef.current = { ...editInputRef.current, [key]: value };
+  };
+
+  const handleDelete = (id) => {
+    deleteArticleApi(id).then(() => {
+      setData((articles) => articles.filter((article) => article.article_id != id));
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    editArticleApi(editArticle.article_id, editInputRef.current)
+      .then((res) => {
+        const result = res.data;
+        setData((data) =>
+          data.map((item) => {
+            if (result.article_id == item.article_id) return result;
+            return item;
+          })
+        );
+      })
+      .finally(() => setisEditOpen(false));
+  };
 
   return (
     <>
@@ -36,7 +60,7 @@ export default function ArticlesTable({ headers, data }) {
           <tbody>
             {data.map((article,index) => (
               <tr key={index} className="text-gray-700">
-                {Object.keys(article).map((field) => {
+                {headers.map((field) => {
                   return field == "file" ? (
                     <td key={field} className="file">
                       <a
@@ -47,38 +71,54 @@ export default function ArticlesTable({ headers, data }) {
                         <span>{lang("download")}</span>
                       </a>
                     </td>
-                  ) : (
-                    <td key={field} className={`${field}`}>
+                  ) : field != "action" ? (
+                    <td key={field} className={`${field} w-[70%]`}>
                       {article[field]}
+                    </td>
+                  ) : (
+                    <td className="w-[10%]">
+                      <div className=" flex flex-row items-center justify-center gap-2">
+                        <EditModal
+                          id={article.article_id}
+                          isEditOpen={isEditOpen}
+                          setisEditOpen={setisEditOpen}
+                          onOpenClick={onEditOpen}
+                          modalTitle={lang("editArticle")}
+                        >
+                          <form onSubmit={handleSubmit} action="PUT">
+                            <div className="flex flex-col text-start gap-5">
+                              <div className="dashboard-fields-row">
+                                <div className="dashboard-fields-container">
+                                  <label htmlFor="title">{lang("title")}</label>
+                                  <input
+                                    id="title"
+                                    type="text"
+                                    defaultValue={editArticle.title}
+                                    onChange={(e) =>
+                                      handleInput("title", e.target.value)
+                                    }
+                                  />
+                                </div>
+                              </div>
+                              <div className="dashboard-fields-row">
+                                <UploadFile />
+                              </div>
+                              <button className="bg-blue-600 px-3 py-2 text-white w-fit rounded-lg">
+                                {lang("click")}
+                              </button>
+                            </div>
+                          </form>
+                        </EditModal>
+                        <DeleteModal
+                          handleDelete={handleDelete}
+                          id={article.article_id}
+                          modalTitle={lang("deleteArticleTitle")}
+                          text={lang("deleteArticle")}
+                        />
+                      </div>
                     </td>
                   );
                 })}
-                <td className="w-[10%]">
-                  <div className=" flex flex-row items-center justify-center gap-2">
-                    <EditModal modalTitle={lang("editArticle")}>
-                      <form action="">
-                        <div className="flex flex-col text-start gap-5">
-                          <div className="dashboard-fields-row">
-                            <div className="dashboard-fields-container">
-                              <label htmlFor="title">{lang("title")}</label>
-                              <input id="title" type="text" />
-                            </div>
-                          </div>
-                          <div className="dashboard-fields-row">
-                            <UploadFile />
-                          </div>
-                          <button className="bg-blue-600 px-3 py-2 text-white w-fit rounded-lg">
-                            {lang("click")}
-                          </button>
-                        </div>
-                      </form>
-                    </EditModal>
-                    <DeleteModal
-                      modalTitle={lang("deleteArticleTitle")}
-                      text={lang("deleteArticle")}
-                    />
-                  </div>
-                </td>
               </tr>
             ))}
           </tbody>

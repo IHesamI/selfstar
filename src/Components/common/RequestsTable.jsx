@@ -1,20 +1,44 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { useLang } from "../../hooks/useLang";
 import { Status } from "../../config";
 import EditModal from "./EditModal";
 import DeleteModal from "./DeleteModal";
+import StatusComp from "./Status";
+import { deleteRequestApi, editRequestApi } from "../../api/apis";
 
-export default function RequestsTable({ headers, data }) {
+export default function RequestsTable({ headers, data,setRequests }) {
   const lang = useLang();
-  //   function renderField(field) {
-  //     const result = lang(field);
-  //     if (result) {
-  //       return result;
-  //     } else {
-  //       return field;
-  //     }
-  //   }
+  const [isEditOpen, setisEditOpen] = useState(false);
+  const editInputRef = useRef({});
+  const [toEdit,setToEdit]=useState({});
+  
+  const handleInput = (key, value) => {
+    editInputRef.current = { ...editInputRef.current, [key]: value };
+  };
 
+  const handleDelete = (id) => {
+    deleteRequestApi(id).then(() =>
+      setRequests((state) =>
+        state.filter((request) => request.request_id != id)
+      )
+    );
+  };
+  const onOpenClick=(id)=>{
+    setToEdit(data.find((request) => request.request_id == id));
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    editRequestApi(toEdit.request_id,editInputRef.current).then((res)=>{
+      const resultReq=res.data;
+      setRequests((requests) =>
+        requests.map((request) => {
+          if (resultReq.request_id == request.request_id) return resultReq;
+          return request;
+        })
+      );
+    }).finally(()=>setisEditOpen(false));
+    ;
+  };
   return (
     <>
       <table className="table max-h-[35rem]">
@@ -34,63 +58,77 @@ export default function RequestsTable({ headers, data }) {
           <tbody>
             {data.map((request, index) => (
               <tr key={index} className="text-gray-700">
-                {Object.keys(request).map((field) => {
+                {headers.map((field) => {
                   return field == "status" ? (
-                    <td key={field}>
-                      <div className="flex justify-center">
-                        <span
-                          className={`${
-                            Status[request[field]]
-                          } badge h-fit p-1 text-center items-center`}
-                        >
-                          {lang(Status[request[field]])}
-                        </span>
-                      </div>
-                    </td>
-                  ) : (
+                    <StatusComp
+                      key={request.request_id}
+                      status={request[field]}
+                    />
+                  ) : field != "action" ? (
                     <td key={field} className={`${field}`}>
                       {request[field]}
                     </td>
+                  ) : (
+                    <td>
+                      <div className="flex flex-row items-center justify-center gap-2">
+                        <EditModal
+                          isEditOpen={isEditOpen}
+                          setisEditOpen={setisEditOpen}
+                          id={request.request_id}
+                          onOpenClick={onOpenClick}
+                          modalTitle={lang("editRequest")}
+                          title={request["title"]}
+                          description={request["description"]}
+                        >
+                          <form onSubmit={handleSubmit} action="PUT">
+                            <div className="flex flex-col text-start gap-5">
+                              <div className="dashboard-fields-row">
+                                <div className="dashboard-fields-container">
+                                  <label htmlFor="title">{lang("title")}</label>
+                                  <input
+                                    id="title"
+                                    type="text"
+                                    defaultValue={toEdit.title}
+                                    onChange={(e) =>
+                                      handleInput("title", e.target.value)
+                                    }
+                                  />
+                                </div>
+                              </div>
+                              <div className="dashboard-fields-row">
+                                <div className="dashboard-fields-container">
+                                  <label htmlFor="requestBody">
+                                    {lang("description")}
+                                  </label>
+                                  <textarea
+                                    className="border-[1px] border-gray-400 h-[7rem] resize-none p-1"
+                                    id="requestBody"
+                                    defaultValue={toEdit.description}
+                                    onChange={(e) =>
+                                      handleInput("description", e.target.value)
+                                    }
+                                  ></textarea>
+                                </div>
+                              </div>
+                              <button
+                                type="submit"
+                                className="bg-blue-600 px-3 py-2 text-white w-fit rounded-lg"
+                              >
+                                {lang("click")}
+                              </button>
+                            </div>
+                          </form>
+                        </EditModal>
+                        <DeleteModal
+                          id={request.request_id}
+                          handleDelete={handleDelete}
+                          modalTitle={lang("deleteRequestTitle")}
+                          text={lang("deleteRequest")}
+                        />
+                      </div>
+                    </td>
                   );
                 })}
-                <td>
-                  <div className="flex flex-row items-center justify-center gap-2">
-                    <EditModal
-                      modalTitle={lang("editRequest")}
-                      title={request["title"]}
-                      description={request["description"]}
-                    >
-                      <form action="">
-                        <div className="flex flex-col text-start gap-5">
-                          <div className="dashboard-fields-row">
-                            <div className="dashboard-fields-container">
-                              <label htmlFor="title">{lang("title")}</label>
-                              <input id="title" type="text" />
-                            </div>
-                          </div>
-                          <div className="dashboard-fields-row">
-                            <div className="dashboard-fields-container">
-                              <label htmlFor="requestBody">
-                                {lang("description")}
-                              </label>
-                              <textarea
-                                className="border-[1px] border-gray-400 h-[7rem] resize-none p-1"
-                                id="requestBody"
-                              ></textarea>
-                            </div>
-                          </div>
-                          <button className="bg-blue-600 px-3 py-2 text-white w-fit rounded-lg">
-                            {lang("click")}
-                          </button>
-                        </div>
-                      </form>
-                    </EditModal>
-                    <DeleteModal
-                      modalTitle={lang("deleteRequestTitle")}
-                      text={lang("deleteRequest")}
-                    />
-                  </div>
-                </td>
               </tr>
             ))}
           </tbody>

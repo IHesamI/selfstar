@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { loginApi } from "../api/apis";
+import { loginApi, signUpApi } from "../api/apis";
 import { parseJwt } from "../Utils/decode";
 
 
@@ -23,9 +23,14 @@ function saveJwt(state,action){
 }
 
 
-export const signUp=createAsyncThunk('signUp',(payload)=>{
+export const signUp = createAsyncThunk("signUp", ({payload,navigate}) => {
+  const result = signUpApi(payload);
+  if (result) {
+    navigate("/dashboard");
+  }
+  return result;
+});
 
-})
 /**
  * @param {{email:string,password:string}} payload 
  * 
@@ -33,7 +38,6 @@ export const signUp=createAsyncThunk('signUp',(payload)=>{
 export const login = createAsyncThunk("login", async ({payload,navigate}) => {
   const result = await loginApi(payload);
   if(result){
-    console.error(result);
     navigate('/dashboard')
   }
   return result;

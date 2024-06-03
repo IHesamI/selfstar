@@ -1,35 +1,52 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Modal from "../../common/Modal";
 import { useLang } from "../../../hooks/useLang";
 import UploadFile from "../../common/UploadFile";
+import { postArticleApi, uploadFile } from "../../../api/apis";
 
-export default function AddArticle() {
+export default function AddArticle({setArticles}) {
   const lang = useLang();
 
   const [open, setOpen] = useState(false);
+  const inputRef=useRef({});
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    postArticleApi({ ...inputRef.current, user_id: 1 })
+      .then((res) => {
+        uploadFile('article',inputFile.current)
+      })
+      .then()
+      .finally(handleClose);
+  };
+
+  const handleInput = (key, value) => {
+    inputRef.current = { ...inputRef.current, [key]: value };
+  };
+
   const handleClose = () => {
-    setOpen(false);
+    // setOpen(false);
   };
   const handleOpen = () => {
     setOpen(true);
   };
+  const inputFile=useRef();
   return (
     <>
       <Modal onClose={handleClose} isOpen={open} title={lang("addArtcile")}>
-        <form className="form-add h-[13rem]" action="">
+        <form onSubmit={handleSubmit} className="form-add h-[13rem]" action="POST">
           <div className="flex flex-col text-start gap-5">
             <div className="dashboard-fields-row">
               <div className="dashboard-fields-container">
                 <label htmlFor="title">{lang("title")}</label>
-                <input id="title" type="text" />
+                <input id="title" type="text" onChange={(e)=>handleInput('title',e.target.value)}/>
               </div>
             </div>
             <div className="dashboard-fields-row">
               <div className="dashboard-fields-container">
-                <UploadFile />
+                <UploadFile inputFile={inputFile} />
               </div>
             </div>
-            <button className="bg-blue-600 px-3 py-2 text-white w-fit rounded-lg">
+            <button type="submit" className="bg-blue-600 px-3 py-2 text-white w-fit rounded-lg">
               {lang("click")}
             </button>
           </div>

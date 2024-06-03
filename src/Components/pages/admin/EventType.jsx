@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useLang } from "../../../hooks/useLang";
 import SelectWithSearch from "./SelectWithSearch";
 
-export default function EventType() {
+export default function EventType({choosenStudent}) {
   const lang = useLang();
   const [type, setType] = useState("public");
   const setTypePrivate = (e) => {
@@ -37,7 +37,7 @@ export default function EventType() {
         />
         <span>{lang("private")}</span>
       </div>
-      {type == "private" ? <SelectWithSearch /> : <></>}
+      {type == "private" ? <SelectWithSearch handleChoose={choosenStudent} /> : <></>}
     </div>
   );
 }

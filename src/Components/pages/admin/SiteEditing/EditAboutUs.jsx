@@ -22,7 +22,7 @@ export default function EditAboutUs() {
         ]}
       />
       <div className="w-fit">
-      <LinkContainer />
+      <LinkContainer links={[]} setLinks={()=>{}} />
       </div>
     </div>
   );

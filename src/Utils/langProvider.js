@@ -88,6 +88,7 @@ export const langKeys = {
     en: "Search...",
     fa: "جستجو...",
   },
+
   history: {
     en: "",
     fa: "تاریخچه مطالب منتشر شده",
@@ -392,6 +393,10 @@ export const langKeys = {
   noslide: {
     en: "",
     fa: "اسلایدی وجود ندارد",
+  },
+  noarticle: {
+    en: "",
+    fa: "مقاله ای وجود ندارد",
   },
   newSlide: {
     en: "",
