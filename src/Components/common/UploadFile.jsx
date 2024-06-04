@@ -1,7 +1,11 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useLang } from "../../hooks/useLang";
 
-export default function UploadFile({ title = "uploadFile" ,inputFile}) {
+export default function UploadFile({
+  title = "uploadFile",
+  inputFile,
+  restriction,
+}) {
   const lang = useLang();
   const inputRef = useRef();
   const handleClick = (e) => {
@@ -18,7 +22,13 @@ export default function UploadFile({ title = "uploadFile" ,inputFile}) {
       className="w-fit flex flex-row gap-4 bg-blue-600 p-3 rounded-lg items-center text-white hover:bg-opacity-85"
     >
       {lang(title)}
-      <input ref={inputRef} onChange={fileUploaded} className="hidden" type="file" />
+      <input
+        ref={inputRef}
+        onChange={fileUploaded}
+        accept={restriction ? restriction : "*"}
+        className="hidden"
+        type="file"
+      />
       <svg
         fill="#ffffff"
         height="25px"

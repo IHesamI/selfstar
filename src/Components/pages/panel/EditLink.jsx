@@ -20,9 +20,13 @@ export default function EditLink({ link, title,setLinks ,index}) {
   };
 
   const handleClick = () => {
+    console.error(index,formRef.current);
+    console.error(setLinks);
     setLinks((state) => {
-      state[index]=formRef.current;
-      return [...state]
+      const newState=[...state];
+      console.error(state,newState);
+      newState[index] = { ...newState[index], ...formRef.current };
+      return newState;
     });
     setisOpen(false);
   };

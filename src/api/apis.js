@@ -9,6 +9,11 @@ export async function loginApi(payload) {
   return result.data;
 }
 
+export async function signUpApi(createData) {
+  return (await axiosObj.post("/users/create", createData)).data;
+}
+
+
 /**
  * @param {{
  * educationHistory:string,
@@ -21,8 +26,8 @@ export async function loginApi(payload) {
  * }} payload
  *
  */
-export async function editProfile(payload) {
-  const result = await axiosObj.put("/profile/profile-edit-infos", payload);
+export async function editProfileApi(profile_id,payload) {
+  const result = await axiosObj.patch(`/profile/${profile_id}`, payload);
   return result.data;
 }
 //
@@ -38,9 +43,6 @@ export async function sendLog(href) {
  * password:string,
  * }} createData
  * */
-export async function signUpApi(createData) {
-  axiosObj.post("/users/create", createData);
-}
 
 export async function addEvent(eventInfo){
   axiosObj.post("/events/create", eventInfo);  
@@ -103,8 +105,9 @@ export async function deleteArticleApi(article_id) {
   return axiosObj.delete(`/articles/${article_id}`);
 }
 
-export async function uploadFile(url, file) {
+export async function uploadFile(url, file,identtifier) {
   const formData = new FormData();
   formData.append("file", file);
+  formData.append("identifier", identtifier);
   axiosObj.post(`/files/${url}`, formData);
 }

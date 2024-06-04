@@ -13,9 +13,9 @@ export default function AddArticle({setArticles}) {
     e.preventDefault();
     postArticleApi({ ...inputRef.current, user_id: 1 })
       .then((res) => {
-        uploadFile('article',inputFile.current)
+        uploadFile('article',inputFile.current,1)
+        return res;
       })
-      .then()
       .finally(handleClose);
   };
 
@@ -24,7 +24,7 @@ export default function AddArticle({setArticles}) {
   };
 
   const handleClose = () => {
-    // setOpen(false);
+    setOpen(false);
   };
   const handleOpen = () => {
     setOpen(true);

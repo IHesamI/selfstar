@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { loginApi, signUpApi } from "../api/apis";
+import { editProfileApi, loginApi, signUpApi, uploadFile } from "../api/apis";
 import { parseJwt } from "../Utils/decode";
 
 
@@ -9,27 +9,52 @@ const initialState = {
   name: null,
   last_name: null,
   email: null,
+  profile: {
+    profile_id: null,
+    user: null,
+    name: null,
+    last_name: null,
+    email: null,
+    educationHistory: null,
+    avatar_url: null,
+    resume_url: null,
+    links: [],
+    lang: "fa",
+  },
 };
 
 function saveJwt(state,action){
     const { token } = action.payload;
     if(token){
-      const { user_id, name, last_name, email } = parseJwt(token);
-      state.user_id = user_id;
-      state.name = name;
-      state.last_name = last_name;
-      state.email = email;
+      const profile = parseJwt(token);
+      console.error(profile);
+      state.profile= profile;
     }
 }
 
 
-export const signUp = createAsyncThunk("signUp", ({payload,navigate}) => {
-  const result = signUpApi(payload);
+export const signUp = createAsyncThunk("signUp", async ({payload,navigate}) => {
+  const result = await signUpApi(payload);
   if (result) {
     navigate("/dashboard");
   }
   return result;
 });
+
+export const editProfile = createAsyncThunk(
+  "editProfile",
+  async ({ payload, profile_id, image, resume }) => {
+    return await editProfileApi(profile_id, payload).then(async (res) => {
+      if (image) {
+        uploadFile("avatar", image, res.profile_id);
+      }
+      if (resume) {
+        uploadFile("resume", resume, res.profile_id);
+      }
+      return res;
+    });
+  }
+);
 
 /**
  * @param {{email:string,password:string}} payload 
@@ -52,8 +77,11 @@ export const userSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(signUp.fulfilled, saveJwt)
-      // .addCase(login.pending, saveJwt)
-      .addCase(login.fulfilled, saveJwt);
+      .addCase(login.fulfilled, saveJwt)
+      .addCase(editProfile.fulfilled, (state, action) => {
+        const payload = action.payload;
+        state.profile = { ...state.profile, ...payload };
+      });
   },
 });
 

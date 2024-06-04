@@ -1,4 +1,4 @@
-import  { useRef, useState } from "react";
+import  { useCallback, useRef, useState } from "react";
 import Modal from "../../common/Modal";
 import { useLang } from "../../../hooks/useLang";
 
@@ -6,9 +6,9 @@ export default function AddLink({setLinks}) {
   const lang = useLang();
   const [isOpen, setisOpen] = useState(false);
   const formRef=useRef({});
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setisOpen(false);
-  };
+  }, []);
 
   const hanldeChange = (key, value) => {
     formRef.current = { ...formRef.current, [key]: value };
