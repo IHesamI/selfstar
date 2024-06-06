@@ -2,7 +2,6 @@ import { createBrowserRouter, createHashRouter } from "react-router-dom";
 import React from "react";
 import Login from "../Components/pages/LoginSingUp";
 import Category from "../Components/pages/category/Category";
-import Slides from "../Components/pages/category/Slides";
 import Contents from "../Components/pages/category/Contents";
 import AboutUs from "../Components/pages/AboutUs";
 import Members from "../Components/pages/Members";
@@ -13,6 +12,7 @@ import ErrorPage from "../Components/pages/ErrorPage";
 import Profile from "../Components/pages/Profile";
 import Home from "../Components/pages/Home";
 import Admin from "../Components/pages/Admin";
+import CategoryList from "../Components/pages/category/CategoryList";
 const router = createBrowserRouter(
   [
     {
@@ -29,19 +29,19 @@ const router = createBrowserRouter(
       children: [
         {
           path: "slides",
-          element: React.createElement(Slides),
+          element: React.createElement(CategoryList,{urlParam:'slides'}),
         },
         {
           path: "thesis",
-          element: React.createElement(Slides),
+          element: React.createElement(CategoryList,{urlParam:'thesis'}),
         },
         {
           path: "articles",
-          element: React.createElement(Slides),
+          element: React.createElement(CategoryList,{urlParam:'articles'}),
         },
         {
           path: "seminar",
-          element: React.createElement(Seminars),
+          element: React.createElement(CategoryList,{urlParam:'seminar'}),
         },
       ],
     },

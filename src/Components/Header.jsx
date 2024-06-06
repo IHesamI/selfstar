@@ -9,7 +9,7 @@ import { setLang } from "../Store/store";
 import ClickIcon from "../assets/image/ClickIcon";
 export default function Header() {
   // const dispatch = useDispatch();
-  const profile = useSelector((state) => state.profile);
+  const {profile} = useSelector((state) => state.user);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const lang = useLang();
@@ -25,7 +25,7 @@ export default function Header() {
       dir={lang.isRtl ? "ltr" : "rtl"}
       className="header-container flex flex-row justify-between py-5 section-padding shadow-md"
     >
-      <a href="#">
+      <a href="/">
         <img src={logo} alt="آزمایشگاه خود تطبیق داشنگاه شهید بهشتی" />
       </a>
       <div className="lg:hidden">
@@ -49,7 +49,7 @@ export default function Header() {
         >
           <ClickIcon color="#000" />
         </button>
-        <a onClick={handleClose} href="#">
+        <a onClick={handleClose} href="/">
           {lang("homePage")}
         </a>
         <div className="flex flex-col relative items-center sm:items-start justify-center group sm:w-full">
@@ -95,7 +95,7 @@ export default function Header() {
         </div>
         <a
           onClick={handleClose}
-          href="about-us"
+          href="/about-us"
           className="target:text-red-500"
         >
           {lang("aboutUs")}

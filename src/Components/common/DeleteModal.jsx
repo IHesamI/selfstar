@@ -15,6 +15,7 @@ export default function DeleteModal({ modalTitle, text, id, handleDelete }) {
   };
   const handleClick = () => {
     handleDelete(id);
+    handleClose();
   };
 
   return (

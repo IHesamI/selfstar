@@ -1,11 +1,11 @@
-import React from "react";
 import DeleteModal from "../../common/DeleteModal";
 import { useLang } from "../../../hooks/useLang";
+import { deleteEventApi } from "../../../api/apis";
 
 export default function EventsTable({ headers, data }) {
   const lang = useLang();
-  const handleDelete = () => {
-    // TODO
+  const handleDelete = (id) => {
+    deleteEventApi(id);
   };
   return (
     <>
@@ -15,7 +15,7 @@ export default function EventsTable({ headers, data }) {
             {headers.map((item) => (
               <th
                 key={item}
-                className="text-start border-[1px] p-1 border-gray-300 border-collapse "
+                className="text-start border-[1px] p-1 border-gray-300 border-collapse text-nowrap"
               >
                 {lang(item)}
               </th>
@@ -24,14 +24,14 @@ export default function EventsTable({ headers, data }) {
         </thead>
         {data.length != 0 ? (
           <tbody>
-            {data.map((slide, index) => (
+            {data.map((event, index) => (
               <tr key={index} className="text-gray-700">
                 {headers.map((field) => {
                   return field == "file" ? (
                     <td key={field} className="file">
                       <a
                         className="flex flex-row p-3 gap-2 hover:bg-gray-100"
-                        href={slide[field]}
+                        href={event[field]}
                       >
                         {/* <FileDownloadIcon color={"#121212"} /> */}
                         <span>{lang("download")}</span>
@@ -39,7 +39,7 @@ export default function EventsTable({ headers, data }) {
                     </td>
                   ) : field != "action" ? (
                     <td key={field} className={`${field}`}>
-                      {slide[field]}
+                      {event[field]}
                     </td>
                   ) : (
                     <td key={field}>
@@ -48,6 +48,7 @@ export default function EventsTable({ headers, data }) {
                           modalTitle={lang("deleteEventTitle")}
                           text={lang("deleteEvent")}
                           handleDelete={handleDelete}
+                          id={event.event_id}
                         />
                       </div>
                     </td>

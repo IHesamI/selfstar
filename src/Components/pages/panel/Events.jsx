@@ -10,7 +10,7 @@ export default function Events() {
   const lang = useLang();
   const [events, setEvents] = useState([]);
   const [slides, setSlides] = useState([]);
-  const profile=useSelector(state=>state.profile);
+  const {profile}=useSelector(state=>state.user);
   useEffect(() => {
     const fetchEvents = async () => {
       getEventsApi(1).then((res) => setEvents(res.data));

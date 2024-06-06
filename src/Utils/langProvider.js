@@ -430,7 +430,7 @@ export const langKeys = {
     en: "Edit Site",
     fa: "ویرایش سایت",
   },
-  requestDate: {
+  createdDate: {
     en: "Request Date",
     fa: "تاریخ درخواست",
   },
@@ -470,7 +470,7 @@ export const langKeys = {
     en: "Private",
     fa: "خصوصی",
   },
-  eventDate: {
+  event_time: {
     en: "Date",
     fa: "تاریخ رویداد",
   },

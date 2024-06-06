@@ -1,18 +1,7 @@
-import React from "react";
 import { useLang } from "../../hooks/useLang";
 import Avatar from "./Avatar";
 export default function StudentsProfile({ studentInfo }) {
-  const {
-    image,
-    firstName,
-    lastName,
-    rule,
-    cv,
-    thesis,
-    email,
-    links,
-    thesisurl,
-  } = studentInfo;
+  const { educationHistory, email, last_name, name, profile_id, rule,avatar_url,resume_url,thesis,links } =studentInfo;
   const lang = useLang();
   function renderText(key, value) {
     return `${lang(key)} : ${value}`;
@@ -24,13 +13,13 @@ export default function StudentsProfile({ studentInfo }) {
     <div className="flex flex-row [&>*:nth-child(odd)]:bg-gray-200 text-gray-600 border-x-[3px] border-y-[1px] border-gray-400  sm:flex-col">
       <div className="flex flex-col gap-3 p-5 max-w-[15.5rem] sm:max-w-full">
         <a href="/members/123123">
-          <Avatar image={image} />
+          <Avatar image={avatar_url} />
         </a>
 
         <div className="flex flex-col">
           <ul className="space-y-4">
-            <li className="list-item ">{renderText("firstName", firstName)}</li>
-            <li className="list-item ">{renderText("lastName", lastName)}</li>
+            <li className="list-item ">{renderText("firstName", name)}</li>
+            <li className="list-item ">{renderText("lastName", last_name)}</li>
             {rule && <li className="list-item ">{renderText("rule", rule)}</li>}
             {email && (
               <li
@@ -46,22 +35,27 @@ export default function StudentsProfile({ studentInfo }) {
       </div>
       <div className="flex flex-col pt-3 px-5 space-y-10">
         <div>
-          <a
-            className="hover:text-blue-600 cursor-pointer text-justify flex"
-            href={thesisurl}
-          >
-            {renderText("thesisTitle", thesis)}
-          </a>
+          {thesis && (
+            <a
+              className="hover:text-blue-600 cursor-pointer text-justify flex"
+              href={thesis}
+            >
+              {renderText("thesisTitle", thesis)}
+            </a>
+          )}
         </div>
-        <div className="text-justify">{cv && renderText("cv", cv)}</div>
+        <div className="text-justify">
+          {educationHistory && renderText("cv", educationHistory)}
+        </div>
         <div className="flex flex-wrap gap-[3rem] sm:pb-5">
           {links?.map((link) => {
             return (
-              <li>
+              <li key={link.url + link.title}>
                 <a
                   className="hover:text-blue-600"
                   href={link.url}
                   target="_blank"
+                  rel="noreferrer"
                 >
                   {link.title}
                 </a>

@@ -6,7 +6,7 @@ import { postThesisApi } from "../../../api/apis";
 
 export default function ThesisUpload() {
   const lang = useLang();
-  const profile = useSelector((state) => state.profile);
+  const {profile} = useSelector((state) => state.user);
   const thesisRef = useRef({});
   
   const onInput = (key, value) => {

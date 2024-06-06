@@ -5,10 +5,6 @@ import { parseJwt } from "../Utils/decode";
 
 
 const initialState = {
-  user_id: null,
-  name: null,
-  last_name: null,
-  email: null,
   profile: {
     profile_id: null,
     user: null,
@@ -69,7 +65,7 @@ export const login = createAsyncThunk("login", async ({payload,navigate}) => {
 });
 
 
-const name= "profile";
+const name= "user";
 
 export const userSlice = createSlice({
   name,

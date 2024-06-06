@@ -38,5 +38,6 @@ export function useLang() {
   }, [isRtl]);
 
   getTranslation.isRtl = isRtl;
+  getTranslation.langType = isRtl ? "fa" : "en";
   return getTranslation;
 }

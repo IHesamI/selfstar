@@ -10,7 +10,9 @@ export default function SignUp({ handleChange }) {
   const inputDataRef = useRef({});
   const dispatch=useDispatch();
   const navigate=useNavigate();
-  const onInput = (key, value) => {
+
+  const onInput = (key, value, must_add_lang = false) => {
+    if (must_add_lang) key = `${key}_${lang.isRtl ? "fa" : "en"}`;
     inputDataRef.current = { ...inputDataRef.current, [key]: value };
   };
 
@@ -34,11 +36,11 @@ export default function SignUp({ handleChange }) {
       >
         <div className="login-form-field">
           <label htmlFor="firstName">{lang("firstName")}</label>
-          <input className="p-1 text-[0.85rem]" type="text" id="firstName"  onChange={(e)=>onInput('name',e.target.value)}/>
+          <input className="p-1 text-[0.85rem]" type="text" id="firstName"  onChange={(e)=>onInput('name',e.target.value,true)}/>
         </div>
         <div className="login-form-field">
           <label htmlFor="lastName">{lang("lastName")}</label>
-          <input className="p-1 text-[0.85rem]" type="text" id="lastName" onChange={(e)=>onInput('last_name',e.target.value)}/>
+          <input className="p-1 text-[0.85rem]" type="text" id="lastName" onChange={(e)=>onInput('last_name',e.target.value,true)}/>
         </div>
         <div className="login-form-field">
           <label htmlFor="email">{lang("email")}</label>

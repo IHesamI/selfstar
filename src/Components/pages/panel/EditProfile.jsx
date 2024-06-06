@@ -12,39 +12,45 @@ import { useDispatch, useSelector } from "react-redux";
 import { editProfile } from "../../../Store/userSlice";
 
 export default function EditProfile() {
-  // const user = {name:'حسن',lastName:'قلی زاده'}
-  const profile=useSelector((state) => state.profile.profile);
-  console.error(profile);
+  
+  const {profile}=useSelector((state) => state.user);
   const [links, setLinks] = useState(profile.links);
+  console.error(profile);
   const [avatarImg,setAvatarImg] = useState(profile.avatar_url);
+  console.error(avatarImg);
   const lang = useLang();
   const inputRef = useRef(null);
-  const imageFile=useRef();
+  const imageFile=useRef(null);
   const inputFeilds = useRef({});
   const dispatch = useDispatch();
+  const [inputImageState, setinputImageState] = useState(null);
   const handleChangePicture = useCallback(() => {
     inputRef.current.click();
   }, []);
-  
+  const getProperField = (field) => {
+    return profile[`${field}_${lang.langType}`];
+  };
   const handleImageInput = (e) => {
     const files = e.target.files;
     if (files.length) {
       const file = files[0];
-      setAvatarImg(URL.createObjectURL(file));
       imageFile.current = file;
+      const result = URL.createObjectURL(file);
+      setinputImageState(result);
     }
   };
 
-  const handleChange = (key, value) => {
+  const handleChange = (key, value,must_add_lang) => {
+    if (must_add_lang) key = `${key}_${lang.langType}`;
     inputFeilds.current = { ...inputFeilds.current, [key]: value };
   };
-  const resumeRef = useRef();
+
+  const resumeRef = useRef(null);
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
       ...inputFeilds.current,
       links,
-      lang: lang.isRtl ? "fa" : "en",
     };
     dispatch(
       editProfile({
@@ -65,6 +71,7 @@ export default function EditProfile() {
         <div className="flex flex-col text-center justify-between  sm:responsive-profile xlg:responsive-profile medium:responsive-profile">
           <div className="flex flex-col w-full gap-5">
             <Avatar
+            imageInput={inputImageState}
               canDelete={() => {
                 setAvatarImg("");
               }}
@@ -111,22 +118,24 @@ export default function EditProfile() {
                   {lang("name")}
                 </label>
                 <input
+                  key={lang.langType}
                   id="firstName"
                   type="text"
-                  defaultValue={profile.name}
+                  defaultValue={getProperField("name")}
                   onChange={(e) => {
-                    handleChange("name", e.target.value);
+                    handleChange("name", e.target.value, true);
                   }}
                 />
               </div>
               <div className="dashboard-fields-container">
                 <label htmlFor="lastName">{lang("lastName")}</label>
                 <input
+                  key={lang.langType}
                   id="lastName"
                   type="text"
-                  defaultValue={profile.last_name}
+                  defaultValue={getProperField("last_name")}
                   onChange={(e) => {
-                    handleChange("last_name", e.target.value);
+                    handleChange("last_name", e.target.value, true);
                   }}
                 />
               </div>
@@ -166,10 +175,11 @@ export default function EditProfile() {
               <div className="dashboard-fields-container ">
                 <label htmlFor="cv">{lang("educationHistory")}</label>
                 <textarea
-                  defaultValue={profile.educationHistory}
+                  key={lang.langType}
+                  defaultValue={getProperField("educationHistory")}
                   className="border-[1px] h-[6rem] p-1 text-sm resize-none border-gray-300 outline-none"
                   onChange={(e) => {
-                    handleChange("educationHistory", e.target.value);
+                    handleChange("educationHistory", e.target.value, true);
                   }}
                 ></textarea>
               </div>
