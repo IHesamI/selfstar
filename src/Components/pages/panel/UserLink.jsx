@@ -12,12 +12,7 @@ export default function UserLink({ title, link,setLinks,index }) {
       </a>
       <div className="flex flex-row gap-1">
         <EditLink index={index} setLinks={setLinks} title={title} link={link} />
-        <DeleteLink
-          index={index}
-          setLinks={setLinks}
-          // title={title}
-          // link={link}
-        />
+        <DeleteLink index={index} setLinks={setLinks} />
       </div>
     </div>
   );

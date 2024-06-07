@@ -32,3 +32,6 @@ export const Status = {
   [2]: "seen",
   [3]: "rejected",
 };
+
+
+export const downloadPrefixUlr='http://localhost:3000/files/download/';

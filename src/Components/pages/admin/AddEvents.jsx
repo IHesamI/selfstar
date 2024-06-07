@@ -1,8 +1,8 @@
-import React, { useCallback, useRef, useState } from "react";
+import {  useRef, useState } from "react";
 import { useLang } from "../../../hooks/useLang";
-import Modal from "../../common/Modal";
 import EventType from "./EventType";
 import BackArrow from "../../../assets/image/BackArrow";
+import { addEvent } from "../../../api/apis";
 
 export default function AddEvents({ handleBack }) {
   const lang = useLang();
@@ -14,6 +14,7 @@ export default function AddEvents({ handleBack }) {
   const handleSubmit=(e)=>{
     e.preventDefault();
     const data = { ...formRef.current, target_user_id: choosenStudent };
+    addEvent(data);
   }
   return (
     <div className="flex flex-col gap-5 section-padding mt-5 w-full">
@@ -61,7 +62,7 @@ export default function AddEvents({ handleBack }) {
             <input
               type="date"
               id="date"
-              onChange={(e) => handleInput("time", e.target.value)}
+              onChange={(e) => handleInput("event_time", e.target.value)}
             />
           </div>
         </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import { useLang } from "../../../hooks/useLang";
 import RequestTableRow from "./RequestTableRow";
 
@@ -23,7 +22,8 @@ export default function RequestTable({ headers, data, onSelectRow }) {
           <tbody>
             {data.map((request, index) => (
               <RequestTableRow
-              onSelect={onSelectRow}
+                key={request.request_id}
+                onSelect={onSelectRow}
                 request={request}
                 headers={headers}
                 index={index}

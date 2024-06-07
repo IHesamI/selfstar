@@ -1,12 +1,23 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import AddEvents from "./AddEvents";
 import NewEvent from "../../../assets/image/NewEvent";
 import { useLang } from "../../../hooks/useLang";
 import EventsTable from "./EventsTable";
+import { getAllEventsApi} from "../../../api/apis";
+import { formatTime } from "../../../Utils/timeUtil";
 
 export default function Events() {
   const lang = useLang();
+  const [events, setEvents] = useState([]);
 
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const response = await getAllEventsApi();
+      const properEvent = response.data.map(item=>({...item,event_time:formatTime(item.event_time)}))
+      setEvents(properEvent);
+    };
+    fetchEvents();
+  }, []);
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => {
     setIsOpen(true);
@@ -16,7 +27,6 @@ export default function Events() {
   }, []);
   return (
     <>
-
       {isOpen ? (
         <AddEvents handleBack={handleBack} />
       ) : (
@@ -28,15 +38,16 @@ export default function Events() {
             <NewEvent color="white" />
             {lang("addEvent")}
           </button>
-          <EventsTable headers={["title", "description","eventDate",'location','action']} data={[
-            {
-              title:"همایش بین المللی خود تطبیقی",
-              description:"    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur possimus id omnis qui iure accusamus, libero eveniet amet! Laborum alias totam consequuntur perspiciatis eos, doloribus temporibus tenetur ipsa ea quibusdam.",
-              eventDate:'1403/05/23',
-              location:"    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur possimus id omnis qui iure accusamus, libero eveniet amet! Laborum alias totam consequuntur perspiciatis eos, doloribus temporibus tenetur ipsa ea quibusdam.",
-
-            }
-          ]} />
+          <EventsTable
+            headers={[
+              "title",
+              "description",
+              "event_time",
+              "location",
+              "action",
+            ]}
+            data={events}
+          />
         </div>
       )}
     </>

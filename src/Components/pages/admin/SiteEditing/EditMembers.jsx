@@ -24,7 +24,7 @@ export default function EditMembers() {
         ]}
       >
         <div className="w-fit mt-10">
-        <LinkContainer />
+        <LinkContainer links={[]} setLinks={()=>{}} />
         </div>
       </MultiLangInputForm>
     </div>

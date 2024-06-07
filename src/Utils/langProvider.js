@@ -244,6 +244,10 @@ export const langKeys = {
     en: "Requests",
     fa: "درخواست ها",
   },
+  drLink: {
+    en: "Links related to Dr. Nazemi",
+    fa: `لینک های وابسته به دکتر ناظمی`,
+  },
   articles: {
     en: "Articles",
     fa: "مقالات",
@@ -430,7 +434,7 @@ export const langKeys = {
     en: "Edit Site",
     fa: "ویرایش سایت",
   },
-  requestDate: {
+  createdDate: {
     en: "Request Date",
     fa: "تاریخ درخواست",
   },
@@ -470,7 +474,7 @@ export const langKeys = {
     en: "Private",
     fa: "خصوصی",
   },
-  eventDate: {
+  event_time: {
     en: "Date",
     fa: "تاریخ رویداد",
   },
@@ -522,7 +526,7 @@ export const langKeys = {
     en: "About Us Footer",
     fa: "متن درباره ما ",
   },
-  'address-input': {
+  "address-input": {
     en: "Address",
     fa: "آدرس ",
   },

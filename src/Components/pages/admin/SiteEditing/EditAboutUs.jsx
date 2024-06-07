@@ -10,7 +10,7 @@ export default function EditAboutUs() {
         }}
         formInputFields={[
           {
-            type: "textArea",
+            type: "textarea",
             commonOptions: {
               className: "resize-none",
             },
