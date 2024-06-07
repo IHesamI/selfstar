@@ -3,18 +3,26 @@ import Modal from "../../common/Modal";
 import { useLang } from "../../../hooks/useLang";
 import UploadFile from "../../common/UploadFile";
 import { postArticleApi, uploadFile } from "../../../api/apis";
+import { useSelector } from "react-redux";
 
 export default function AddArticle({setArticles}) {
   const lang = useLang();
 
   const [open, setOpen] = useState(false);
   const inputRef=useRef({});
+  const { profile } = useSelector((state) => state.user);
   const handleSubmit = (e) => {
     e.preventDefault();
-    postArticleApi({ ...inputRef.current, user_id: 1 })
-      .then((res) => {
-        uploadFile('article',inputFile.current,1)
-        return res;
+    postArticleApi({ ...inputRef.current, user_id: profile.user })
+      .then(async (res) => {
+        const newArticle=res.data;
+        let file_url;
+        if (inputFile.current)
+          file_url = (
+            await uploadFile("article", inputFile.current, newArticle.article_id)
+          ).data.file_url;
+          console.error(file_url);
+        setArticles((state) => [...state, { ... newArticle, file_url }]);
       })
       .finally(handleClose);
   };

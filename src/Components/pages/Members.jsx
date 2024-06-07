@@ -71,7 +71,7 @@ export default function Members() {
         </div>
       </div>
       <div className="h-[3rem] text-center items-center justify-center flex border-[3px] border-gray-400">
-        {lang("phdStudents")}
+      {lang("graduated")}
       </div>
       <div className="flex flex-col sm:w-full">
         {members.map(mapToProperField).map((studentInfo) => {
@@ -95,12 +95,12 @@ export default function Members() {
         }}
       />       */}
       </div>
-      <div className="h-[3rem] text-center items-center justify-center flex border-[3px] border-gray-400">
+      {/* <div className="h-[3rem] text-center items-center justify-center flex border-[3px] border-gray-400">
         {lang("masterStudents")}
-      </div>
-      <div className="h-[3rem] text-center items-center justify-center flex border-[3px] border-gray-400">
+      </div> */}
+      {/* <div className="h-[3rem] text-center items-center justify-center flex border-[3px] border-gray-400">
         {lang("graduated")}
-      </div>
+      </div> */}
     </div>
   );
 }

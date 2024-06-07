@@ -9,8 +9,9 @@ export default function UploadFile({
   const lang = useLang();
   const inputRef = useRef();
   const handleClick = (e) => {
-    e.stopPropagation();
+    // e.preventDefault();
     inputRef.current.click();
+    // e.stopPropagation();
   };
   const fileUploaded = (e) => {
     const files = e.target.files;
@@ -19,6 +20,7 @@ export default function UploadFile({
   return (
     <button
       onClick={handleClick}
+      type="button"
       className="w-fit flex flex-row gap-4 bg-blue-600 p-3 rounded-lg items-center text-white hover:bg-opacity-85"
     >
       {lang(title)}

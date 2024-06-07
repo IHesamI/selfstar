@@ -6,6 +6,7 @@ import FileDownloadIcon from "../../assets/image/FileDownloadIcon";
 import UploadFile from "./UploadFile";
 import { useLang } from "../../hooks/useLang";
 import { deleteSlideApi, editSlideApi } from "../../api/apis";
+import { downloadPrefixUlr } from "../../config";
 
 export default function SlidesTable({ headers, data, setSlides }) {
   const lang = useLang();
@@ -61,7 +62,11 @@ export default function SlidesTable({ headers, data, setSlides }) {
                     <td key={field} className="file">
                       <a
                         className="flex flex-row p-3 gap-2 hover:bg-gray-100 cursor-pointer"
-                        href={slide[field]}
+                        href={
+                          slide["file_url"]
+                            ? `${downloadPrefixUlr}${slide["file_url"]}`
+                            : ""
+                        }
                       >
                         <FileDownloadIcon color={"#121212"} />
                         <span>{lang("download")}</span>
@@ -83,10 +88,7 @@ export default function SlidesTable({ headers, data, setSlides }) {
                           title={slide["title"]}
                           description={slide["description"]}
                         >
-                          <form
-                            action="PUT"
-                            onSubmit={(e) => handleSubmit(e)}
-                          >
+                          <form action="PUT" onSubmit={(e) => handleSubmit(e)}>
                             <div className="flex flex-col text-start gap-5">
                               <div className="dashboard-fields-row">
                                 <div className="dashboard-fields-container">
@@ -129,7 +131,7 @@ export default function SlidesTable({ headers, data, setSlides }) {
                           </form>
                         </EditModal>
                         <DeleteModal
-                        handleDelete={handleDelete}
+                          handleDelete={handleDelete}
                           id={slide.slide_id}
                           modalTitle={lang("deleteslideTitle")}
                           text={lang("deleteslide")}

@@ -5,6 +5,7 @@ import DeleteModal from "./DeleteModal";
 import FileDownloadIcon from "../../assets/image/FileDownloadIcon";
 import UploadFile from "./UploadFile";
 import { deleteArticleApi, editArticleApi } from "../../api/apis";
+import { downloadPrefixUlr } from "../../config";
 
 export default function ArticlesTable({ headers, data,setData }) {
 
@@ -65,7 +66,11 @@ export default function ArticlesTable({ headers, data,setData }) {
                     <td key={field} className="file">
                       <a
                         className="flex flex-row p-3 gap-2 hover:bg-gray-100"
-                        href={article[field]}
+                        href={
+                          article["file_url"]
+                            ? `${downloadPrefixUlr}${article["file_url"]}`
+                            : ""
+                        }
                       >
                         <FileDownloadIcon color={"#121212"} />
                         <span>{lang("download")}</span>

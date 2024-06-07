@@ -10,16 +10,16 @@ export default function Events() {
   const lang = useLang();
   const [events, setEvents] = useState([]);
   const [slides, setSlides] = useState([]);
-  const {profile}=useSelector(state=>state.user);
+  const { profile } = useSelector((state) => state.user);
+  
   useEffect(() => {
     const fetchEvents = async () => {
-      getEventsApi(1).then((res) => setEvents(res.data));
-      getSlidesApi(1).then((res) => setSlides(res.data));
-      // setEvents(eventsRes);
-      
+      getEventsApi(profile.user).then((res) => setEvents(res.data));
+      getSlidesApi(profile.user).then((res) => setSlides(res.data));
     };
     fetchEvents();
   }, []);
+
   return (
     <div className="flex flex-col section-padding w-full mt-10 gap-5 mb-5">
       <div>
@@ -33,7 +33,7 @@ export default function Events() {
           ></SliderProviders>
         </div>
       </div>
-      <AddSlide setSlides={setSlides} user_id={1} />
+      <AddSlide setSlides={setSlides} user_id={profile.user} />
       <div className="h-fit max-h-[60rem] overflow-y-auto">
         <SlidesTable
           setSlides={setSlides}

@@ -3,19 +3,36 @@ import Modal from "../../common/Modal";
 import { useLang } from "../../../hooks/useLang";
 import UploadFile from "../../common/UploadFile";
 import { useRef } from "react";
-import { postSlideApi } from "../../../api/apis";
+import { postSlideApi, uploadFile } from "../../../api/apis";
 
 export default function AddSlide({setSlides,user_id}) {
   const lang = useLang();
   const inputFields=useRef({});
   const [open, setOpen] = useState(false);
+  const inputFile= useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postSlideApi({ ...inputFields.current, user_id }).then((res) => {
-      console.error(res);
-      setSlides(res.data);
-    }).finally(()=>{setOpen(false)});
+    console.error(user_id);
+    postSlideApi({ ...inputFields.current, user_id })
+      .then(async (res) => {
+        console.error('hello',res);
+        const result=res.data;
+        if (res.status == 200) {
+          if (inputFile.current) {
+            const uploadedFile = await uploadFile(
+              "slides",
+              inputFile.current,
+              res.data.slide_id
+            );
+            result.file_url = uploadedFile.data.file_url;
+          }
+          setSlides((state) => [...state, result]);
+        }
+      })
+      .finally(() => {
+        setOpen(false);
+      });
   };
 
   const handleClose = () => {
@@ -54,7 +71,7 @@ export default function AddSlide({setSlides,user_id}) {
             </div>
             <div className="dashboard-fields-row">
               <div className="dashboard-fields-container">
-                <UploadFile />
+                <UploadFile inputFile={inputFile} />
               </div>
             </div>
             <button
