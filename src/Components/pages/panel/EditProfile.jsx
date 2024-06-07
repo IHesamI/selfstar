@@ -9,15 +9,17 @@ import UploadFile from "../../common/UploadFile";
 // import DeleteModal from "../../common/DeleteModal";
 import LinkContainer from "../../common/LinkContainer";
 import { useDispatch, useSelector } from "react-redux";
-import { editProfile } from "../../../Store/userSlice";
+import { delteAvatar, editProfile } from "../../../Store/userSlice";
+import { downloadPrefixUlr } from "../../../config";
+import { removeAvatar, removeResume } from "../../../api/apis";
+import ResumeFile from "./ResumeFile";
 
 export default function EditProfile() {
   
   const {profile}=useSelector((state) => state.user);
   const [links, setLinks] = useState(profile.links);
-  console.error(profile);
   const [avatarImg,setAvatarImg] = useState(profile.avatar_url);
-  console.error(avatarImg);
+  const [resumeUrl,setresumeUrl] = useState(profile.resume_url);
   const lang = useLang();
   const inputRef = useRef(null);
   const imageFile=useRef(null);
@@ -39,6 +41,19 @@ export default function EditProfile() {
       setinputImageState(result);
     }
   };
+
+  const deleteProfilePicture = async() => {
+    setAvatarImg("");
+    removeAvatar(profile.profile_id);
+    dispatch(delteAvatar())
+  };
+
+  const deleteResume = async() => {
+    setresumeUrl("");
+    await removeResume(profile.profile_id);
+    dispatch(deleteResume());
+  };
+
 
   const handleChange = (key, value,must_add_lang) => {
     if (must_add_lang) key = `${key}_${lang.langType}`;
@@ -71,10 +86,8 @@ export default function EditProfile() {
         <div className="flex flex-col text-center justify-between  sm:responsive-profile xlg:responsive-profile medium:responsive-profile">
           <div className="flex flex-col w-full gap-5">
             <Avatar
-            imageInput={inputImageState}
-              canDelete={() => {
-                setAvatarImg("");
-              }}
+              imageInput={inputImageState}
+              canDelete={deleteProfilePicture}
               image={avatarImg ? avatarImg : ""}
             />
             <button
@@ -99,6 +112,12 @@ export default function EditProfile() {
                 title="uploadResume"
                 inputFile={resumeRef}
               />
+              {resumeUrl && (
+                <ResumeFile
+                  handleDelete={deleteResume}
+                  resume_url={resumeUrl}
+                />
+              )}
             </div>
           </div>
         </div>

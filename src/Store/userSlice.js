@@ -40,14 +40,19 @@ export const signUp = createAsyncThunk("signUp", async ({payload,navigate}) => {
 export const editProfile = createAsyncThunk(
   "editProfile",
   async ({ payload, profile_id, image, resume }) => {
+    let avatar_url,resume_url;
     return await editProfileApi(profile_id, payload).then(async (res) => {
-      if (image) {
-        uploadFile("avatar", image, res.profile_id);
+      try {
+        if (image) {
+          avatar_url = (await uploadFile("avatar", image, res.profile_id)).data.avatar_url;
+        }
+        if (resume) {
+          resume_url = (await uploadFile("resume", resume, res.profile_id)).data.resume_url;
+        }
+      } catch (e) {
+        console.error(e);
       }
-      if (resume) {
-        uploadFile("resume", resume, res.profile_id);
-      }
-      return res;
+      return { ...res, avatar_url, resume_url };
     });
   }
 );
@@ -70,6 +75,14 @@ const name= "user";
 export const userSlice = createSlice({
   name,
   initialState,
+  reducers: {
+    delteAvatar(state) {
+      state.profile.avatar_url = null;
+    },
+    deleteResume(state) {
+      state.profile.resume_url = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(signUp.fulfilled, saveJwt)
@@ -80,4 +93,4 @@ export const userSlice = createSlice({
       });
   },
 });
-
+export const { deleteResume, delteAvatar } = userSlice.actions;

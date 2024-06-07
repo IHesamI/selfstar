@@ -57,7 +57,12 @@ export default function Members() {
             {lang("drLink")}
             <ul className="list-disc list-inside">
               <li>
-                <a className="hover:text-blue-600" href="">
+                <a
+                  className="hover:text-blue-600"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://scholar.google.com/citations?hl=en&user=0sn-HWgAAAAJ"
+                >
                   Google Scholar
                 </a>
               </li>

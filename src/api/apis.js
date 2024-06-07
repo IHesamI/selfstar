@@ -34,6 +34,14 @@ export async function getMembersApi() {
   return axiosObj.get("/profile");
 }
 
+export async function removeAvatar(profile_id) {
+  return axiosObj.delete(`/profile/avatar/${profile_id}`);
+}
+
+export async function removeResume(profile_id) {
+  return axiosObj.delete(`/profile/resume/${profile_id}`);
+}
+
 export async function sendLog(href) {
   axiosObj.post("/logs", { log: href });
 }
@@ -132,7 +140,7 @@ export async function uploadFile(url, file, identtifier) {
   const formData = new FormData();
   formData.append("file", file);
   formData.append("identifier", identtifier);
-  axiosObj.post(`/files/${url}`, formData);
+ return axiosObj.post(`/files/${url}`, formData);
 }
 
 export async function postResponseApi(request_id, data) {

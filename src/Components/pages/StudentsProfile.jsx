@@ -1,3 +1,4 @@
+import { downloadPrefixUlr } from "../../config";
 import { useLang } from "../../hooks/useLang";
 import Avatar from "./Avatar";
 export default function StudentsProfile({ studentInfo }) {
@@ -31,6 +32,17 @@ export default function StudentsProfile({ studentInfo }) {
                 {renderText("email", email)}
               </li>
             )}
+            {resume_url && (
+              <li
+                className="list-item cursor-pointer"
+                onClick={handleCopy}
+                title={lang("copyEmail")}
+              >
+                <a href={`${downloadPrefixUlr}${resume_url}`}>
+                  {lang('personalResume')}
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       </div>
@@ -49,9 +61,9 @@ export default function StudentsProfile({ studentInfo }) {
           {educationHistory && renderText("cv", educationHistory)}
         </div>
         <div className="flex flex-wrap gap-[3rem] sm:pb-5">
-          {links?.map((link,index) => {
+          {links?.map((link, index) => {
             return (
-              <li key={link.url + link.title+index}>
+              <li key={link.url + link.title + index}>
                 <a
                   className="hover:text-blue-600"
                   href={`https://${link.link}`}
