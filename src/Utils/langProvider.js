@@ -244,6 +244,10 @@ export const langKeys = {
     en: "Requests",
     fa: "درخواست ها",
   },
+  drLink: {
+    en: "Links related to Dr. Nazemi",
+    fa: `لینک های وابسته به دکتر ناظمی`,
+  },
   articles: {
     en: "Articles",
     fa: "مقالات",
@@ -522,7 +526,7 @@ export const langKeys = {
     en: "About Us Footer",
     fa: "متن درباره ما ",
   },
-  'address-input': {
+  "address-input": {
     en: "Address",
     fa: "آدرس ",
   },

@@ -13,6 +13,7 @@ import Profile from "../Components/pages/Profile";
 import Home from "../Components/pages/Home";
 import Admin from "../Components/pages/Admin";
 import CategoryList from "../Components/pages/category/CategoryList";
+import ContentsPreview from "../Components/pages/category/ContentsPreview";
 const router = createBrowserRouter(
   [
     {
@@ -29,21 +30,25 @@ const router = createBrowserRouter(
       children: [
         {
           path: "slides",
-          element: React.createElement(CategoryList,{urlParam:'slides'}),
+          element: React.createElement(CategoryList, { urlParam: "slides" }),
         },
         {
           path: "thesis",
-          element: React.createElement(CategoryList,{urlParam:'thesis'}),
+          element: React.createElement(CategoryList, { urlParam: "thesis" }),
         },
         {
           path: "articles",
-          element: React.createElement(CategoryList,{urlParam:'articles'}),
+          element: React.createElement(CategoryList, { urlParam: "articles" }),
         },
         {
           path: "seminar",
-          element: React.createElement(CategoryList,{urlParam:'seminar'}),
+          element: React.createElement(CategoryList, { urlParam: "seminar" }),
         },
       ],
+    },
+    {
+      path: ":category/:id",
+      element: React.createElement(Contents, { urlParam: "seminar" }),
     },
     {
       path: "/about-us",
@@ -57,10 +62,10 @@ const router = createBrowserRouter(
       path: "/members/:id",
       element: React.createElement(Profile),
     },
-    {
-      path: "/:id",
-      element: React.createElement(Contents),
-    },
+    // {
+    //   path: "/:id",
+    //   element: React.createElement(Contents),
+    // },
     {
       path: "/dashboard",
       element: React.createElement(ProtectedPath),

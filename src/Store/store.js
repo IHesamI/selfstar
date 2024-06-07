@@ -3,6 +3,7 @@ import storage from "redux-persist/lib/storage";
 import { persistStore } from "redux-persist";
 import { userSlice } from "./userSlice";
 import persistReducer from "redux-persist/es/persistReducer";
+import { siteSlice } from "./siteSlice";
 
 const persistConfig={
   key:"root",
@@ -24,12 +25,10 @@ const settingSlice = createSlice({
 });
 
 
-export const rootReducer = combineSlices(userSlice,settingSlice);
+export const rootReducer = combineSlices(userSlice,settingSlice,siteSlice);
 
 export const { setLang } = settingSlice.actions;
 const persistreducer = persistReducer(persistConfig,rootReducer);
-
-
 
 export const store = configureStore({
   reducer: persistreducer

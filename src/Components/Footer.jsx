@@ -3,9 +3,11 @@ import "./section.css";
 import { useLang } from "../hooks/useLang";
 import logo from "../assets/image/Persian_Logo.png";
 import LinkWithBorder from "./common/LinkWithBorder";
+import { useSelector } from "react-redux";
 
 export default function Footer() {
   const lang = useLang();
+  const {footer}=useSelector(state=>state.site)
   return (
     <div
       dir={lang.isRtl ? "rtl" : "ltr"}
@@ -16,13 +18,7 @@ export default function Footer() {
         <div className="border-b-[1px] border-b-white pb-3 px-5 w-fit">
           <img src={logo} alt="آزمایشگاه خود تبطیقی داشنگاه شهید بهشتی" />
         </div>
-        <p className="text-[14px] leading-7">
-          آزمایشگاه سلف‌استار با هدف ارائه چارچوب، استاندارد و بسترهاي
-          نرم‌افزاري خودتطبیق براي سازمان‌ها و شرکت‌هاي دولتي توسط تني چند از
-          اساتيد، فارغ‌التحصيلان و دانشجويان دانشکده مهندسی و علوم کامپيوتر
-          دانشگاه شهيد بهشتي که در زمينه سیستم های خودتطبیق فعاليت مي‌نمايند،
-          شکل گرفته است.
-        </p>
+        <p className="text-[14px] leading-7">{footer[lang.langType]}</p>
         <a className="hover:text-blue-600" href="about-us">
           {lang("continue")}
         </a>

@@ -13,7 +13,16 @@ export default function CategoryList({ urlParam }) {
     };
     fetchData();
   }, [urlParam]);
-
+const get_id = (item) => {
+  switch(urlParam){
+    case 'articles':
+      return item.article_id
+    case 'thesis':
+      return item.thesis_id
+    case 'slides':
+      return item.slide_id
+  }
+};
   return (
     <div className={`category-children-container`}>
       {contents.map((item, index) => (
@@ -23,7 +32,7 @@ export default function CategoryList({ urlParam }) {
           publishedDate={formatTime(item.createAt)}
           categories={[urlParam]}
           description={item.description}
-          link={"/#/12"}
+          link={`/${urlParam}/${get_id(item)}`}
         />
       ))}
     </div>

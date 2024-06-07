@@ -5,13 +5,16 @@ import groupServices from "../../assets/image/selfstar-group-services-2.jpg";
 import sendMailIcon from "../../assets/image/sendMail.png";
 import Location from "../../assets/image/location.png";
 import link from "../../assets/image/link.png";
+import { useSelector } from "react-redux";
 
 export default function AboutUs() {
   useEffect(() => {}, []);
   const lang = useLang();
+  const { aboutUs } = useSelector((state) => state.site);
   function handleEmailCopy() {
     navigator.clipboard.writeText("nazemi@sbu.ac.ir");
   }
+  console.error(aboutUs);
   return (
     <div
       dir={lang.isRtl ? "rtl" : "ltr"}
@@ -19,25 +22,16 @@ export default function AboutUs() {
     >
       <h1 className="font-normal text-[20px] my-10">{lang("aboutUsTitle")}</h1>
       <p className="flex text-gray-400 text-justify">
-        گروه تحقیقاتی سلف‌استار از سال ۱۳۸۷ با هدف ارائه چارچوب، استاندارد و
-        بسترهای نرم‌افزاری خودتطبیق برای سازمان‌ها و شرکت‌های دولتی توسط تنی چند
-        از اساتید، فارغ‌التحصیلان و دانشجویان دانشکده برق و کامپیوتر دانشگاه
-        شهید بهشتی که در زمینه سیستم های خودتطبیق فعالیت می‌نمایند، شکل گرفته
-        است. این گروه به سرپرستی دکتر اسلام ناظمی در دانشکده مهندسی و علوم
-        کامپیوتر دانشگاه شهید بهشتی در حال فعالیت است. در حال حاضر تعدادی از
-        اعضای گروه فارغ‌التحصیل شده و تعدادی دیگر مشغول فعالیت هستند که جزییات
-        آن‌ها از اینجا در دسترس است. به طور کلی زمینه‌های فعالیت گروه در شکل زیر
-        قابل مشاهده است:
+        {aboutUs[lang.langType][0]}
       </p>
       <img
         src={currentReasearch}
         alt="گروه تحقیقاتی سلف استار دانشگاه شهید بهشتی"
-      />
+        />
       <div className="text-[10px] mt-1 mb-[5rem]">{lang("creator")}</div>
       <p className="flex text-[15px] text-gray-500 text-justify">
-        همچنین گروه تخقیقاتی سلف‌‌استار خدمات تجاری و آکادمیک مختلفی را نیز
-        ارائه می‌دهد که اهم آن‌ها در شکل زیر قابل ملاحظه است:
-      </p>
+      {aboutUs[lang.langType][1]}
+        </p>
       <img
         src={groupServices}
         alt="گروه تحقیقاتی سلف استار دانشگاه شهید بهشتی"

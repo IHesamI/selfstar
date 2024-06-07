@@ -3,11 +3,13 @@ import { useLang } from "../../hooks/useLang";
 import StudentsProfile from "./StudentsProfile";
 import "./pages.css";
 import { getMembersApi } from "../../api/apis";
+import { useSelector } from "react-redux";
 export default function Members() {
   const lang = useLang();
   const [members, setMembers] = useState([]);
   const [pageInfo, setPageInfo] = useState();
-  
+  const { members: drInfo } = useSelector((state) => state.site);
+  console.error(drInfo);
   const mapToProperField = (member) => {
     const resultFields = ["name", "last_name", "educationHistory", "rule"];
     let result = {};
@@ -45,30 +47,14 @@ export default function Members() {
           />
         </div>
         <div className="text-center p-3 border-[1px] border-y-gray-300 font-bold text-gray-500">
-          <h1>دکتر اسلام ناظمی سرپرست گروه تحقیقاتی خود تطبیقی</h1>
+          <h1>{drInfo["title"][lang.langType]}</h1>
         </div>
         <div className="flex flex-col p-3 gap-3">
           <div className="text-justify">
-            اسلام ناظمی در سال ۱۳۳۳ در شهر سراب در ایران متولد شد. وی مدرک
-            کارشناسی خود را در ریاضیات کاربردی و تحقیق در عملیات از مدرسه عالی
-            برنامه ریزی و کاربرد کامپیوتر، تهران، ایران، در سال ۱۳۵۶، مدرک
-            کارشناسی ارشد خود را در رشته های مهندسی سیستم و اقتصاد سیستم به
-            ترتیب در سال های ۱۳۶۶ و ۱۳۷۵ و نیز مدرک دکتری خود را در رشته مهندسی
-            صنایع و فناوری اطلاعات در سال ۱۳۸۴ دریافت کرد. اسلام ناظمی از سال
-            ۱۳۵۷ عضو هیئت علمی مدرسه عالی برنامه ریزی و کاربرد کامپیوتر بوده و
-            از سال ۱۳۶۵ تا کنون عضو هیئت علمی دانشگاه شهید بهشتی تهران است.
-            ایشان معاون آموزش و تحصیلات تکمیلی بوده و اکنون مدیریت توسعه
-            انفورماتیک آموزش را در دانشگاه شهید بهشتی بر عهده دارد. اسلام ناظمی
-            استادیار دانشکده مهندسی و علوم کامپیوتر دانشگاه شهید بهشتی است. از
-            زمینه های تحقیقاتی ایشان می توان به مهندسی نرم افزارهای سلف-استار،
-            توسعه سیستم های مقیاس وسیع، موتورهای جستجو، وب کاوی و کیفیت نرم
-            افزارهای خودتطبیق اشاره کرد. اسلام ناظمی نویسنده و نویسنده همکار در
-            بیش از ۹۰ مقاله در مجلات و کنفرانس های مختلف بوده است و تألیف ۱۰
-            کتاب را، در زمینه های ریاضیات، مدیریت پروژه، مهندسی نرم افزار، کیفیت
-            نرم افزار و تئوری بازی ها در کارنامه خود دارد.
+            {drInfo["description"][lang.langType]}
           </div>
           <div className="flex flex-col gap-2">
-            لینک های وابسته به دکتر ناظمی
+            {lang("drLink")}
             <ul className="list-disc list-inside">
               <li>
                 <a className="hover:text-blue-600" href="">
@@ -84,7 +70,12 @@ export default function Members() {
       </div>
       <div className="flex flex-col sm:w-full">
         {members.map(mapToProperField).map((studentInfo) => {
-          return <StudentsProfile key={studentInfo.profile_id} studentInfo={studentInfo} />;
+          return (
+            <StudentsProfile
+              key={studentInfo.profile_id}
+              studentInfo={studentInfo}
+            />
+          );
         })}
         {/* <StudentsProfile
         studentInfo={{

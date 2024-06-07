@@ -2,9 +2,19 @@ import { Outlet } from "react-router-dom";
 import "../pages.css";
 import { useLang } from "../../../hooks/useLang";
 import LinkWithBorder from "../../common/LinkWithBorder";
+import { useEffect, useState } from "react";
+import { getLatestArticleApi } from "../../../api/apis";
 
 export default function Category() {
   const lang = useLang();
+  const [latestArticles, setlatestArticles] = useState([]);
+  useEffect(() => {
+    const fetchLatest = async () => {
+      const result = await getLatestArticleApi();
+      setlatestArticles(result.data)
+    };
+    fetchLatest();
+  }, []);
   return (
     <div
       dir={lang.isRtl ? "rtl" : "ltr"}
@@ -39,31 +49,16 @@ export default function Category() {
         <div className="flex flex-col text-gray-500 sm:hidden">
           <p className="text-[10px] mt-[3rem]">{lang("recentContent")}</p>
           <div className="text-[13px]">
-            <LinkWithBorder
-              title={
-                "ارائه مدلی برای انتخاب بهترین الگوی سازماندهی برای سامانه های چندعاملی با توجه به شرایط محیطی در زمان اجرا"
-              }
-              link={"/123123"}
-            />
-            <LinkWithBorder
-              title={
-                "یک راهکار برای اجرای سیاست های ترمیمی در مولفه های سرویس دارای نقص، با درنظرداشتن اهداف سراسری فرایند"
-              }
-              link={"/123123"}
-            />
-            <LinkWithBorder
-              title={"خودسازماندهی در سیستم‌های چندعامله"}
-              link={"/123123"}
-            />
-            <LinkWithBorder
-              title={
-                "ارائه مدلی برای دستیابی به خودتطبیقی در سیستم های مدیریت ارتباط با مشتری"
-              }
-              link={"/123123"}
-            />
+            {latestArticles.map((article) => (
+              <LinkWithBorder
+                key={article.article_id}
+                title={article.title}
+                link={`/article/${article.article_id}`}
+              />
+            ))}
           </div>
         </div>
-        <div className="date-container sm:hidden">
+        {/* <div className="date-container sm:hidden">
           <p className="text-[10px] mt-[3rem]">{lang("history")}</p>
           <div className="flex flex-col text-gray-500">
             <a href="/">{lang.dateConverter("10", "1398")}</a>
@@ -72,7 +67,7 @@ export default function Category() {
             <a href="/">{lang.dateConverter("7", "1396")}</a>
             <a href="/">{lang.dateConverter("12", "1395")}</a>
           </div>
-        </div>
+        </div> */}
       </div>
       <Outlet />
     </div>

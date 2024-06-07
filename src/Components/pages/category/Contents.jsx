@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useLang } from "../../../hooks/useLang";
 import profilePicture from "../../../assets/image/profilePicture.png";
@@ -12,38 +12,48 @@ import {
   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
+import { getArticleByIdApi } from "../../../api/apis";
+import { formatTime } from "../../../Utils/timeUtil";
+import { downloadPrefixUlr } from "../../../config";
 
 export default function Contents() {
   const lang = useLang();
-  const { id } = useParams();
+  const { id, category } = useParams();
 
   const [contentData, setContentData] = useState(null);
 
+  const getDataByCategory = async () => {
+    switch (category) {
+      case "articles":
+        return getArticleByIdApi(id);
+      case "slides":
+        break;
+      case "thesis":
+        break;
+    }
+  };
+
   useEffect(() => {
-    console.error(id);
-    setTimeout(() => {
-      setContentData({
-        author: "مژده توسلی",
-        title: "هم‌جوشی اطلاعات در سامانه‌های چندعامله‌ی خودتطبیق",
-        downloadLink: "/123213123",
-        publishedDate: "اسفند ۵ام, ۱۳۹۶",
-        categories: ["seminar"],
-        description:
-          "سامانه‌های چندعامله یا MAS ترکیبی از چندین عامل هستند که هریک از این عامل‌ها برای انجام بخشی از وظایف و در راستای رسیدن به یک هدف سراسری عمل می‌کنند. سامانه‌های چندعامله در زمینه‌هایی که نیاز به استفاده از محاسبات پیچیده داشته باشد می‌توانند به‌خوبی عمل کنند. گاهی سامانه‌های چندعامله می‌توانند بهتر از سیستم‌های متمرکز وظایفی را انجام دهند. زیرا این سیستم از چندین عامل بهره می‌گیرد که هریک از این عامل‌ها بخشی از مسئله را حل می‌کنند یکی از ویژگی‌های سامانه‌های چندعامله این است که می‌توان انواع کنترل‌ها را بر روی آن اعمال کرد، بنابراین می‌توان خودتطبیقی را بر این سامانه اعمال نمود. یک سامانه‌ی خودتطبیق باید بتواند مولفه‌های تحت کنترل خود را پایش و تحلیل کند، درمورد آن مولفه براساس دانش موجود تصمیم‌گیری کند و نتایج را در اختیار بخش اجرا قرار دهد تا این بخش تغییرات لازم را بر روی هریک از مولفه‌ها اعمال نماید.         هریک از عامل‌ها در سامانه‌های چندعامله توانایی‌های ادراکی، ابزارهای حسگر متفاوت و موقعیت مکانی متفاوتی دارند و قادر هستند با این توانایی‌ها، اطلاعاتی را درمورد پیرامون خود جمع‌آوری کنند. یکی از چالش‌هایی که در تجمیع اطلاعات این عامل‌ها وجود دارد، متضاد بودن داده‌هایی است که هریک از این عامل‌ها درمورد بخش‌های مشترک جمع‌آوری می‌کنند. بنابراین این مشکل توسط هم‌جوشی اطلاعات و استراتژی‌های آن حل می‌شود.",
+    const fetchData = () => {
+      getDataByCategory().then((res) => {
+        if (!res.data) return;
+        const { data } = res;
+        let info = { ...data, ...data.user.profiles };
+        setContentData(info);
       });
-    }, 0);
+    };
+    fetchData();
   }, []);
 
   function prettyCategories() {
     return (
-      lang("categories") + " " + contentData.categories.map(lang).join(" ,")
+      lang("categories") + " " + lang(category)
     );
   }
 
   function renderAuthor() {
-    return lang("writer") + " " + contentData?.author;
+    return lang("writer") + " " + `${contentData?.name_fa} ${contentData?.last_name_fa}`;
   }
-
   return (
     <div className="section-padding pb-3 sm:mt-5 sm:gap-3">
       {contentData && (
@@ -51,13 +61,13 @@ export default function Contents() {
           <div className="flex flex-row gap-1">
             <img
               className="w-16 h-16 rounded-full"
-              src={contentData?.authorImg || profilePicture}
-              alt={contentData?.author}
+              src={contentData?.avatar_url ? `${downloadPrefixUlr}${contentData?.avatar_url}` :  profilePicture}
+              alt={contentData?.avatar_url}
             />
             <div className="flex flex-col justify-center gap-3">
               <h2>{renderAuthor()}</h2>
               <div className="flex flex-row gap-3 text-gray-500 text-[10px]">
-                {contentData.publishedDate}
+                {formatTime(contentData.createAt)}
                 <div className="flex border-l-[1px] border-gray-300" />
                 {prettyCategories()}
               </div>
@@ -69,7 +79,7 @@ export default function Contents() {
               {contentData?.description}
             </p>
           </div>
-          {contentData?.downloadLink && (
+          {contentData?.file_url && (
             <div className="flex flex-col gap-3">
               <button className="hover:text-blue-600 text-right">
                 {lang("download")}

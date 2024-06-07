@@ -9,6 +9,7 @@ export default function StudentsProfile({ studentInfo }) {
   function handleCopy() {
     navigator.clipboard.writeText(email);
   }
+  // TODO Fix Link
   return (
     <div className="flex flex-row [&>*:nth-child(odd)]:bg-gray-200 text-gray-600 border-x-[3px] border-y-[1px] border-gray-400  sm:flex-col">
       <div className="flex flex-col gap-3 p-5 max-w-[15.5rem] sm:max-w-full">
@@ -48,14 +49,14 @@ export default function StudentsProfile({ studentInfo }) {
           {educationHistory && renderText("cv", educationHistory)}
         </div>
         <div className="flex flex-wrap gap-[3rem] sm:pb-5">
-          {links?.map((link) => {
+          {links?.map((link,index) => {
             return (
-              <li key={link.url + link.title}>
+              <li key={link.url + link.title+index}>
                 <a
                   className="hover:text-blue-600"
-                  href={link.url}
+                  href={`https://${link.link}`}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   {link.title}
                 </a>

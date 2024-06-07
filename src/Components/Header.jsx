@@ -10,7 +10,7 @@ import ClickIcon from "../assets/image/ClickIcon";
 export default function Header() {
   // const dispatch = useDispatch();
   const {profile} = useSelector((state) => state.user);
-
+  console.error(profile);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const lang = useLang();
 
@@ -103,7 +103,7 @@ export default function Header() {
         <a onClick={handleClose} href="/members">
           {lang("members")}
         </a>
-        {profile.name ? (
+        {profile.profile_id ? (
           <a onClick={handleClose} href="/dashboard">
             {lang("dashboard")}
           </a>

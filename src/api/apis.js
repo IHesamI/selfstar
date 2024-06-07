@@ -116,6 +116,14 @@ export async function editArticleApi(article_id, editArticle) {
   return axiosObj.patch(`/articles/${article_id}`, editArticle);
 }
 
+export async function getLatestArticleApi() {
+  return axiosObj.get(`/articles/latest`);
+}
+
+export async function getArticleByIdApi(article_id) {
+  return axiosObj.get(`/articles/article/${article_id}`);
+}
+
 export async function deleteArticleApi(article_id) {
   return axiosObj.delete(`/articles/${article_id}`);
 }
