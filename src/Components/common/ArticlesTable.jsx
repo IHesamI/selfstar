@@ -4,7 +4,7 @@ import EditModal from "./EditModal";
 import DeleteModal from "./DeleteModal";
 import FileDownloadIcon from "../../assets/image/FileDownloadIcon";
 import UploadFile from "./UploadFile";
-import { deleteArticleApi, editArticleApi } from "../../api/apis";
+import { deleteArticleApi, editArticleApi, sendEvent } from "../../api/apis";
 import { downloadPrefixUlr } from "../../config";
 
 export default function ArticlesTable({ headers, data,setData }) {
@@ -22,6 +22,7 @@ export default function ArticlesTable({ headers, data,setData }) {
   };
 
   const handleDelete = (id) => {
+    sendEvent("click", "delete-article");
     deleteArticleApi(id).then(() => {
       setData((articles) => articles.filter((article) => article.article_id != id));
     });

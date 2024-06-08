@@ -5,10 +5,11 @@ import { userSlice } from "./userSlice";
 import persistReducer from "redux-persist/es/persistReducer";
 import { siteSlice } from "./siteSlice";
 
-const persistConfig={
-  key:"root",
+const persistConfig = {
+  key: "root",
   storage,
-}
+  blacklist: ["site"],
+};
 
 
 const settingSlice = createSlice({
@@ -31,6 +32,6 @@ export const { setLang } = settingSlice.actions;
 const persistreducer = persistReducer(persistConfig,rootReducer);
 
 export const store = configureStore({
-  reducer: persistreducer
+  reducer: persistreducer,
 });
 export const persistor = persistStore(store);

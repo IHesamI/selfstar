@@ -13,10 +13,12 @@ export default function ThesisUpload() {
     thesisRef.current = { ...thesisRef.current, [key]: value };
   };
 
+  const inputFile=useRef();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    postThesisApi({ ...thesisRef.current, user_id: 1 }).then((res) =>
-      console.error(res.data)
+    postThesisApi({ ...thesisRef.current, user_id: profile.user }).then(
+      (res) => {}
     );
   };
 
@@ -45,7 +47,7 @@ export default function ThesisUpload() {
             ></textarea>
           </div>
         </div>
-        <UploadFile />
+        <UploadFile inputFile={inputFile} />
       </div>
       <div className="w-[60%] flex justify-end">
         <button type="submit" className="w-fit flex flex-row gap-4 bg-blue-600 p-3 rounded-lg items-center text-white hover:bg-opacity-85">

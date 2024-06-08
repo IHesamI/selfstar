@@ -42,8 +42,12 @@ export async function removeResume(profile_id) {
   return axiosObj.delete(`/profile/resume/${profile_id}`);
 }
 
-export async function sendLog(href) {
-  axiosObj.post("/logs", { log: href });
+export async function sendUrl(url) {
+  axiosObj.post("/logs/url", { url });
+}
+
+export async function sendEvent(type, name) {
+  axiosObj.post("/logs/events", { type, name });
 }
 
 /**

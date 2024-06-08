@@ -5,7 +5,6 @@ import Category from "../Components/pages/category/Category";
 import Contents from "../Components/pages/category/Contents";
 import AboutUs from "../Components/pages/AboutUs";
 import Members from "../Components/pages/Members";
-import Seminars from "../Components/pages/category/Seminars";
 import ProtectedPath from "../Components/common/ProtectedPath";
 import Dashboard from "../Components/pages/Dashboard";
 import ErrorPage from "../Components/pages/ErrorPage";
@@ -13,7 +12,6 @@ import Profile from "../Components/pages/Profile";
 import Home from "../Components/pages/Home";
 import Admin from "../Components/pages/Admin";
 import CategoryList from "../Components/pages/category/CategoryList";
-import ContentsPreview from "../Components/pages/category/ContentsPreview";
 const router = createBrowserRouter(
   [
     {

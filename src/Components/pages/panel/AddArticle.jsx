@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 
 export default function AddArticle({setArticles}) {
   const lang = useLang();
-
   const [open, setOpen] = useState(false);
   const inputRef=useRef({});
   const { profile } = useSelector((state) => state.user);

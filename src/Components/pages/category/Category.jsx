@@ -3,7 +3,7 @@ import "../pages.css";
 import { useLang } from "../../../hooks/useLang";
 import LinkWithBorder from "../../common/LinkWithBorder";
 import { useEffect, useState } from "react";
-import { getLatestArticleApi } from "../../../api/apis";
+import { getLatestArticleApi, sendEvent } from "../../../api/apis";
 
 export default function Category() {
   const lang = useLang();
@@ -26,7 +26,11 @@ export default function Category() {
           className="relative flex flex-row"
         >
           <div className="absolute start-0">
-            <button>
+            <button
+              onClick={() => {
+                sendEvent("click", "search");
+              }}
+            >
               <svg
                 className="fill-gray-300"
                 xmlns="http://www.w3.org/2000/svg"

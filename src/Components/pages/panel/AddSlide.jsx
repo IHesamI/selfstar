@@ -13,10 +13,8 @@ export default function AddSlide({setSlides,user_id}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.error(user_id);
     postSlideApi({ ...inputFields.current, user_id })
       .then(async (res) => {
-        console.error('hello',res);
         const result=res.data;
         if (res.status == 200) {
           if (inputFile.current) {

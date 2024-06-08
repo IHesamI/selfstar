@@ -12,7 +12,7 @@ import {
   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
-import { getArticleByIdApi } from "../../../api/apis";
+import { getArticleByIdApi, sendEvent } from "../../../api/apis";
 import { formatTime } from "../../../Utils/timeUtil";
 import { downloadPrefixUlr } from "../../../config";
 
@@ -57,11 +57,18 @@ export default function Contents() {
   return (
     <div className="section-padding pb-3 sm:mt-5 sm:gap-3">
       {contentData && (
-        <div dir={lang.isRtl ? "rtl" : "ltr"} className="flex flex-col sm:gap-3">
+        <div
+          dir={lang.isRtl ? "rtl" : "ltr"}
+          className="flex flex-col sm:gap-3"
+        >
           <div className="flex flex-row gap-1">
             <img
               className="w-16 h-16 rounded-full"
-              src={contentData?.avatar_url ? `${downloadPrefixUlr}${contentData?.avatar_url}` :  profilePicture}
+              src={
+                contentData?.avatar_url
+                  ? `${downloadPrefixUlr}${contentData?.avatar_url}`
+                  : profilePicture
+              }
               alt={contentData?.avatar_url}
             />
             <div className="flex flex-col justify-center gap-3">
@@ -81,10 +88,15 @@ export default function Contents() {
           </div>
           {contentData?.file_url && (
             <div className="flex flex-col gap-3">
-              <button className="hover:text-blue-600 text-right">
-                {lang("download")}
+              <button
+                onClick={() => sendEvent("click", "download")}
+                className="hover:text-blue-600 text-right"
+              >
+                <a href={`${downloadPrefixUlr}${contentData.file_url}`}>
+                  {lang("download")}
+                </a>
               </button>
-              <div>{lang("downloadCounter")}</div>
+              {/* <div>{lang("downloadCounter")}</div> */}
             </div>
           )}
 

@@ -5,7 +5,7 @@ import DeleteModal from "../common/DeleteModal";
 import FileDownloadIcon from "../../assets/image/FileDownloadIcon";
 import UploadFile from "./UploadFile";
 import { useLang } from "../../hooks/useLang";
-import { deleteSlideApi, editSlideApi } from "../../api/apis";
+import { deleteSlideApi, editSlideApi, sendEvent } from "../../api/apis";
 import { downloadPrefixUlr } from "../../config";
 
 export default function SlidesTable({ headers, data, setSlides }) {
@@ -34,6 +34,7 @@ export default function SlidesTable({ headers, data, setSlides }) {
     editInputRef.current = { ...editInputRef.current, [key]: value };
   };
   const handleDelete = (id) => {
+    sendEvent("click", "delete-slide");
     deleteSlideApi(id).then(() => {
       setSlides((slides) => slides.filter((item) => item.slide_id != id));
     });

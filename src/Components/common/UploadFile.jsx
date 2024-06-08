@@ -9,9 +9,7 @@ export default function UploadFile({
   const lang = useLang();
   const inputRef = useRef();
   const handleClick = (e) => {
-    // e.preventDefault();
     inputRef.current.click();
-    // e.stopPropagation();
   };
   const fileUploaded = (e) => {
     const files = e.target.files;
