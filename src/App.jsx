@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { sendLog } from "./api/apis";
+import { sendPageEvent } from "./Utils/eventHandler";
 function App() {
   useEffect(() => {
-    sendLog(window.location.pathname);
+    sendPageEvent(window.location.pathname);
   }, [window.location]);
   return <></>;
 }

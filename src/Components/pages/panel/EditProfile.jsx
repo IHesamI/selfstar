@@ -1,16 +1,10 @@
 import { useCallback, useRef, useState } from "react";
 import { useLang } from "../../../hooks/useLang";
 import Avatar from "../Avatar";
-// import { useSelector } from "react-redux";
-// import UserLink from "./UserLink";
-// import AddLink from "./AddLink";
 import UploadFile from "../../common/UploadFile";
-// import FileDownloadIcon from "../../../assets/image/FileDownloadIcon";
-// import DeleteModal from "../../common/DeleteModal";
 import LinkContainer from "../../common/LinkContainer";
 import { useDispatch, useSelector } from "react-redux";
 import { delteAvatar, editProfile } from "../../../Store/userSlice";
-import { downloadPrefixUlr } from "../../../config";
 import { removeAvatar, removeResume } from "../../../api/apis";
 import ResumeFile from "./ResumeFile";
 
@@ -112,12 +106,7 @@ export default function EditProfile() {
                 title="uploadResume"
                 inputFile={resumeRef}
               />
-              {resumeUrl && (
-                <ResumeFile
-                  handleDelete={deleteResume}
-                  resume_url={resumeUrl}
-                />
-              )}
+              {resumeUrl && <ResumeFile resume_url={resumeUrl} />}
             </div>
           </div>
         </div>

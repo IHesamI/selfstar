@@ -1,17 +1,8 @@
-import { sendEvent, sendLog } from "../api/apis";
-
-
-/**
- *  @param {string} type 
- *  @param {string} name 
- * */ 
-export function sendEventByType(type,name){
-    sendEvent(type,name);
-}
+import { sendUrl } from "../api/apis";
 
 /**
- *  @param {string} pathName 
- * */ 
-export function sendPageEvent(pathName){
-    sendLog(pathName)
+ *  @param {string} pathName
+ * */
+export function sendPageEvent(pathName) {
+  sendUrl(pathName);
 }
