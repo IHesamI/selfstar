@@ -79,6 +79,10 @@ export async function getSlidesApi(user_id) {
   return axiosObj.get(`/slides/${user_id}`);
 }
 
+export async function getSlideByIdApi(slide_id) {
+  return axiosObj.get(`/slides/slide/${slide_id}`);
+}
+
 export async function postSlideApi(slideDto) {
   return axiosObj.post("/slides/create", slideDto);
 }
@@ -93,6 +97,10 @@ export async function editSlideApi(slide_id, editedSlide) {
 
 export async function postThesisApi(thesisInfo) {
   return axiosObj.post(`/thesis/create`, thesisInfo);
+}
+
+export async function getThesisByIdApi(thesis_id) {
+  return axiosObj.get(`/thesis/thesis/${thesis_id}`, thesis_id);
 }
 
 export async function postRequestApi(requestInfo) {

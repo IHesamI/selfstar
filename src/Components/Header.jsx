@@ -62,13 +62,13 @@ export default function Header() {
             } z-10 pt-[6rem] hidden group-hover:flex hover:flex sm:flex-col sm:pt-0 sm:w-full`}
           >
             <div className=" bg-gray-500 text-black sm:w-full sm:bg-white sm:text-black gap-5 flex flex-row sm:flex-col sm:border-none sm:text-start border-t-blue-500  border-t-[2px]">
-              <a
+              {/* <a
                 onClick={handleClose}
                 className="header-dropdown-menu "
                 href="/category/seminar"
               >
                 {lang("seminar")}
-              </a>
+              </a> */}
               <a
                 onClick={handleClose}
                 className="header-dropdown-menu "

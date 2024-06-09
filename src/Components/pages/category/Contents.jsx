@@ -12,7 +12,7 @@ import {
   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
-import { getArticleByIdApi, sendEvent } from "../../../api/apis";
+import { getArticleByIdApi, getSlideByIdApi, getThesisByIdApi, sendEvent } from "../../../api/apis";
 import { formatTime } from "../../../Utils/timeUtil";
 import { downloadPrefixUlr } from "../../../config";
 
@@ -21,21 +21,22 @@ export default function Contents() {
   const { id, category } = useParams();
 
   const [contentData, setContentData] = useState(null);
-
+  console.error();
   const getDataByCategory = async () => {
     switch (category) {
       case "articles":
         return getArticleByIdApi(id);
       case "slides":
-        break;
+        return getSlideByIdApi(id);
       case "thesis":
-        break;
+        return getThesisByIdApi(id);
     }
   };
 
   useEffect(() => {
     const fetchData = () => {
       getDataByCategory().then((res) => {
+        console.error(res);
         if (!res.data) return;
         const { data } = res;
         let info = { ...data, ...data.user.profiles };

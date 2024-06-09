@@ -2,7 +2,7 @@ import UploadFile from "../../common/UploadFile";
 import { useLang } from "../../../hooks/useLang";
 import { useSelector } from "react-redux";
 import { useRef } from "react";
-import { postThesisApi } from "../../../api/apis";
+import { postThesisApi, uploadFile } from "../../../api/apis";
 
 export default function ThesisUpload() {
   const lang = useLang();
@@ -18,8 +18,20 @@ export default function ThesisUpload() {
   const handleSubmit = (e) => {
     e.preventDefault();
     postThesisApi({ ...thesisRef.current, user_id: profile.user }).then(
-      (res) => {}
-    );
+      async (res) => {
+        if (res.status == 2) {
+          if (inputFile.current) {
+            const uploadedFile = await uploadFile(
+              "slides",
+              inputFile.current,
+              res.data.slide_id
+            );
+            res.file_url = uploadedFile.data.file_url;
+          }
+          return res
+        }
+      }
+    )
   };
 
   return (

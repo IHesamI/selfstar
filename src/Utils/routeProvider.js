@@ -46,7 +46,7 @@ const router = createBrowserRouter(
     },
     {
       path: ":category/:id",
-      element: React.createElement(Contents, { urlParam: "seminar" }),
+      element: React.createElement(Contents),
     },
     {
       path: "/about-us",
