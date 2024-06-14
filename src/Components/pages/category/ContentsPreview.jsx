@@ -1,7 +1,7 @@
 import { useLang } from "../../../hooks/useLang";
 import "../pages.css";
 export default function ContentsPreview({
-  // categories,
+  categories,
   title,
   description,
   publishedDate,
@@ -10,7 +10,7 @@ export default function ContentsPreview({
   const lang = useLang();
   function prettyCategories() {
     return lang("categories") + " " 
-    // + categories?.map(lang).join(" ,");
+    + categories?.map(lang).join(" ,");
   }
 
   return (

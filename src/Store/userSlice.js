@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { editProfileApi, loginApi, signUpApi, uploadFile } from "../api/apis";
 import { parseJwt } from "../Utils/decode";
+import { toast } from "react-toastify";
 
 
 
@@ -61,13 +62,20 @@ export const editProfile = createAsyncThunk(
  * @param {{email:string,password:string}} payload 
  * 
 */
-export const login = createAsyncThunk("login", async ({payload,navigate}) => {
-  const result = await loginApi(payload);
-  if(result){
-    navigate('/dashboard')
+export const login = createAsyncThunk(
+  "login",
+  async ({ payload, navigate }) => {
+    try {
+      const result = await loginApi(payload);
+      if (result) {
+        navigate("/dashboard");
+      }
+      return result;
+    } catch(e) {
+      throw Error('user not found');
+    }
   }
-  return result;
-});
+);
 
 
 const name= "user";

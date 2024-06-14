@@ -18,7 +18,7 @@ export default function AddArticle({setArticles}) {
         let file_url;
         if (inputFile.current)
           file_url = (
-            await uploadFile("article", inputFile.current, newArticle.article_id)
+            await uploadFile("category", inputFile.current, newArticle.id)
           ).data.file_url;
           console.error(file_url);
         setArticles((state) => [...state, { ... newArticle, file_url }]);

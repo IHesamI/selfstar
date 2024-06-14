@@ -15,7 +15,7 @@ export default function Admin() {
   function handleExit() {
     return navigate("/login");
   }
-  const [leftColumn, setLeftColumn] = useState(adminTabs.siteEdit);
+  const [leftColumn, setLeftColumn] = useState(adminTabs.chartLogs);
   const handleChangeTab = (tab) => {
     setLeftColumn(tab);
   };

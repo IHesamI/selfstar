@@ -19,9 +19,9 @@ export default function AddSlide({setSlides,user_id}) {
         if (res.status == 200) {
           if (inputFile.current) {
             const uploadedFile = await uploadFile(
-              "slides",
+              "category",
               inputFile.current,
-              res.data.slide_id
+              res.data.id
             );
             result.file_url = uploadedFile.data.file_url;
           }

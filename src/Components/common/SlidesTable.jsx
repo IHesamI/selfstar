@@ -1,11 +1,11 @@
-import React, { useCallback, useRef, useState } from "react";
+import {useRef, useState } from "react";
 
 import EditModal from "../common/EditModal";
 import DeleteModal from "../common/DeleteModal";
 import FileDownloadIcon from "../../assets/image/FileDownloadIcon";
 import UploadFile from "./UploadFile";
 import { useLang } from "../../hooks/useLang";
-import { deleteSlideApi, editSlideApi, sendEvent } from "../../api/apis";
+import { deleteCategoryApi, editSlideApi, sendEvent } from "../../api/apis";
 import { downloadPrefixUlr } from "../../config";
 
 export default function SlidesTable({ headers, data, setSlides }) {
@@ -35,8 +35,8 @@ export default function SlidesTable({ headers, data, setSlides }) {
   };
   const handleDelete = (id) => {
     sendEvent("click", "delete-slide");
-    deleteSlideApi(id).then(() => {
-      setSlides((slides) => slides.filter((item) => item.slide_id != id));
+    deleteCategoryApi(id).then(() => {
+      setSlides((slides) => slides.filter((item) => item.id != id));
     });
   };
   return (
@@ -133,7 +133,7 @@ export default function SlidesTable({ headers, data, setSlides }) {
                         </EditModal>
                         <DeleteModal
                           handleDelete={handleDelete}
-                          id={slide.slide_id}
+                          id={slide.id}
                           modalTitle={lang("deleteslideTitle")}
                           text={lang("deleteslide")}
                         />

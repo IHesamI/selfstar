@@ -43,6 +43,19 @@ export const langKeys = {
     en: "Slides",
     fa: "اسلایدها",
   },
+  allCats: {
+    en: "",
+    fa: "تعداد کل مقالات آپلود شده توسط کاربران",
+  },
+  allDownloads: {
+    en: "",
+    fa: "تعداد کل فایل های دانلود شده",
+  },
+
+  slide: {
+    en: "Slides",
+    fa: "اسلایدها",
+  },
   thesis: {
     en: "Thesis",
     fa: "پایان نامه ها",
@@ -249,6 +262,10 @@ export const langKeys = {
     fa: `لینک های وابسته به دکتر ناظمی`,
   },
   articles: {
+    en: "Articles",
+    fa: "مقالات",
+  },
+  article: {
     en: "Articles",
     fa: "مقالات",
   },

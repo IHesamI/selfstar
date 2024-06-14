@@ -22,9 +22,9 @@ export default function ThesisUpload() {
         if (res.status == 2) {
           if (inputFile.current) {
             const uploadedFile = await uploadFile(
-              "slides",
+              "category",
               inputFile.current,
-              res.data.slide_id
+              res.data.id
             );
             res.file_url = uploadedFile.data.file_url;
           }

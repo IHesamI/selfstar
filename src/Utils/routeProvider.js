@@ -28,7 +28,7 @@ const router = createBrowserRouter(
       children: [
         {
           path: "slides",
-          element: React.createElement(CategoryList, { urlParam: "slides" }),
+          element: React.createElement(CategoryList, { urlParam: "slide" }),
         },
         {
           path: "thesis",
@@ -36,7 +36,7 @@ const router = createBrowserRouter(
         },
         {
           path: "articles",
-          element: React.createElement(CategoryList, { urlParam: "articles" }),
+          element: React.createElement(CategoryList, { urlParam: "article" }),
         },
         {
           path: "seminar",
@@ -76,13 +76,13 @@ const router = createBrowserRouter(
     },
     {
       path: "/admin",
-      element: React.createElement(ProtectedPath),
-      children: [
-        {
-          path: "",
-          element: React.createElement(Admin),
-        },
-      ],
+      element: React.createElement(Admin),
+      // children: [
+      //   {
+      //     path: "",
+      //     element: React.createElement(Admin),
+      //   },
+      // ],
     },
     {
       path: "/dashboard",

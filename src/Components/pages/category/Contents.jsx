@@ -12,31 +12,22 @@ import {
   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
-import { getArticleByIdApi, getSlideByIdApi, getThesisByIdApi, sendEvent } from "../../../api/apis";
+import { downloadCountApi, getCategoryById, sendEvent } from "../../../api/apis";
 import { formatTime } from "../../../Utils/timeUtil";
 import { downloadPrefixUlr } from "../../../config";
 
 export default function Contents() {
   const lang = useLang();
-  const { id, category } = useParams();
+  const { id } = useParams();
 
   const [contentData, setContentData] = useState(null);
-  console.error();
   const getDataByCategory = async () => {
-    switch (category) {
-      case "articles":
-        return getArticleByIdApi(id);
-      case "slides":
-        return getSlideByIdApi(id);
-      case "thesis":
-        return getThesisByIdApi(id);
-    }
+    return getCategoryById(id);
   };
 
   useEffect(() => {
     const fetchData = () => {
       getDataByCategory().then((res) => {
-        console.error(res);
         if (!res.data) return;
         const { data } = res;
         let info = { ...data, ...data.user.profiles };
@@ -47,13 +38,27 @@ export default function Contents() {
   }, []);
 
   function prettyCategories() {
+    return lang("categories") + " " + lang(contentData.type);
+  }
+  const handleClick=async ()=>{
+    sendEvent("click", "download")
+    const response=await downloadCountApi(contentData.id)
+    if(response.data){
+      setContentData((state) => ({
+        ...state,
+        downlaodCount: state.downlaodCount + 1,
+      }));
+    }
+  }
+  function renderAuthor() {
     return (
-      lang("categories") + " " + lang(category)
+      lang("writer") +
+      " " +
+      `${contentData?.name_fa} ${contentData?.last_name_fa}`
     );
   }
-
-  function renderAuthor() {
-    return lang("writer") + " " + `${contentData?.name_fa} ${contentData?.last_name_fa}`;
+  function handleSubmit(e){
+    e.preventDefault();
   }
   return (
     <div className="section-padding pb-3 sm:mt-5 sm:gap-3">
@@ -90,19 +95,20 @@ export default function Contents() {
           {contentData?.file_url && (
             <div className="flex flex-col gap-3">
               <button
-                onClick={() => sendEvent("click", "download")}
+                onClick={handleClick}
                 className="hover:text-blue-600 text-right"
               >
                 <a href={`${downloadPrefixUlr}${contentData.file_url}`}>
                   {lang("download")}
                 </a>
               </button>
-              {/* <div>{lang("downloadCounter")}</div> */}
+              <div className="flex flex-row items-center text-center">{lang("downloadCounter")} {contentData.downlaodCount}</div>
             </div>
           )}
 
           <div className="flex flex-row justify-center sm:w-full mt-5">
             <form
+            onSubmit={handleSubmit}
               action="POST"
               className="comment-form flex flex-col sm:flex-col sm:gap-3 sm:w-full border-[1px] sm:border-none text-gray-500 border-gray-300 p-5 gap-5"
             >
@@ -127,7 +133,7 @@ export default function Contents() {
                     </div>
                   </div>
                   <div className="flex flex-row justify-end sm:mt-5">
-                    <button className="bg-blue-500 text-white py-2 px-3 rounded-lg">
+                    <button type="submit" className="bg-blue-500 text-white py-2 px-3 rounded-lg">
                       {lang("click")}
                     </button>
                   </div>

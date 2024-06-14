@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../Store/userSlice";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function Login({ handleChange }) {
   const lang = useLang();
@@ -12,6 +13,16 @@ export default function Login({ handleChange }) {
   const navigate=useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
+    // toast("zarp", {
+    //   position: "top-right",
+    //   autoClose: 5000,
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: true,
+    //   draggable: true,
+    //   progress: undefined,
+    //   theme: "light",
+    // });
     dispatch(login({payload:formRef.current,navigate}));
 
   };

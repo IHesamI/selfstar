@@ -70,37 +70,39 @@ export async function getEventsApi(user_id) {
 export async function getAllEventsApi() {
   return axiosObj.get(`/events`);
 }
-
+export async function getDeactives(){
+  return axiosObj.get('/admin/deactives');
+}
 export async function deleteEventApi(event_id) {
   return axiosObj.delete(`/events/${event_id}`);
 }
 
 export async function getSlidesApi(user_id) {
-  return axiosObj.get(`/slides/${user_id}`);
+  return axiosObj.get(`category/slide/user/${user_id}`);
 }
 
 export async function getSlideByIdApi(slide_id) {
-  return axiosObj.get(`/slides/slide/${slide_id}`);
+  return axiosObj.get(`category/slide/${slide_id}`);
 }
 
 export async function postSlideApi(slideDto) {
-  return axiosObj.post("/slides/create", slideDto);
+  return axiosObj.post("/category", { ...slideDto, type: "slide" });
 }
 
-export async function deleteSlideApi(slide_id) {
-  return axiosObj.delete(`/slides/${slide_id}`);
+export async function deleteCategoryApi(slide_id) {
+  return axiosObj.delete(`/category/${slide_id}`);
 }
 
 export async function editSlideApi(slide_id, editedSlide) {
-  return axiosObj.patch(`/slides/${slide_id}`, editedSlide);
+  return axiosObj.patch(`/category/${slide_id}`, editedSlide);
 }
 
 export async function postThesisApi(thesisInfo) {
-  return axiosObj.post(`/thesis/create`, thesisInfo);
+  return axiosObj.post(`/category`, { ...thesisInfo, type: "thesis" });
 }
 
 export async function getThesisByIdApi(thesis_id) {
-  return axiosObj.get(`/thesis/thesis/${thesis_id}`, thesis_id);
+  return axiosObj.get(`/category/thesis/${thesis_id}`, thesis_id);
 }
 
 export async function postRequestApi(requestInfo) {
@@ -125,23 +127,27 @@ export async function getAllRequestsApi() {
 }
 
 export async function postArticleApi(createArticleDTO) {
-  return axiosObj.post(`/articles/create`, createArticleDTO);
+  return axiosObj.post(`/category`, {...createArticleDTO,type:'article'});
 }
 
 export async function getArticleApi(user_id) {
-  return axiosObj.get(`/articles/${user_id}`);
+  return axiosObj.get(`/category/article/user/${user_id}`);
 }
 
 export async function editArticleApi(article_id, editArticle) {
-  return axiosObj.patch(`/articles/${article_id}`, editArticle);
+  return axiosObj.patch(`/category/${article_id}`, editArticle);
 }
 
-export async function getLatestArticleApi() {
-  return axiosObj.get(`/articles/latest`);
+export async function getLatestCategoriesApi() {
+  return axiosObj.get(`/category/category/cats/latest`);
 }
 
 export async function getArticleByIdApi(article_id) {
   return axiosObj.get(`/articles/article/${article_id}`);
+}
+
+export async function getCategoryById(id){
+return axiosObj.get(`/category/category/${id}`)
 }
 
 export async function deleteArticleApi(article_id) {
@@ -161,5 +167,21 @@ export async function postResponseApi(request_id, data) {
 
 
 export async function getCategoriesByUrl(url) {
-  return axiosObj.get(`/${url}`);
+  return axiosObj.get(`/category/${url}`);
+}
+
+export async function getLogs(){
+  return axiosObj.get('/logs')
+}
+
+export async function getCategoriesCount(){
+  return axiosObj.get('/logs/categoryCounts')
+}
+
+export async function getCategoriesDownload(){
+  return axiosObj.get('/logs/categoryDownloads')
+}
+
+export async function downloadCountApi(id){
+  return axiosObj.patch(`/category/download/${id}`)
 }

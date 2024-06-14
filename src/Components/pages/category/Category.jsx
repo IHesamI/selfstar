@@ -3,14 +3,14 @@ import "../pages.css";
 import { useLang } from "../../../hooks/useLang";
 import LinkWithBorder from "../../common/LinkWithBorder";
 import { useEffect, useState } from "react";
-import { getLatestArticleApi, sendEvent } from "../../../api/apis";
+import { getLatestCategoriesApi, sendEvent } from "../../../api/apis";
 
 export default function Category() {
   const lang = useLang();
   const [latestArticles, setlatestArticles] = useState([]);
   useEffect(() => {
     const fetchLatest = async () => {
-      const result = await getLatestArticleApi();
+      const result = await getLatestCategoriesApi();
       setlatestArticles(result.data)
     };
     fetchLatest();
@@ -57,7 +57,7 @@ export default function Category() {
               <LinkWithBorder
                 key={article.article_id}
                 title={article.title}
-                link={`/article/${article.article_id}`}
+                link={`/category/${article.id}`}
               />
             ))}
           </div>
