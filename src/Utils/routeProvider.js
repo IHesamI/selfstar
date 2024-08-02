@@ -12,6 +12,7 @@ import Profile from "../Components/pages/Profile";
 import Home from "../Components/pages/Home";
 import Admin from "../Components/pages/Admin";
 import CategoryList from "../Components/pages/category/CategoryList";
+import BlogPage from "../Components/pages/BlogPage";
 const router = createBrowserRouter(
   [
     {
@@ -77,12 +78,10 @@ const router = createBrowserRouter(
     {
       path: "/admin",
       element: React.createElement(Admin),
-      // children: [
-      //   {
-      //     path: "",
-      //     element: React.createElement(Admin),
-      //   },
-      // ],
+    },
+    {
+      path: "/blog/:id",
+      element: React.createElement(BlogPage),
     },
     {
       path: "/dashboard",

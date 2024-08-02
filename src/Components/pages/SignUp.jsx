@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef, useState } from "react";
 import { loginTab } from "../../config";
 import { useLang } from "../../hooks/useLang";
 import { signUp } from "../../Store/userSlice";
@@ -10,7 +10,7 @@ export default function SignUp({ handleChange }) {
   const inputDataRef = useRef({});
   const dispatch=useDispatch();
   const navigate=useNavigate();
-
+  const [selectedStage, setSelectedStage] = useState();
   const onInput = (key, value, must_add_lang = false) => {
     if (must_add_lang) key = `${key}_${lang.isRtl ? "fa" : "en"}`;
     inputDataRef.current = { ...inputDataRef.current, [key]: value };
@@ -18,7 +18,7 @@ export default function SignUp({ handleChange }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(signUp({payload:inputDataRef.current,navigate}))
+    dispatch(signUp({payload:{...inputDataRef.current,stage:selectedStage},navigate}))
   };
 
   const handleNewAccount = (e) => {
@@ -26,7 +26,7 @@ export default function SignUp({ handleChange }) {
     handleChange(loginTab.login);
   };
   return (
-    <div className="flex flex-col m-auto bg-white border-gray-300 border-[1px] p-10 rounded-lg">
+    <div className="flex flex-col m-auto bg-white border-gray-300 border-[1px] p-10 w-fit rounded-lg">
       <h3 className="text-center font-bold">{lang("signup")}</h3>
       <form
         dir={lang.isRtl ? "rtl" : ""}
@@ -36,19 +36,54 @@ export default function SignUp({ handleChange }) {
       >
         <div className="login-form-field">
           <label htmlFor="firstName">{lang("firstName")}</label>
-          <input className="p-1 text-[0.85rem]" type="text" id="firstName"  onChange={(e)=>onInput('name',e.target.value,true)}/>
+          <input
+            className="p-1 text-[0.85rem]"
+            type="text"
+            id="firstName"
+            onChange={(e) => onInput("name", e.target.value, true)}
+          />
         </div>
         <div className="login-form-field">
           <label htmlFor="lastName">{lang("lastName")}</label>
-          <input className="p-1 text-[0.85rem]" type="text" id="lastName" onChange={(e)=>onInput('last_name',e.target.value,true)}/>
+          <input
+            className="p-1 text-[0.85rem]"
+            type="text"
+            id="lastName"
+            onChange={(e) => onInput("last_name", e.target.value, true)}
+          />
         </div>
         <div className="login-form-field">
           <label htmlFor="email">{lang("email")}</label>
-          <input className="p-1 text-[0.85rem]" type="email" id="email" onChange={(e)=>onInput('email',e.target.value)}/>
+          <input
+            className="p-1 text-[0.85rem]"
+            type="email"
+            id="email"
+            onChange={(e) => onInput("email", e.target.value)}
+          />
         </div>
         <div className="login-form-field">
           <label htmlFor="password">{lang("password")}</label>
-          <input className="p-1 text-[0.85rem]" type="password" id="password" onChange={(e)=>onInput('password',e.target.value)}/>
+          <input
+            className="p-1 text-[0.85rem]"
+            type="password"
+            id="password"
+            onChange={(e) => onInput("password", e.target.value)}
+          />
+        </div>
+        <div className="flex flex-col gap-5">
+          <label htmlFor="">{lang("chooseStage")}</label>
+          <div className="flex flex-row items-center justify-between gap-3">
+            {lang("stage1")}
+            <input checked={selectedStage==1} type="checkbox" name="state1" value={"werwer"} onChange={()=>setSelectedStage(1)}/>
+          </div>
+          <div className="flex flex-row items-center justify-between gap-3">
+            {lang("stage2")}
+            <input checked={selectedStage==2} type="checkbox" name="state2" value={"werwer"}  onChange={()=>setSelectedStage(2)}/>
+          </div>
+          <div className="flex flex-row items-center justify-between gap-3">
+            {lang("stage3")}
+            <input checked={selectedStage==3} type="checkbox" name="state3" value={"werwer"} onChange={()=>setSelectedStage(3)} />
+          </div>
         </div>
         <div
           onClick={handleNewAccount}

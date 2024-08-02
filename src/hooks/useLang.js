@@ -36,6 +36,12 @@ export function useLang() {
     const resultlang = isRtl ? "en" : "fa";
     dispatch(setLang({ lang: resultlang }));
   }, [isRtl]);
+  getTranslation.renderbyLang = useCallback(
+    (IR_Item, Eng_Item) => {
+      return isRtl ? IR_Item : Eng_Item;
+    },
+    [isRtl]
+  );
 
   getTranslation.isRtl = isRtl;
   getTranslation.langType = isRtl ? "fa" : "en";

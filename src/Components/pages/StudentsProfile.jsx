@@ -1,3 +1,4 @@
+import { sendEvent } from "../../api/apis";
 import { downloadPrefixUlr } from "../../config";
 import { useLang } from "../../hooks/useLang";
 import Avatar from "./Avatar";
@@ -65,6 +66,7 @@ export default function StudentsProfile({ studentInfo }) {
             return (
               <li key={link.url + link.title + index}>
                 <a
+                  onClick={() => sendEvent("click", "open-link")}
                   className="hover:text-blue-600"
                   href={`https://${link.link}`}
                   target="_blank"

@@ -33,5 +33,14 @@ export const Status = {
   [3]: "rejected",
 };
 
+export const homePageStateEnum = {
+  edit:'edit',
+  editEng:'english',
+}
+
+export const blogPostItemsType = {
+  text:'text',
+  image:'image',
+}
 
 export const downloadPrefixUlr='http://localhost:3000/files/download/';

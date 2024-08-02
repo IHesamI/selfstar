@@ -185,3 +185,68 @@ export async function getCategoriesDownload(){
 export async function downloadCountApi(id){
   return axiosObj.patch(`/category/download/${id}`)
 }
+
+export async function activeComment(id){
+  return axiosObj.patch(`/comments/${id}`)
+}
+
+export async function createBlogPost() {
+  return axiosObj.post(`/blogPost`, {});
+}
+
+export async function createBlogPostItem(post_id, type) {
+  return axiosObj.post(`/blogPost/create-item`, {
+    id: post_id,
+    type,
+  });
+}
+
+export async function uploadBlogPostImage(file){
+ return uploadFile('blog',file,'')
+ 
+}
+
+export async function editPostBlogItem(newItem) {
+  return axiosObj.patch(`/blogPost/edit-item/${newItem.id}`, newItem);
+}
+
+export async function editTextBlogPostItem(newItem) {
+  return editPostBlogItem(newItem);
+}
+
+export async function editImageBlogPostItem(item, file) {
+  const data = (await uploadBlogPostImage(file)).data;
+  return editPostBlogItem({ ...item, content: data.fileName });
+}
+
+export async function getAllBlogPosts() {
+  return axiosObj.get("/blogPost/");
+}
+export async function getActiveBlogPosts() {
+  return axiosObj.get("/blogPost/actives");
+}
+
+export async function uploadPostImage(blogPost, file) {
+  const data = (await uploadBlogPostImage(file)).data;
+  return updateBlogPost({ ...blogPost, thubmnail: data.fileName });
+}
+
+export async function updateBlogPost(blogPost) {
+  return axiosObj.patch(`/blogPost/post/${blogPost.id}`,blogPost);
+}
+
+export async function removeBlogPost(blogPostId) {
+  return axiosObj.delete(`/blogPost/${blogPostId}`);
+}
+
+export async function getBlogPost(blogPostId) {
+  return axiosObj.get(`/blogPost/${blogPostId}`);
+}
+
+export async function removePostItem(itemId) {
+  return axiosObj.delete(`/blogPost/delete-item/${itemId}`);
+}
+
+export async function removeFile(fileName) {
+  return axiosObj.delete(`/files/${fileName}`);
+}

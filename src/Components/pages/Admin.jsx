@@ -11,11 +11,12 @@ import ChartLogs from "./panel/ChartLogs";
 
 export default function Admin() {
   const lang = useLang();
+
   const navigate = useNavigate();
   function handleExit() {
     return navigate("/login");
   }
-  const [leftColumn, setLeftColumn] = useState(adminTabs.chartLogs);
+  const [leftColumn, setLeftColumn] = useState(adminTabs.siteEdit);
   const handleChangeTab = (tab) => {
     setLeftColumn(tab);
   };

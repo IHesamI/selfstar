@@ -1,35 +1,36 @@
-import React from "react";
+import { downloadPrefixUlr } from "../../config";
 import { useLang } from "../../hooks/useLang";
+import noThumbnail from "../../assets/image/noThumbnail.png";
+import { downlaodFile } from "../../Utils/downlaodFiles";
 
-export default function Contents({ title, description, link }) {
+export default function Contents({ item }) {
+  const { title, enTitle, thubmnail, id } = item;
   const lang = useLang();
-
   return (
     <div
       dir={lang.isRtl ? "ltr" : "rtl"}
       className="flex flex-col items-end w-[49%] rounded-lg border-gray-400 border-[1px] p-2 xlg:w-full justify-between"
     >
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 w-full">
+        <div className="mb-3 w-full bg-white">
+          <img
+            className="w-full h-[350px]"
+            src={thubmnail ? downlaodFile(thubmnail) : noThumbnail}
+            alt=""
+          />
+        </div>
         <div className="bg-blue-500 p-2 rounded-lg text-white max-w-[50%] text-ellipsis w-fit whitespace-nowrap overflow-hidden place-self-end">
           <h4
             className="text-ellipsis overflow-hidden"
             dir={lang.isRtl ? "rtl" : "ltr"}
           >
-            {title}
+            {lang.isRtl ? title : enTitle}
           </h4>
-        </div>
-        <div className="mb-3">
-          <p
-            dir={lang.isRtl ? "rtl" : "ltr"}
-            className="text-justify content-description"
-          >
-            {description}
-          </p>
         </div>
       </div>
       <a
         className="flex items-end self-start bg-blue-500 p-2 text-white rounded-lg"
-        href={link}
+        href={`/blog/${id}`}
       >
         <div>{lang("continue")}</div>
       </a>

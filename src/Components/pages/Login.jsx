@@ -1,6 +1,6 @@
 import { useLang } from "../../hooks/useLang";
 import { loginTab } from "../../config";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../Store/userSlice";
 import { useNavigate } from "react-router-dom";
@@ -11,19 +11,16 @@ export default function Login({ handleChange }) {
   const formRef=useRef({});
   const dispatch=useDispatch();
   const navigate=useNavigate();
+  const [errroMessage,seterrroMessage]=useState('')
   const handleSubmit = (e) => {
     e.preventDefault();
-    // toast("zarp", {
-    //   position: "top-right",
-    //   autoClose: 5000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   progress: undefined,
-    //   theme: "light",
-    // });
-    dispatch(login({payload:formRef.current,navigate}));
+
+    try{
+      dispatch(login({payload:formRef.current,navigate}));
+    }catch(e){
+      console.error(e)
+      seterrroMessage(e.message)
+    }
 
   };
 
@@ -54,6 +51,7 @@ export default function Login({ handleChange }) {
         </div>
         <div onClick={handleNewAccount} className="login-form-field text-[14px] text-sm text-blue-400 cursor-pointer text-center">
           <span>{lang('newAccount')}</span>
+          {errroMessage && <span>{errroMessage}</span>}
         </div>
         <button
           type="submit"

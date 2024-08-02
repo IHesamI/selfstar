@@ -8,6 +8,7 @@ import NewArticles from "./panel/NewArticles";
 import NewRequest from "./panel/NewRequest";
 import ThesisUpload from "./panel/thesisUpload";
 import DefaultTab from "./panel/DefaultTab";
+import { persistor } from "../../Store/store";
 
 export default function Dashboard() {
   const lang = useLang();
@@ -38,6 +39,7 @@ export default function Dashboard() {
   }, [leftColumn]);
   const handleExit = useCallback(() => {
     // TODO DESTORY UserSlice
+    persistor.purge();
     navigate("/login");
   }, []);
   return (

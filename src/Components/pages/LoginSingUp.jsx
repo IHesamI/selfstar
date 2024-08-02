@@ -19,7 +19,7 @@ export default function LoginSignUp() {
     }
   };
   return (
-    <div className="bg-slate-100 py-10 h-full justify-center items-center">
+    <div className="bg-slate-100 py-10 h-fit justify-center items-center">
       <div className="flex justify-center items-center h-full">
         {renderTab()}
       </div>

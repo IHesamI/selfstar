@@ -7,7 +7,7 @@ import { postResponseApi } from "../../../api/apis";
 
 export default function AnswerRequest({ data, handleBack }) {
   const { title, description, createdDate, user, status, request_id ,response} = data;
-  const { name, last_name } = user;
+  const {name_fa:name, last_name_fa:last_name }=user.profiles;
   const [checkState,setCheckState]=useState(status);
   const lang = useLang();
   const userInputRef=useRef('');

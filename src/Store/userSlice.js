@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { editProfileApi, loginApi, signUpApi, uploadFile } from "../api/apis";
 import { parseJwt } from "../Utils/decode";
 import { toast } from "react-toastify";
+import { PURGE } from "redux-persist";
 
 
 
@@ -90,11 +91,15 @@ export const userSlice = createSlice({
     deleteResume(state) {
       state.profile.resume_url = null;
     },
+
   },
   extraReducers: (builder) => {
     builder
       .addCase(signUp.fulfilled, saveJwt)
       .addCase(login.fulfilled, saveJwt)
+      .addCase(PURGE, () => {
+        return initialState;
+      })
       .addCase(editProfile.fulfilled, (state, action) => {
         const payload = action.payload;
         state.profile = { ...state.profile, ...payload };

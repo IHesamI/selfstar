@@ -27,6 +27,27 @@ export const langKeys = {
     en: "Continue",
     fa: "ادامه مطلب",
   },
+  contentTitle: {
+    en: "Approve this content",
+    fa: "تاییدیه برای مطلب علمی",
+  },
+  commentApprove: {
+    en: "Approve this comment",
+    fa: "تاییدیه کامنت",
+  },
+  profileApprove: {
+    en: "Approve this Profile",
+    fa: "تاییدیه پروفایل",
+  },
+  needApprovals: {
+    en: "Need to be approved",
+    fa: "موارد نیاز به تایید",
+  },
+
+  Approval: {
+    en: "Approval",
+    fa: "تاییدیه",
+  },
   dashboard: {
     en: "Dashboard",
     fa: "داشبورد",
@@ -51,7 +72,26 @@ export const langKeys = {
     en: "",
     fa: "تعداد کل فایل های دانلود شده",
   },
-
+  chooseStage: {
+    en: "Choose your degree",
+    fa: "مقطع خود را انتخاب کنید",
+  },
+  studentStage: {
+    en: "Degree",
+    fa: "مقطع تحصیلی",
+  },
+  stage1: {
+    en: "bachelor student",
+    fa: "دانشجوی مقطع کارشناسی",
+  },
+  stage3: {
+    en: "PHD student",
+    fa: "دانشجوی مقطع دکترا",
+  },
+  stage2: {
+    en: "Master's student",
+    fa: "دانشجوی مقطع کارشناسی ارشد",
+  },
   slide: {
     en: "Slides",
     fa: "اسلایدها",
@@ -229,6 +269,10 @@ export const langKeys = {
     en: "Thesis title",
     fa: "عنوان رساله",
   },
+  enTitle: {
+    en: "English Title",
+    fa: "عنوان انگلیسی",
+  },
   graduated: {
     en: "Graduated students",
     fa: "فارغ‌التحصیلان",
@@ -345,6 +389,10 @@ export const langKeys = {
     en: "Action",
     fa: "عملیات",
   },
+  isActive: {
+    en: "is Active",
+    fa: "رویت",
+  },
   wait: {
     en: "Waiting",
     fa: "در انتظاری بررسی",
@@ -366,6 +414,18 @@ export const langKeys = {
   deleteRequestTitle: {
     en: "",
     fa: "حذف درخواست",
+  },
+  delete: {
+    en: "Remove",
+    fa: "حذف",
+  },
+  edit: {
+    en: "Edit",
+    fa: "ویرایش",
+  },
+  editEng: {
+    en: "Edit English",
+    fa: "ویرایش انگلیسی",
   },
   deleteRequest: {
     en: "",
@@ -524,8 +584,8 @@ export const langKeys = {
     fa: "قبلا اکانت ساختید؟",
   },
   editHomePage: {
-    en: "Edit Home page",
-    fa: "ویرایش صفحه اصلی",
+    en: "Edit Blog Posts",
+    fa: "ویرایش پست های وبلاگ",
   },
   editFooter: {
     en: "Edit Footer",
@@ -558,5 +618,29 @@ export const langKeys = {
   chartLogs: {
     en: "Charts",
     fa: "فعالیت های کاربران",
+  },
+  addBlogPost: {
+    en: "Add Blog post",
+    fa: "افزودن پست به وبلاگ",
+  },
+  addMainImage: {
+    en: "Add Image to Post",
+    fa: "بارگذاری تصویر اصلی را",
+  },
+  addTextBlogPost: {
+    en: "Add Text Item to Post",
+    fa: "افزودن متن به پست",
+  },
+  addImageBlogPost: {
+    en: "Add Image to Post",
+    fa: "افزودن تصویر به پست",
+  },
+  choosePicture: {
+    en: "Choose Image",
+    fa: "تصویر را انتخاب کنید",
+  },
+  addPost: {
+    en: "Add Post",
+    fa: "افزودن مطلب",
   },
 };

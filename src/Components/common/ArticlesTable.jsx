@@ -106,9 +106,9 @@ export default function ArticlesTable({ headers, data,setData }) {
                                   />
                                 </div>
                               </div>
-                              <div className="dashboard-fields-row">
+                              {/* <div className="dashboard-fields-row">
                                 <UploadFile />
-                              </div>
+                              </div> */}
                               <button className="bg-blue-600 px-3 py-2 text-white w-fit rounded-lg">
                                 {lang("click")}
                               </button>
