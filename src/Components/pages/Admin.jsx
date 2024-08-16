@@ -14,9 +14,11 @@ export default function Admin() {
 
   const navigate = useNavigate();
   function handleExit() {
-    return navigate("/login");
+    // localStorage.clear();
+    return navigate("/admin/login");
   }
-  const [leftColumn, setLeftColumn] = useState(adminTabs.siteEdit);
+  const [leftColumn, setLeftColumn] = useState(null);
+
   const handleChangeTab = (tab) => {
     setLeftColumn(tab);
   };

@@ -72,7 +72,7 @@ export default function ShowActiveRequestTable({ headers ,data,setData}) {
         ) : (
           <tfoot className="table-row-group w-full h-[3rem] relative">
             <div className="absolute w-full top-3 text-center pointer-events-none">
-              <span className="text-gray-500">{lang("noRequest")}</span>
+              <span className="text-gray-500">{lang("noValid")}</span>
             </div>
           </tfoot>
         )}

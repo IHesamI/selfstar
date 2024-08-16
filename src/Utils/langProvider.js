@@ -3,6 +3,18 @@ export const langKeys = {
     en: "Click",
     fa: "تایید",
   },
+  RandomModel:{
+    en:'Random Model',
+    fa:'مدل دیتا فیک'
+  },
+  clustersCount:{
+    en:'Number of Clusters',
+    fa:'تعداد دسته ها'
+  },
+  dataPointsCount:{
+    en:'Number of Points',
+    fa:'تعداد داده ها'
+  },
   homePage: {
     en: "Home",
     fa: "صفحه نخست",
@@ -268,6 +280,10 @@ export const langKeys = {
   thesisTitle: {
     en: "Thesis title",
     fa: "عنوان رساله",
+  },
+  noValid: {
+    en: "No Item needs validation",
+    fa: "موردی برای تایید وجود ندارد",
   },
   enTitle: {
     en: "English Title",

@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { editProfileApi, loginApi, signUpApi, uploadFile } from "../api/apis";
 import { parseJwt } from "../Utils/decode";
-import { toast } from "react-toastify";
 import { PURGE } from "redux-persist";
 
 

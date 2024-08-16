@@ -42,9 +42,9 @@ export default function AddEvents({ handleBack }) {
         <div className="dashboard-fields-row">
           <div className="dashboard-fields-container">
             <div className="dashboard-fields-row mb-3">
-              <div className="dashboard-fields-container">
+              {/* <div className="dashboard-fields-container">
                 <EventType choosenStudent={setChoosenStudent} />
-              </div>
+              </div> */}
             </div>
             <label htmlFor="title">{lang("description")}</label>
             <textarea

@@ -9,7 +9,7 @@ import BackArrow from "../../../../assets/image/BackArrow";
 import { useLang } from "../../../../hooks/useLang";
 
 export default function Index() {
-  const [editTab, setEditTab] = useState(editTabs.homepage);
+  const [editTab, setEditTab] = useState(null);
   const lang = useLang();
   const handleSelectTab = useCallback((tab) => {
     setEditTab(tab);

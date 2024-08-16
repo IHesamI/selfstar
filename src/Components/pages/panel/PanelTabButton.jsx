@@ -6,10 +6,14 @@ export default function PanelTabButton({
   alt,
   handleSelectTab,
   tab,
+  isDisable
 }) {
   return (
     <div
-      onClick={()=>{handleSelectTab(tab)}}
+      onClick={()=>{
+        if(isDisable) return;
+        handleSelectTab(tab);
+      }}
       title={title}
       className="grid text-center gap-4 justify-center w-[11rem] pt-5 px-5 border-[1px] rounded-lg hover:shadow-lg cursor-pointer"
     >

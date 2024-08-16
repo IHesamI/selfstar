@@ -1,4 +1,4 @@
-import { createBrowserRouter, createHashRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import React from "react";
 import Login from "../Components/pages/LoginSingUp";
 import Category from "../Components/pages/category/Category";
@@ -13,6 +13,8 @@ import Home from "../Components/pages/Home";
 import Admin from "../Components/pages/Admin";
 import CategoryList from "../Components/pages/category/CategoryList";
 import BlogPage from "../Components/pages/BlogPage";
+import AdminProtection from "../Components/common/AdminProtection";
+import AdminLogin from "../Components/common/AdminLogin";
 const router = createBrowserRouter(
   [
     {
@@ -76,8 +78,18 @@ const router = createBrowserRouter(
       ],
     },
     {
+      element: React.createElement(AdminProtection),
       path: "/admin",
-      element: React.createElement(Admin),
+      children: [
+        {
+          path: "login",
+          element: React.createElement(AdminLogin),
+        },
+        {
+          path: "",
+          element: React.createElement(Admin),
+        },
+      ],
     },
     {
       path: "/blog/:id",

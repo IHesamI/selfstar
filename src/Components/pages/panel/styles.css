@@ -1,0 +1,11 @@
+.circleIsActive {
+  fill: white;
+}
+
+.polygonIsActive {
+  fill-opacity: 0.5;
+}
+
+.tooltip {
+  transition: top 0.1s ease-out, left 0.1s ease-out;
+}

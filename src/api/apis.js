@@ -250,3 +250,15 @@ export async function removePostItem(itemId) {
 export async function removeFile(fileName) {
   return axiosObj.delete(`/files/${fileName}`);
 }
+
+export async function loginByJwtApi(jwt) {
+  return axiosObj.post(`/admin/loginByJWT`, { jwt });
+}
+
+export async function adminlogin(payload) {
+  return axiosObj.post(`/admin/login`, payload);
+}
+
+export async function getRandomData(paylod){
+  return axiosObj.post(`/admin/random`,paylod);
+}

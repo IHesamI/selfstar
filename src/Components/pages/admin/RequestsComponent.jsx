@@ -2,21 +2,24 @@ import { useCallback, useState } from "react";
 import { useLang } from "../../../hooks/useLang";
 import RequestTable from "./RequestTable";
 import AnswerRequest from "./AnswerRequest";
-export default function RequestsComponent({langKey,data}) {
-  console.error(data);
+export default function RequestsComponent({ langKey, data, setIsActive }) {
   const lang = useLang();
 
   const [requestToRespond, setRequestToRespond] = useState(null);
 
-  const handleSelectRequest = useCallback((index) => {
+  const handleSelectRequest = (index) => {
     setRequestToRespond(index);
-  }, []);
-  const handleDeselect = useCallback(() => {
+    if (setIsActive) setIsActive(true);
+  };
+
+  const handleDeselect = () => {
     setRequestToRespond(null);
-  }, []);
+    if (setIsActive) setIsActive(false);
+  };
+
   return (
     <div className="section-padding pt-5 w-full">
-      {requestToRespond != null ? (
+      {requestToRespond!=null ? (
         <AnswerRequest
           handleBack={handleDeselect}
           data={data[requestToRespond]}
