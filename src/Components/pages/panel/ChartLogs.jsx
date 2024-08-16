@@ -33,14 +33,14 @@ export default function ChartLogs() {
   };
   useEffect(() => {
     const fetchData = async () => {
-      let response = await getLogs();
-      if (response.status == 200) {
-        let data = response.data;
-        setLogsData(data);
-        datas.current.logsData = data;
+      // let response = await getLogs();
+      // if (response.status == 200) {
+        // let data = response.data;
+        // setLogsData(data);
+        // datas.current.logsData = data;
 
-        response = await getCategoriesCount();
-        data = response.data.map(convertToProperData);
+        let response = await getCategoriesCount();
+        let data = response.data.map(convertToProperData);
         setcatsData(data);
         datas.current.catsData = data;
 
@@ -48,11 +48,11 @@ export default function ChartLogs() {
         data = response.data.map(convertToProperData);
         setDownloadsData(data);
         datas.current.downloadsData = data;
-      }
+      // }
     };
     if (!datas.current.length) fetchData();
     else {
-      setLogsData(datas.current.logsData);
+      // setLogsData(datas.current.logsData);
       setcatsData(datas.current.catsData);
     }
   }, []);
@@ -63,7 +63,7 @@ export default function ChartLogs() {
       <DownloadChart data={downloadsData} />
       <div className="flex flex-col">
         <h2>{lang("RandomModel")}</h2>
-        <div className="flex flex-row gap-3 items-center">
+        <div className="flex flex-row gap-3 items-center mb-3">
           <label htmlFor="">
             {lang("clustersCount")}
             <select ref={clusterSelectCount} name="تعداد دسته ها" id="">
