@@ -9,9 +9,11 @@ export default defineConfig({
   // base: "/selfstar/",
   plugins: [react()],
   server:{
-
+  host:'0.0.0.0'    
   },
+
   define: {
     global: {},
   },
+
 });
