@@ -1,10 +1,22 @@
 FROM hub.yottab.io/library/node:18-alpine
-#USER nonroot
-WORKDIR '/app'
-COPY . .
-RUN npm install 
-COPY ./src ./app/src
+WORKDIR /app
+
+COPY vite.config.js ./
+COPY package.json ./
+COPY .eslintrc.cjs ./
+COPY tailwind.config.js ./
+COPY postcss.config.cjs ./
+RUN npm i 
+
+COPY public ./public
+COPY src ./src
+COPY index.html ./
+
+RUN BUILD_PATH=build
+
 RUN npm run build
-COPY /app/build /app
-EXPOSE 4173
-CMD ["npm", "run" , "preview"]
+FROM hub.yottab.io/library/nginx/nginx-spa:stable as final
+
+WORKDIR /app
+COPY --from=base /app/dev-build /app
+CMD ["nginx"]
