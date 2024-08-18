@@ -6,14 +6,14 @@ export default defineConfig({
   build: {
     outDir: "build",
   },
+  root: "./",
   // base: "/selfstar/",
   plugins: [react()],
-  server:{
-  host:'0.0.0.0'    
+  server: {
+    host: "0.0.0.0",
   },
 
   define: {
-    global: {},
+    // global: {},
   },
-
 });
