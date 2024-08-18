@@ -5,7 +5,7 @@ COPY vite.config.js ./
 COPY package.json ./
 COPY .eslintrc.cjs ./
 COPY tailwind.config.js ./
-COPY postcss.config.cjs ./
+COPY postcss.config.js ./
 RUN npm i 
 
 COPY public ./public
