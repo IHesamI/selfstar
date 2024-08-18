@@ -1,3 +1,5 @@
+import { baseURL } from "./api/config";
+
 export const dashbaordTabs = Object.freeze({
   profile: Symbol("profile"),
   newRequest: Symbol("newRequest"),
@@ -43,4 +45,4 @@ export const blogPostItemsType = {
   image:'image',
 }
 
-export const downloadPrefixUlr='http://localhost:3000/files/download/';
+export const downloadPrefixUlr=`${baseURL}files/download/`;
