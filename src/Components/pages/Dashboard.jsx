@@ -6,7 +6,7 @@ import EditProfile from "./panel/EditProfile";
 import Events from "./panel/Events";
 import NewArticles from "./panel/NewArticles";
 import NewRequest from "./panel/NewRequest";
-import ThesisUpload from "./panel/thesisUpload";
+import ThesisUpload from "./panel/ThesisUpload";
 import DefaultTab from "./panel/DefaultTab";
 import { persistor } from "../../Store/store";
 
