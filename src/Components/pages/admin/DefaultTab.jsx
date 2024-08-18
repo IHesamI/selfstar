@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import RequestsComponent from "./RequestsComponent";
 import { getAllRequestsApi, getDeactives } from "../../../api/apis";
 import { formatTime } from "../../../Utils/timeUtil";
-import ShowActiveRequestTable from "./showActiveRequestTable";
+import ShowActiveRequestTable from "./ShowActiveRequestTable";
 import { convertToTableData } from "../../../Utils/convertDeactives";
 export default function DefaultTab() {
   

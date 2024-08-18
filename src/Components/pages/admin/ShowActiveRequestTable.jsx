@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useLang } from "../../../hooks/useLang";
-import RequestTableRow from "./RequestTableRow";
+// import RequestTableRow from "./RequestTableRow";
 import Modal from "../../common/Modal";
 import ApprovalModalBody from "./ApprovalModalBody";
 import { activeComment, editProfileApi, editSlideApi } from "../../../api/apis";
-import { editProfile } from "../../../Store/userSlice";
+// import { editProfile } from "../../../Store/userSlice";
 /**
  * @param {Object} param0 
  * @param {[]} param0.headers 
