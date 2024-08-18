@@ -8,7 +8,7 @@ import {editTextBlogPostItem } from "../../../../api/apis";
 export default function BlogTextItem({ item, isEngEdit }) {
   const renderByisEngDict = (isEngItem, isNotItem) =>
     isEngEdit ? isEngItem : isNotItem;
-  const [content, setcontent] = useState(renderByisEngDict(item.engcontent,item.content) || "");
+  const [content, setcontent] = useState(renderByisEngDict(item.engcontent,item.content) || item.content);
   const editValueInput = useRef("");
 
   const handleChange = (newContent) => {

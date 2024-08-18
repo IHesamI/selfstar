@@ -504,7 +504,7 @@ export const langKeys = {
     fa: "افزودن اسلاید",
   },
   events: {
-    en: "",
+    en: "Events",
     fa: "رویداد ها",
   },
   upcomingEvents: {
