@@ -2,11 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import {
   getCategoriesCount,
   getCategoriesDownload,
-  getLogs,
   getRandomData,
 } from "../../../api/apis";
 import CatsPieChart from "./CatsPieChart";
-import DownloadChart from "./downloadChart";
+import DownloadChart from "./DownloadChart";
 // import { ParentSize } from "@visx/responsive";
 import Chart from "./RandomDataDotChart";
 import { useLang } from "../../../hooks/useLang";
