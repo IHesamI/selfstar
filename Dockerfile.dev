@@ -1,8 +1,8 @@
-FROM node:18-alpine
-USER nonroot
+FROM hub.yottab.io/library/node:18-alpine
+#USER nonroot
 WORKDIR '/app'
 COPY ./package.json ./
-RUN npm install --ignore-scripts
+RUN npm install 
 COPY ./src ./app/src
 # RUN npm run build
 EXPOSE 5173
