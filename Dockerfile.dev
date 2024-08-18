@@ -5,5 +5,6 @@ COPY . .
 RUN npm install 
 COPY ./src ./app/src
 RUN npm run build
+COPY /app/build /app
 EXPOSE 4173
 CMD ["npm", "run" , "preview"]

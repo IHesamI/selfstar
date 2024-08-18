@@ -78,13 +78,13 @@ const router = createBrowserRouter(
       ],
     },
     {
+      path: "admin/login",
+      element: React.createElement(AdminLogin),
+    },
+    {
       element: React.createElement(AdminProtection),
       path: "/admin",
       children: [
-        {
-          path: "login",
-          element: React.createElement(AdminLogin),
-        },
         {
           path: "",
           element: React.createElement(Admin),

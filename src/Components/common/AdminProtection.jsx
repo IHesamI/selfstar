@@ -3,7 +3,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { loginByJwtApi } from "../../api/apis";
 
 export default function AdminProtection() {
-  const [isLoggedIn, setIsLoggedIn] = useState();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
   
   useEffect(() => {
