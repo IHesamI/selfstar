@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import Contents from "../common/MainPageContents";
 import "../section.css";
 import { getActiveBlogPosts } from "../../api/apis";
-import { useLang } from "../../hooks/useLang";
+// import { useLang } from "../../hooks/useLang";
 export default function Home() {
   const [blogPosts, setblogPosts] = useState([]);
-  const lang=useLang();
+  // const lang=useLang();
   useEffect(() => {
     const fetchBlogPosts = async () => {
       const result = (await getActiveBlogPosts()).data;
