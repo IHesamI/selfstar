@@ -1,4 +1,4 @@
-import ProfilePicture from "../../assets/image/ProfilePicture.png";
+import ProfilePicture from "../../assets/image/profilePicture.png";
 import { downloadPrefixUlr } from "../../config";
 
 export default function Avatar({ image, canDelete ,imageInput}) {
