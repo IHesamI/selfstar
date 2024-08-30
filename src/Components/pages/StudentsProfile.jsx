@@ -15,9 +15,9 @@ export default function StudentsProfile({ studentInfo }) {
   return (
     <div className="flex flex-row [&>*:nth-child(odd)]:bg-gray-200 text-gray-600 border-x-[3px] border-y-[1px] border-gray-400  sm:flex-col">
       <div className="flex flex-col gap-3 p-5 max-w-[15.5rem] sm:max-w-full">
-        <a href="/members/123123">
+        {/* <a href="/members/123123"> */}
           <Avatar image={avatar_url} />
-        </a>
+        {/* </a> */}
 
         <div className="flex flex-col">
           <ul className="space-y-4">
@@ -68,7 +68,7 @@ export default function StudentsProfile({ studentInfo }) {
                 <a
                   onClick={() => sendEvent("click", "open-link")}
                   className="hover:text-blue-600"
-                  href={`https://${link.link}`}
+                  href={`${link.link}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

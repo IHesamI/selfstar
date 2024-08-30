@@ -59,10 +59,10 @@ const router = createBrowserRouter(
       path: "/members",
       element: React.createElement(Members),
     },
-    {
-      path: "/members/:id",
-      element: React.createElement(Profile),
-    },
+    // {
+    //   path: "/members/:id",
+    //   element: React.createElement(Profile),
+    // },
     // {
     //   path: "/:id",
     //   element: React.createElement(Contents),
